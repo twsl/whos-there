@@ -1,8 +1,8 @@
 # Who's there?
 
 <div align="center">
-
-[![Build status](https://github.com/twsl/whos-there/workflows/build/badge.svg?branch=main&event=push)](https://github.com/twsl/whos-there/actions?query=workflow%3Abuild)
+    
+[![Build](https://github.com/twsl/whos-there/actions/workflows/build.yml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yml)
 [![Python Version](https://img.shields.io/pypi/pyversions/whos-there.svg)](https://pypi.org/project/whos-there/)
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 

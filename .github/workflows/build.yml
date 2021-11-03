@@ -1,0 +1,46 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9"]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2.2.2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install poetry
+      run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+
+    - name: Set up cache
+      uses: actions/cache@v2.1.6
+      with:
+        path: .venv
+        key: venv-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}-${{ hashFiles('poetry.lock') }}
+    - name: Install dependencies
+      run: |
+        poetry config virtualenvs.in-project true
+        poetry install
+
+    - name: Run style checks
+      run: |
+          poetry run isort --diff --check-only --settings-path pyproject.toml tests
+          poetry run black --diff --check --config pyproject.toml tests
+          poetry run darglint --verbosity 2 tests
+
+    - name: Run tests
+      run: |
+        poetry run pytest -c pyproject.toml
+
+    - name: Run safety checks
+      run: |
+        poetry check
+        poetry run safety check --full-report
+        poetry run bandit -ll --recursive hooks

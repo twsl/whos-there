@@ -1,0 +1,103 @@
+[tool.poetry]
+name = "whos-there"
+version = "0.1.0"
+description = "The spiritual successor to knockknock for PyTorch Lightning, get notified when your training ends"
+authors = ["twsl <45483159+twsl@users.noreply.github.com>"]
+maintainers = ["twsl <45483159+twsl@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/twsl/whos-there"
+repository = "https://github.com/twsl/whos-there"
+documentation = "https://github.com/twsl/whos-there"
+keywords = [
+  "python",
+  "pytorch",
+  "pytorch-lightning",
+  "machine-learning",
+  "deep-learning"
+]
+
+# Pypi classifiers: https://pypi.org/classifiers/
+classifiers = [
+    "Topic :: Software Development"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pytorch-lightning = "^1.5.0"
+python-telegram-bot = "^13.7"
+requests = "^2.26.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^21.9b0"
+isort = {extras = ["colors"], version = "^5.9.3"}
+darglint = "^1.8.1"
+mypy = "^0.910"
+mypy-extensions = "^0.4.3"
+flake8 = "^4.0.1"
+safety = "^1.10.3"
+bandit = "^1.7.0"
+pre-commit = "^2.15.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+issues = "https://github.com/twsl/whos-there/issues"
+
+[tool.black]
+line-length = 120
+target_version = ['py37']
+color = true
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''
+
+[tool.isort]
+py_version = 37
+line_length = 120
+profile = "black"
+include_trailing_comma = true
+multi_line_output = 3
+indent = 4
+#color_output = true # causes issues with vs code formatting
+
+[tool.mypy]
+# https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
+python_version = 3.7
+pretty = true
+show_traceback = true
+color_output = true
+
+allow_redefinition = false
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+ignore_missing_imports = true
+implicit_reexport = false
+no_implicit_optional = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+strict_equality = true
+strict_optional = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true

@@ -10,7 +10,9 @@ jobs:
         python-version: ["3.7", "3.8", "3.9"]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2.2.2
       with:
@@ -24,6 +26,7 @@ jobs:
       with:
         path: .venv
         key: venv-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}-${{ hashFiles('poetry.lock') }}
+
     - name: Install dependencies
       run: |
         poetry config virtualenvs.in-project true
@@ -35,12 +38,39 @@ jobs:
           poetry run black --diff --check --config pyproject.toml tests
           poetry run darglint --verbosity 2 tests
 
+    - name: Install plugin
+      run: pip install pytest-github-actions-annotate-failures
+
     - name: Run tests
       run: |
-        poetry run pytest -c pyproject.toml
+        poetry run pytest -c pyproject.toml --cov-report=xml --cov-report=html --junitxml=junit/test-results-${{ matrix.python-version }}.xml --cov=whos_there
 
     - name: Run safety checks
       run: |
         poetry check
         poetry run safety check --full-report
         poetry run bandit -ll --recursive hooks
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-results-${{ matrix.python-version }}
+        path: junit/test-results-${{ matrix.python-version }}.xml
+      if: ${{ always() }}
+
+  publish:
+    name: "Publish Unit Tests Results"
+    needs: build
+    runs-on: ubuntu-latest
+    if: success() || failure()
+
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: artifacts
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          files: artifacts/**/*.xml

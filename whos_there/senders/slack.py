@@ -17,6 +17,7 @@ class SlackSender(Sender):
         data = {
             "username": "Knock Knock",
             "channel": self.channel,
+            "link_names": 1,
             "icon_emoji": ":clapper:",  # ":tada:"
             "text": f"{text} {self.user_mentions}",
         }

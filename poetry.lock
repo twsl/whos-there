@@ -768,7 +768,7 @@ socks = ["pysocks"]
 
 [[package]]
 name = "pytorch-lightning"
-version = "1.5.0"
+version = "1.5.2"
 description = "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers. Scale your models. Write less boilerplate."
 category = "main"
 optional = false
@@ -1796,8 +1796,8 @@ python-telegram-bot = [
     {file = "python_telegram_bot-13.7-py3-none-any.whl", hash = "sha256:3bf210862744068aa789d5110f8e3a00d98912ce50863384836440a18abf76b5"},
 ]
 pytorch-lightning = [
-    {file = "pytorch-lightning-1.5.0.tar.gz", hash = "sha256:5bc28022f749d6a7644027ca0428bc162c9ab401cdea78b264d14f5018430f3b"},
-    {file = "pytorch_lightning-1.5.0-py3-none-any.whl", hash = "sha256:e6bc07908b0ca82d69424fb52e8b14189d6ed2fd13a9ffd9adf68d11830b302a"},
+    {file = "pytorch-lightning-1.5.2.tar.gz", hash = "sha256:341464da8e0be7091c21b5e62db2dfc4cfac21ef88020006f9ce82264911f526"},
+    {file = "pytorch_lightning-1.5.2-py3-none-any.whl", hash = "sha256:7bbfa003c61b912615549036f558b0a226bc3ece3a37a7ddc8d28592b8687176"},
 ]
 pytz = [
     {file = "pytz-2021.3-py2.py3-none-any.whl", hash = "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c"},

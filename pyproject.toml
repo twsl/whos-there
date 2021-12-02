@@ -31,7 +31,7 @@ requests = "^2.26.0"
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
 black = "^21.9b0"
-isort = {extras = ["colors"], version = "^5.9.3"}
+isort = {extras = ["colors"], version = "^5.10.1"}
 darglint = "^1.8.1"
 mypy = "^0.910"
 mypy-extensions = "^0.4.3"

@@ -7,7 +7,7 @@
 [![Conda - Platform](https://img.shields.io/conda/pn/conda-forge/whos-there?logo=anaconda&style=flat)][#conda-forge-package]
 [![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/whos-there?logo=anaconda&style=flat&color=orange)][#conda-forge-package]
 
-[![Build](https://github.com/twsl/whos-there/actions/workflows/build.yml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yml)
+[![Build](https://github.com/twsl/whos-there/actions/workflows/build.yml/badge.svg)][#github-workflows-build]
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whos-there?logo=pypi&style=flat&color=blue)][#pypi-package]
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
@@ -22,6 +22,7 @@
 [#conda-forge-package]: https://anaconda.org/conda-forge/whos-there
 [#github-pre-commit]: https://github.com/twsl/whos-there/blob/master/.pre-commit-config.yaml
 [#github-releases]: https://github.com/twsl/whos-there/releases
+[#github-workflows-build]: https://github.com/twsl/whos-there/actions/workflows/build.yml
 <!--- BADGES: END --->
     
 The spiritual successor to [knockknock](https://github.com/huggingface/knockknock) for [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), to get a notification when your training is complete or when it crashes during the process with a single callback.

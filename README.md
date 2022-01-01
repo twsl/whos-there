@@ -1,17 +1,29 @@
 # Who's there?
 
 <div align="center">
-    
+
+<!--- BADGES: START --->
+[![PyPI - Package Version](https://img.shields.io/pypi/v/doubtlab?logo=pypi&style=flat&color=orange)][#pypi-package]
+[![Conda - Platform](https://img.shields.io/conda/pn/conda-forge/whos-there?logo=anaconda&style=flat)][#conda-forge-package]
+[![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/whos-there?logo=anaconda&style=flat&color=orange)][#conda-forge-package]
+
 [![Build](https://github.com/twsl/whos-there/actions/workflows/build.yml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yml)
-[![Python Version](https://img.shields.io/pypi/pyversions/whos-there.svg)](https://pypi.org/project/whos-there/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whos-there?logo=pypi&style=flat&color=blue)][#pypi-package]
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Security: bandit](https://img.shields.io/badge/security-bandit-green.svg)](https://github.com/PyCQA/bandit)
-[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/twsl/whos-there/blob/master/.pre-commit-config.yaml)
-[![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)](https://github.com/twsl/whos-there/releases)
-[![License](https://img.shields.io/github/license/twsl/whos-there)](https://github.com/twsl/whos-there/blob/master/LICENSE)
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][#github-pre-commit]
+[![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)][#github-releases]
+[![GitHub - License](https://img.shields.io/github/license/twsl/whos-there?logo=github&style=flat&color=green)][#github-license]
 
+[#github-license]: https://github.com/twsl/whos-there/blob/main/LICENSE
+[#pypi-package]: https://pypi.org/project/whos-there/
+[#conda-forge-package]: https://anaconda.org/conda-forge/whos-there
+[#github-pre-commit]: https://github.com/twsl/whos-there/blob/master/.pre-commit-config.yaml
+[#github-releases]: https://github.com/twsl/whos-there/releases
+<!--- BADGES: END --->
+    
 The spiritual successor to [knockknock](https://github.com/huggingface/knockknock) for [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), to get a notification when your training is complete or when it crashes during the process with a single callback.
 
 </div>
@@ -22,14 +34,24 @@ The spiritual successor to [knockknock](https://github.com/huggingface/knockknoc
 
 ## 🎯 Installation
 
+You can install `whos-there` with `pip` or `poetry` or `conda`.
+
+**with pip**
+
 ```bash
 pip install -U whos-there
 ```
 
-or install with `Poetry`
+**with poetry**
 
 ```bash
 poetry add whos-there
+```
+
+**with conda**
+
+```sh
+conda install -c conda-forge whos-there
 ```
 
 ## 🤯 How to use it

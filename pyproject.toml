@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "whos-there"
-version = "0.1.0"
+version = "0.1.1"
 description = "The spiritual successor to knockknock for PyTorch Lightning, get notified when your training ends"
 authors = ["twsl <45483159+twsl@users.noreply.github.com>"]
 maintainers = ["twsl <45483159+twsl@users.noreply.github.com>"]

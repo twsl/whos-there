@@ -31,6 +31,10 @@ jobs:
         poetry config virtualenvs.in-project true
         poetry install
 
+    - name: Set build version from tag
+      run: |
+        poetry version $(git describe --tags --abbrev=0)
+
     - name: Build
       run: |
         poetry build

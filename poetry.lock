@@ -298,7 +298,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "fsspec"
-version = "2021.11.1"
+version = "2022.1.0"
 description = "File-system specification"
 category = "main"
 optional = false
@@ -960,7 +960,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "torchmetrics"
-version = "0.6.2"
+version = "0.7.0"
 description = "PyTorch native Metrics"
 category = "main"
 optional = false
@@ -969,17 +969,18 @@ python-versions = ">=3.6"
 [package.dependencies]
 numpy = ">=1.17.2"
 packaging = "*"
+pyDeprecate = ">=0.3.0,<0.4.0"
 torch = ">=1.3.1"
 
 [package.extras]
-all = ["pystoi", "pesq (>=0.0.3)", "torchvision", "sphinx-paramlinks (>=0.5.1)", "docutils (>=0.16)", "pytorch-lightning (>=1.1)", "pandoc (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinx-autodoc-typehints (>=1.0)", "sphinxcontrib-mockautodoc", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-togglebutton (>=0.2)", "nbsphinx (>=0.8)", "sphinx (>=4.0)", "myst-parser", "lpips", "torch-fidelity", "scipy", "pytorch-lightning (>=1.0)", "check-manifest", "transformers (>=4.0)", "scikit-learn (>=0.24)", "pypesq", "coverage (>5.2)", "bert-score (==0.3.10)", "flake8", "phmdoctest (>=1.1.1)", "cloudpickle (>=1.3)", "mypy (>=0.790)", "pre-commit (>=1.0)", "jiwer (>=2.3.0)", "rouge-score (>=0.0.4)", "pytest (>=6.0)", "twine (>=3.2)", "pytest-cov (>2.10)", "scikit-image (>0.17.1)", "isort (>=5.0)", "mir-eval (>=0.6)", "codecov (>=2.1)", "sacrebleu (>=2.0.0)", "regex (>=2021.9.24)", "nltk (>=3.6)", "tqdm (>=4.41.0)"]
-audio = ["pystoi", "pesq (>=0.0.3)"]
-detection = ["torchvision"]
-docs = ["sphinx-paramlinks (>=0.5.1)", "docutils (>=0.16)", "pytorch-lightning (>=1.1)", "pandoc (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinx-autodoc-typehints (>=1.0)", "sphinxcontrib-mockautodoc", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-togglebutton (>=0.2)", "nbsphinx (>=0.8)", "sphinx (>=4.0)", "myst-parser"]
-image = ["lpips", "torch-fidelity", "torchvision", "scipy"]
-integrate = ["pytorch-lightning (>=1.0)"]
-test = ["check-manifest", "transformers (>=4.0)", "scikit-learn (>=0.24)", "pypesq", "coverage (>5.2)", "bert-score (==0.3.10)", "flake8", "phmdoctest (>=1.1.1)", "cloudpickle (>=1.3)", "mypy (>=0.790)", "pre-commit (>=1.0)", "jiwer (>=2.3.0)", "rouge-score (>=0.0.4)", "pytest (>=6.0)", "twine (>=3.2)", "pytest-cov (>2.10)", "scikit-image (>0.17.1)", "isort (>=5.0)", "mir-eval (>=0.6)", "codecov (>=2.1)", "sacrebleu (>=2.0.0)"]
-text = ["regex (>=2021.9.24)", "nltk (>=3.6)", "tqdm (>=4.41.0)"]
+all = ["fast-bss-eval (>=0.1.0)", "pesq (>=0.0.3)", "pystoi", "torchvision (>=0.8)", "nbsphinx (>=0.8)", "pandoc (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinxcontrib-mockautodoc", "sphinx-togglebutton (>=0.2)", "sphinx-autodoc-typehints (>=1.0)", "docutils (>=0.16)", "sphinx (>=4.0)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-paramlinks (>=0.5.1)", "myst-parser", "pytorch-lightning (>=1.1)", "torch-fidelity", "scipy", "lpips", "torchvision", "pytorch-lightning (>=1.3)", "mypy (>=0.790)", "pytest-cov (>2.10)", "mir-eval (>=0.6)", "phmdoctest (>=1.1.1)", "pytest (>=6.0)", "pytorch-msssim", "bert-score (==0.3.10)", "scikit-learn (>=0.24)", "rouge-score (>=0.0.4)", "scikit-image (>0.17.1)", "sacrebleu (>=2.0.0)", "pypesq", "pre-commit (>=1.0)", "check-manifest", "coverage (>5.2)", "codecov (>=2.1)", "jiwer (>=2.3.0)", "twine (>=3.2)", "transformers (>=4.0)", "cloudpickle (>=1.3)", "pytest-doctestplus", "tqdm (>=4.41.0)", "nltk (>=3.6)", "regex (>=2021.9.24)"]
+audio = ["fast-bss-eval (>=0.1.0)", "pesq (>=0.0.3)", "pystoi"]
+detection = ["torchvision (>=0.8)"]
+docs = ["nbsphinx (>=0.8)", "pandoc (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinxcontrib-mockautodoc", "sphinx-togglebutton (>=0.2)", "sphinx-autodoc-typehints (>=1.0)", "docutils (>=0.16)", "sphinx (>=4.0)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-paramlinks (>=0.5.1)", "myst-parser", "pytorch-lightning (>=1.1)"]
+image = ["torch-fidelity", "scipy", "lpips", "torchvision"]
+integrate = ["pytorch-lightning (>=1.3)"]
+test = ["mypy (>=0.790)", "pytest-cov (>2.10)", "mir-eval (>=0.6)", "phmdoctest (>=1.1.1)", "pytest (>=6.0)", "pytorch-msssim", "bert-score (==0.3.10)", "scikit-learn (>=0.24)", "rouge-score (>=0.0.4)", "scikit-image (>0.17.1)", "sacrebleu (>=2.0.0)", "pypesq", "pre-commit (>=1.0)", "check-manifest", "coverage (>5.2)", "codecov (>=2.1)", "jiwer (>=2.3.0)", "twine (>=3.2)", "transformers (>=4.0)", "cloudpickle (>=1.3)", "pytest-doctestplus"]
+text = ["tqdm (>=4.41.0)", "nltk (>=3.6)", "regex (>=2021.9.24)"]
 
 [[package]]
 name = "tornado"
@@ -1416,8 +1417,8 @@ frozenlist = [
     {file = "frozenlist-1.2.0.tar.gz", hash = "sha256:68201be60ac56aff972dc18085800b6ee07973c49103a8aba669dee3d71079de"},
 ]
 fsspec = [
-    {file = "fsspec-2021.11.1-py3-none-any.whl", hash = "sha256:bcb136caa37e1470dd8314a7d3917cb9b25dd9da44c10d36df556ab4ef038185"},
-    {file = "fsspec-2021.11.1.tar.gz", hash = "sha256:03683e606651d5e4bd9180525d57477bd5430e5dc68d2e459835dc14cecc3dd4"},
+    {file = "fsspec-2022.1.0-py3-none-any.whl", hash = "sha256:256e2be44e62430c9ca8dac2e480384b00a3c52aef4e2b0b7204163fdc861d37"},
+    {file = "fsspec-2022.1.0.tar.gz", hash = "sha256:0bdd519bbf4d8c9a1d893a50b5ebacc89acd0e1fe0045d2f7b0e0c1af5990edc"},
 ]
 future = [
     {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
@@ -1878,8 +1879,8 @@ torch = [
     {file = "torch-1.10.1-cp39-none-macosx_11_0_arm64.whl", hash = "sha256:5644280d88c5b6de27eacc0d911f968aad41a4bab297af4df5e571bc0927d3e4"},
 ]
 torchmetrics = [
-    {file = "torchmetrics-0.6.2-py3-none-any.whl", hash = "sha256:2b8a75e7af97bbe2308a00823ec90a222c83f1e4f098e4020c1c863c81869412"},
-    {file = "torchmetrics-0.6.2.tar.gz", hash = "sha256:a43e232a73af71febce98949122600bfafb9437eefbda28fb36f328bc02357fb"},
+    {file = "torchmetrics-0.7.0-py3-none-any.whl", hash = "sha256:908f6c129ba84864176c23217ab548069a59f1db555b08f20d2f20274564f90a"},
+    {file = "torchmetrics-0.7.0.tar.gz", hash = "sha256:dbfb8989086f38020045a935e83928504e1af1d84ae92b073f6a83d018f4bc00"},
 ]
 tornado = [
     {file = "tornado-6.1-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:d371e811d6b156d82aa5f9a4e08b58debf97c302a35714f6f45e35139c332e32"},

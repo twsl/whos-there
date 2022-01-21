@@ -896,7 +896,7 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "tensorboard"
-version = "2.7.0"
+version = "2.8.0"
 description = "TensorBoard lets you watch Tensors Flow"
 category = "main"
 optional = false
@@ -1839,7 +1839,7 @@ stevedore = [
     {file = "stevedore-3.5.0.tar.gz", hash = "sha256:f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"},
 ]
 tensorboard = [
-    {file = "tensorboard-2.7.0-py3-none-any.whl", hash = "sha256:239f78a4a8dff200ce585a030c787773a8c1184d5c159252f5f85bac4e3c3b38"},
+    {file = "tensorboard-2.8.0-py3-none-any.whl", hash = "sha256:65a338e4424e9079f2604923bdbe301792adce2ace1be68da6b3ddf005170def"},
 ]
 tensorboard-data-server = [
     {file = "tensorboard_data_server-0.6.1-py3-none-any.whl", hash = "sha256:809fe9887682d35c1f7d1f54f0f40f98bb1f771b14265b453ca051e2ce58fca7"},

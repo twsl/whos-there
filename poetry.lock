@@ -363,14 +363,14 @@ typing-extensions = {version = ">=3.7.4.3", markers = "python_version < \"3.10\"
 
 [[package]]
 name = "google-auth"
-version = "2.3.3"
+version = "2.4.1"
 description = "Google Authentication Library"
 category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
 
 [package.dependencies]
-cachetools = ">=2.0.0,<5.0"
+cachetools = ">=2.0.0,<6.0"
 pyasn1-modules = ">=0.2.1"
 rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
 six = ">=1.9.0"
@@ -1431,8 +1431,8 @@ gitpython = [
     {file = "GitPython-3.1.24.tar.gz", hash = "sha256:df83fdf5e684fef7c6ee2c02fc68a5ceb7e7e759d08b694088d0cacb4eba59e5"},
 ]
 google-auth = [
-    {file = "google-auth-2.3.3.tar.gz", hash = "sha256:d83570a664c10b97a1dc6f8df87e5fdfff012f48f62be131e449c20dfc32630e"},
-    {file = "google_auth-2.3.3-py2.py3-none-any.whl", hash = "sha256:a348a50b027679cb7dae98043ac8dbcc1d7951f06d8387496071a1e05a2465c0"},
+    {file = "google-auth-2.4.1.tar.gz", hash = "sha256:baefcc6fc5c337e191929be749622cdfe5a5e063bc2fb64f17effdce0fa569cd"},
+    {file = "google_auth-2.4.1-py2.py3-none-any.whl", hash = "sha256:e914f186f2ef0b78a1cfeb6dcd1243c425ddeef3a13e6b39af5b0eb356a3b580"},
 ]
 google-auth-oauthlib = [
     {file = "google-auth-oauthlib-0.4.6.tar.gz", hash = "sha256:a90a072f6993f2c327067bf65270046384cda5a8ecb20b94ea9a687f1f233a7a"},

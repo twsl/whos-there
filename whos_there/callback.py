@@ -4,7 +4,7 @@ import time
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 
-import pytorch_lightning as pl
+from pytorch_lightning import LightningModule, Trainer
 from pytorch_lightning.callbacks.base import Callback
 from pytorch_lightning.trainer.states import TrainerFn
 
@@ -27,7 +27,7 @@ class NotificationCallback(Callback):
         for sender in self.senders:
             sender.send(text)
 
-    def setup(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: Optional[str] = None) -> None:
+    def setup(self, trainer: Trainer, pl_module: LightningModule, stage: Optional[str] = None) -> None:
         """Called when fit, validate, test, predict, or tune begins.
         Args:
             trainer: The current :class:`~pytorch_lightning.trainer.Trainer` instance.
@@ -37,7 +37,7 @@ class NotificationCallback(Callback):
         if trainer.global_rank == 0:
             self._current_stage = stage
 
-    def teardown(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: Optional[str] = None) -> None:
+    def teardown(self, trainer: Trainer, pl_module: LightningModule, stage: Optional[str] = None) -> None:
         """Called when fit, validate, test, predict, or tune ends.
         Args:
             trainer: The current :class:`~pytorch_lightning.trainer.Trainer` instance.
@@ -52,7 +52,7 @@ class NotificationCallback(Callback):
                 contents = f"🧪 Your testing of {pl_module._get_name()} on {socket.gethostname()} is complete."
                 self._send(contents)
 
-    def on_exception(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", exception: BaseException) -> None:
+    def on_exception(self, trainer: Trainer, pl_module: LightningModule, exception: BaseException) -> None:
         """Called when any trainer execution is interrupted by an exception.
         Args:
             trainer: The current :class:`~pytorch_lightning.trainer.Trainer` instance.
@@ -64,9 +64,7 @@ class NotificationCallback(Callback):
         """
         self._send(textwrap.dedent(contents))
 
-    def on_save_checkpoint(
-        self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", checkpoint: Dict[str, Any]
-    ) -> dict:
+    def on_save_checkpoint(self, trainer: Trainer, pl_module: LightningModule, checkpoint: Dict[str, Any]) -> dict:
         """Called when saving a model checkpoint, use to persist state.
         Args:
             trainer: the current :class:`~pytorch_lightning.trainer.Trainer` instance.
@@ -77,9 +75,7 @@ class NotificationCallback(Callback):
         """
         return {"current_stage": self._current_stage}
 
-    def on_load_checkpoint(
-        self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", callback_state: Dict[str, Any]
-    ) -> None:
+    def on_load_checkpoint(self, trainer: Trainer, pl_module: LightningModule, callback_state: Dict[str, Any]) -> None:
         """Called when loading a model checkpoint, use to reload state.
         Args:
             trainer: the current :class:`~pytorch_lightning.trainer.Trainer` instance.

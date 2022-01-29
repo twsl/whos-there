@@ -1,13 +1,17 @@
-import json
 from typing import List
-
-import requests
 
 from whos_there.senders.base import Sender
 
 
 class SlackSender(Sender):
     def __init__(self, webhook_url: str, channel: str, user_mentions: List[str] = []) -> None:
+        """Initialize the Slack sender.
+
+        Args:
+            webhook_url: The Slack webhook URL.
+            channel: The Slack channel name.
+            user_mentions: The list of users to mention.
+        """
         super().__init__()
         self.webhook_url = webhook_url
         self.channel = channel

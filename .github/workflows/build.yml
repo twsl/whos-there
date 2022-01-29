@@ -31,9 +31,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        poetry config virtualenvs.in-project true
+        poetry config virtualenvs.create false
         poetry install
-        pip install setuptools==59.5.0
 
     - name: Run style checks
       run: |

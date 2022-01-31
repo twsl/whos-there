@@ -39,18 +39,35 @@ jobs:
       run: |
         poetry build
 
-    - name: Get short SHA
-      uses: benjlevesque/short-sha@v1.2
-      id: short-sha
-      with:
-        length: 8
-
-    - name: Upload wheel
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: build-${{ steps.short-sha.outputs.sha }}
+        name: build-${{ github.sha }}
         path: dist/
+
+    - name: Show
+      run: ls -l dist/
 
     - name: Publish
       run: |
         poetry publish -u "__token__" -p ${{ secrets.PYPI_API_TOKEN }}
+
+  upload-packages:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: build-${{ github.sha }}
+        path: dist/
+
+    - name: Upload to release
+      uses: AButler/upload-release-assets@v2.0
+      if: startsWith(github.event.ref, 'refs/tags') || github.event_name == 'release'
+      with:
+        files: 'dist/*'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}

@@ -26,7 +26,7 @@ classifiers = [
 python = "^3.7"
 pytorch-lightning = "^1.5.0"
 python-telegram-bot = "^13.7"
-requests = "^2.26.0"
+requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

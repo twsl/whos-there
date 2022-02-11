@@ -999,7 +999,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "torchmetrics"
-version = "0.7.0"
+version = "0.7.2"
 description = "PyTorch native Metrics"
 category = "main"
 optional = false
@@ -1012,14 +1012,14 @@ pyDeprecate = ">=0.3.0,<0.4.0"
 torch = ">=1.3.1"
 
 [package.extras]
-all = ["fast-bss-eval (>=0.1.0)", "pesq (>=0.0.3)", "pystoi", "torchvision (>=0.8)", "nbsphinx (>=0.8)", "pandoc (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinxcontrib-mockautodoc", "sphinx-togglebutton (>=0.2)", "sphinx-autodoc-typehints (>=1.0)", "docutils (>=0.16)", "sphinx (>=4.0)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-paramlinks (>=0.5.1)", "myst-parser", "pytorch-lightning (>=1.1)", "torch-fidelity", "scipy", "lpips", "torchvision", "pytorch-lightning (>=1.3)", "mypy (>=0.790)", "pytest-cov (>2.10)", "mir-eval (>=0.6)", "phmdoctest (>=1.1.1)", "pytest (>=6.0)", "pytorch-msssim", "bert-score (==0.3.10)", "scikit-learn (>=0.24)", "rouge-score (>=0.0.4)", "scikit-image (>0.17.1)", "sacrebleu (>=2.0.0)", "pypesq", "pre-commit (>=1.0)", "check-manifest", "coverage (>5.2)", "codecov (>=2.1)", "jiwer (>=2.3.0)", "twine (>=3.2)", "transformers (>=4.0)", "cloudpickle (>=1.3)", "pytest-doctestplus", "tqdm (>=4.41.0)", "nltk (>=3.6)", "regex (>=2021.9.24)"]
-audio = ["fast-bss-eval (>=0.1.0)", "pesq (>=0.0.3)", "pystoi"]
+all = ["sphinx (>=4.0)", "sphinxcontrib-mockautodoc", "sphinx-copybutton (>=0.3)", "nbsphinx (>=0.8)", "myst-parser", "sphinx-paramlinks (>=0.5.1)", "pandoc (>=1.0)", "lpips", "scipy", "torch-fidelity", "torchvision", "pytorch-lightning (>=1.3)", "cloudpickle (>=1.3)", "check-manifest", "pytest-cov (>2.10)", "coverage (>5.2)", "codecov (>=2.1)", "pre-commit (>=1.0)", "sacrebleu (>=2.0.0)", "mypy (>=0.790)", "scikit-image (>0.17.1)", "bert-score (==0.3.10)", "pystoi", "pesq (>=0.0.3)", "fast-bss-eval (>=0.1.0)", "torchvision (>=0.8)", "sphinx-togglebutton (>=0.2)", "sphinx-autodoc-typehints (>=1.0)", "pytorch-lightning (>=1.1)", "docutils (>=0.16)", "sphinxcontrib-fulltoc (>=1.0)", "scikit-learn (>=0.24)", "pytest (>=6.0.0,<7.0.0)", "phmdoctest (>=1.1.1)", "pytorch-msssim", "twine (>=3.2)", "pypesq", "jiwer (>=2.3.0)", "transformers (>=4.0)", "pytest-doctestplus (>=0.9.0)", "rouge-score (>=0.0.4)", "mir-eval (>=0.6)", "regex (>=2021.9.24)", "tqdm (>=4.41.0)", "nltk (>=3.6)"]
+audio = ["pystoi", "pesq (>=0.0.3)", "fast-bss-eval (>=0.1.0)"]
 detection = ["torchvision (>=0.8)"]
-docs = ["nbsphinx (>=0.8)", "pandoc (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinxcontrib-mockautodoc", "sphinx-togglebutton (>=0.2)", "sphinx-autodoc-typehints (>=1.0)", "docutils (>=0.16)", "sphinx (>=4.0)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-paramlinks (>=0.5.1)", "myst-parser", "pytorch-lightning (>=1.1)"]
-image = ["torch-fidelity", "scipy", "lpips", "torchvision"]
+docs = ["sphinx-togglebutton (>=0.2)", "sphinx-autodoc-typehints (>=1.0)", "pytorch-lightning (>=1.1)", "docutils (>=0.16)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx (>=4.0)", "sphinxcontrib-mockautodoc", "sphinx-copybutton (>=0.3)", "nbsphinx (>=0.8)", "myst-parser", "sphinx-paramlinks (>=0.5.1)", "pandoc (>=1.0)"]
+image = ["lpips", "scipy", "torch-fidelity", "torchvision"]
 integrate = ["pytorch-lightning (>=1.3)"]
-test = ["mypy (>=0.790)", "pytest-cov (>2.10)", "mir-eval (>=0.6)", "phmdoctest (>=1.1.1)", "pytest (>=6.0)", "pytorch-msssim", "bert-score (==0.3.10)", "scikit-learn (>=0.24)", "rouge-score (>=0.0.4)", "scikit-image (>0.17.1)", "sacrebleu (>=2.0.0)", "pypesq", "pre-commit (>=1.0)", "check-manifest", "coverage (>5.2)", "codecov (>=2.1)", "jiwer (>=2.3.0)", "twine (>=3.2)", "transformers (>=4.0)", "cloudpickle (>=1.3)", "pytest-doctestplus"]
-text = ["tqdm (>=4.41.0)", "nltk (>=3.6)", "regex (>=2021.9.24)"]
+test = ["cloudpickle (>=1.3)", "check-manifest", "pytest-cov (>2.10)", "coverage (>5.2)", "codecov (>=2.1)", "pre-commit (>=1.0)", "sacrebleu (>=2.0.0)", "mypy (>=0.790)", "scikit-image (>0.17.1)", "bert-score (==0.3.10)", "scikit-learn (>=0.24)", "pytest (>=6.0.0,<7.0.0)", "phmdoctest (>=1.1.1)", "pytorch-msssim", "twine (>=3.2)", "pypesq", "jiwer (>=2.3.0)", "transformers (>=4.0)", "pytest-doctestplus (>=0.9.0)", "rouge-score (>=0.0.4)", "mir-eval (>=0.6)"]
+text = ["regex (>=2021.9.24)", "tqdm (>=4.41.0)", "nltk (>=3.6)"]
 
 [[package]]
 name = "tornado"
@@ -1900,8 +1900,8 @@ torch = [
     {file = "torch-1.10.2-cp39-none-macosx_11_0_arm64.whl", hash = "sha256:b07ef01e36b716d0d65ca60c4db0ac9d094a0e797d9b55290da4dcda91463b6c"},
 ]
 torchmetrics = [
-    {file = "torchmetrics-0.7.0-py3-none-any.whl", hash = "sha256:908f6c129ba84864176c23217ab548069a59f1db555b08f20d2f20274564f90a"},
-    {file = "torchmetrics-0.7.0.tar.gz", hash = "sha256:dbfb8989086f38020045a935e83928504e1af1d84ae92b073f6a83d018f4bc00"},
+    {file = "torchmetrics-0.7.2-py3-none-any.whl", hash = "sha256:d0fbf8440912ef93f22e21bae43fda8fa26a651313acc3ea93beafe3c86dd474"},
+    {file = "torchmetrics-0.7.2.tar.gz", hash = "sha256:af03334c4a33fc32a9a40b037b1ce3ff6273ea9a0050c11ddde29bf1335da95e"},
 ]
 tornado = [
     {file = "tornado-6.1-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:d371e811d6b156d82aa5f9a4e08b58debf97c302a35714f6f45e35139c332e32"},

@@ -1,4 +1,4 @@
-import telegram
+from telegram import Bot
 
 from whos_there.senders.base import Sender
 
@@ -14,13 +14,16 @@ class TelegramSender(Sender):
         super().__init__()
         self.token = token
         self.chat_id = chat_id
-        self._bot: telegram.Bot = None
+        self._bot: Bot = None
 
     @property
     def bot(self):
         if not self._bot:
-            self._bot = telegram.Bot(token=self.token)
+            self._bot = Bot(token=self.token)
         return self._bot
 
     def send(self, text: str) -> None:
-        return self.bot.send_message(chat_id=self.chat_id, text=text)
+        length = 4096
+        chunks = [text[0 + i : length + i] for i in range(0, len(text), length)]
+        for chunk in chunks:
+            self.bot.send_message(chat_id=self.chat_id, text=chunk)

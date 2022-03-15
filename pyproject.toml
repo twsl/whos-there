@@ -33,7 +33,7 @@ pytest = "^7.1.0"
 black = "^22.1"
 isort = {extras = ["colors"], version = "^5.10.1"}
 darglint = "^1.8.1"
-mypy = "^0.940"
+mypy = "^0.941"
 mypy-extensions = "^0.4.3"
 flake8 = "^4.0.1"
 safety = "^1.10.3"

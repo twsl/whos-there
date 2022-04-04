@@ -1020,7 +1020,7 @@ python-versions = ">= 3.5"
 
 [[package]]
 name = "tqdm"
-version = "4.63.1"
+version = "4.63.2"
 description = "Fast, Extensible Progress Meter"
 category = "main"
 optional = false
@@ -1967,8 +1967,8 @@ tornado = [
     {file = "tornado-6.1.tar.gz", hash = "sha256:33c6e81d7bd55b468d2e793517c909b139960b6c790a60b7991b9b6b76fb9791"},
 ]
 tqdm = [
-    {file = "tqdm-4.63.1-py2.py3-none-any.whl", hash = "sha256:6461b009d6792008d0000e1b0c7ca50195ec78c0e808a3a6b668a56a3236c3a5"},
-    {file = "tqdm-4.63.1.tar.gz", hash = "sha256:4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"},
+    {file = "tqdm-4.63.2-py2.py3-none-any.whl", hash = "sha256:d647b0cefa04c89241cba1b4755e0bd7d3b3c1c7063f8653ed6c8591aad7e33e"},
+    {file = "tqdm-4.63.2.tar.gz", hash = "sha256:f711a98bb7914989ccd55d2fbec3bdb3f5c19f7c7bc529b555bef349025382ac"},
 ]
 typed-ast = [
     {file = "typed_ast-1.5.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:183b183b7771a508395d2cbffd6db67d6ad52958a5fdc99f450d954003900266"},

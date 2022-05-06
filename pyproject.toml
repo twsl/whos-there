@@ -38,7 +38,7 @@ mypy-extensions = "^0.4.3"
 flake8 = "^4.0.1"
 safety = "^1.10.3"
 bandit = "^1.7.4"
-pre-commit = "^2.18.1"
+pre-commit = "^2.19.0"
 pytest-cov = "^3.0.0"
 flake8-docstrings = "^1.6.0"
 

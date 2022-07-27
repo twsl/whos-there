@@ -607,8 +607,8 @@ python-versions = ">=3.6"
 importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 
 [package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
 
 [[package]]
 name = "pre-commit"
@@ -746,7 +746,7 @@ coverage = {version = ">=5.2.1", extras = ["toml"]}
 pytest = ">=4.6"
 
 [package.extras]
-testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
+testing = ["virtualenv", "pytest-xdist", "six", "process-tests", "hunter", "fields"]
 
 [[package]]
 name = "python-telegram-bot"
@@ -1014,7 +1014,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "torchmetrics"
-version = "0.9.2"
+version = "0.9.3"
 description = "PyTorch native Metrics"
 category = "main"
 optional = false
@@ -1027,13 +1027,13 @@ torch = ">=1.3.1"
 typing-extensions = {version = "*", markers = "python_version < \"3.8\""}
 
 [package.extras]
-all = ["pystoi", "torchvision (>=0.8)", "pycocotools", "sphinx-copybutton (>=0.3)", "nbsphinx (>=0.8)", "docutils (>=0.16)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-paramlinks (>=0.5.1)", "sphinx-autodoc-typehints (>=1.0)", "sphinx (>=4.0,<5.0)", "myst-parser", "sphinx-togglebutton (>=0.2)", "pandoc (>=1.0)", "sphinxcontrib-mockautodoc", "torchvision", "torch-fidelity", "lpips", "scipy", "pytorch-lightning (>=1.5)", "mypy (>=0.790)", "transformers (>=4.0)", "pytorch-msssim", "scikit-image (>0.17.1)", "fast-bss-eval (>=0.1.0)", "rouge-score (>=0.0.4)", "torch-complex", "bert-score (==0.3.10)", "cloudpickle (>=1.3)", "jiwer (>=2.3.0)", "pypesq", "coverage (>5.2)", "codecov (>=2.1)", "huggingface-hub (<0.7)", "sacrebleu (>=2.0.0)", "pytest-cov (>2.10)", "psutil", "pre-commit (>=1.0)", "requests", "pytest (>=6.0.0,<7.0.0)", "twine (>=3.2)", "scikit-learn (>1.0,<1.1.1)", "pytest-doctestplus (>=0.9.0)", "pytest-timeout", "phmdoctest (>=1.1.1)", "check-manifest", "mir-eval (>=0.6)", "fire", "nltk (>=3.6)", "regex (>=2021.9.24)", "tqdm (>=4.41.0)"]
+test = ["pycocotools", "codecov (>=2.1)", "check-manifest", "torch-complex", "scikit-learn (>1.0,<1.1.1)", "cloudpickle (>=1.3)", "mir-eval (>=0.6)", "pytest-cov (>2.10)", "pytest-timeout", "scikit-image (>0.17.1)", "pytest (>=6.0.0,<7.0.0)", "pypesq", "transformers (>=4.0)", "pre-commit (>=1.0)", "fire", "bert-score (==0.3.10)", "pytorch-msssim", "psutil", "coverage (>5.2)", "huggingface-hub (<0.7)", "pytest-doctestplus (>=0.9.0)", "requests", "rouge-score (==0.0.4)", "jiwer (>=2.3.0)", "twine (>=3.2)", "sacrebleu (>=2.0.0)", "fast-bss-eval (>=0.1.0)", "phmdoctest (>=1.1.1)", "mypy (>=0.790)"]
+all = ["pystoi", "pycocotools", "torchvision (>=0.8)", "sphinx (>=4.0,<5.0)", "sphinxcontrib-fulltoc (>=1.0)", "sphinxcontrib-mockautodoc", "sphinx-autodoc-typehints (>=1.0)", "sphinx-copybutton (>=0.3)", "docutils (>=0.16)", "pandoc (>=1.0)", "nbsphinx (>=0.8)", "sphinx-togglebutton (>=0.2)", "sphinx-paramlinks (>=0.5.1)", "myst-parser", "lpips", "torch-fidelity", "scipy", "torchvision", "pytorch-lightning (>=1.5)", "codecov (>=2.1)", "check-manifest", "torch-complex", "scikit-learn (>1.0,<1.1.1)", "cloudpickle (>=1.3)", "mir-eval (>=0.6)", "pytest-cov (>2.10)", "pytest-timeout", "scikit-image (>0.17.1)", "pytest (>=6.0.0,<7.0.0)", "pypesq", "transformers (>=4.0)", "pre-commit (>=1.0)", "fire", "bert-score (==0.3.10)", "pytorch-msssim", "psutil", "coverage (>5.2)", "huggingface-hub (<0.7)", "pytest-doctestplus (>=0.9.0)", "requests", "rouge-score (==0.0.4)", "jiwer (>=2.3.0)", "twine (>=3.2)", "sacrebleu (>=2.0.0)", "fast-bss-eval (>=0.1.0)", "phmdoctest (>=1.1.1)", "mypy (>=0.790)", "nltk (>=3.6)", "regex (>=2021.9.24)", "tqdm (>=4.41.0)"]
 audio = ["pystoi"]
-detection = ["torchvision (>=0.8)", "pycocotools"]
-docs = ["sphinx-copybutton (>=0.3)", "nbsphinx (>=0.8)", "docutils (>=0.16)", "sphinxcontrib-fulltoc (>=1.0)", "sphinx-paramlinks (>=0.5.1)", "sphinx-autodoc-typehints (>=1.0)", "sphinx (>=4.0,<5.0)", "myst-parser", "sphinx-togglebutton (>=0.2)", "pandoc (>=1.0)", "sphinxcontrib-mockautodoc"]
-image = ["torchvision", "torch-fidelity", "lpips", "scipy"]
+detection = ["pycocotools", "torchvision (>=0.8)"]
+docs = ["sphinx (>=4.0,<5.0)", "sphinxcontrib-fulltoc (>=1.0)", "sphinxcontrib-mockautodoc", "sphinx-autodoc-typehints (>=1.0)", "sphinx-copybutton (>=0.3)", "docutils (>=0.16)", "pandoc (>=1.0)", "nbsphinx (>=0.8)", "sphinx-togglebutton (>=0.2)", "sphinx-paramlinks (>=0.5.1)", "myst-parser"]
+image = ["lpips", "torch-fidelity", "scipy", "torchvision"]
 integrate = ["pytorch-lightning (>=1.5)"]
-test = ["mypy (>=0.790)", "transformers (>=4.0)", "pytorch-msssim", "scikit-image (>0.17.1)", "fast-bss-eval (>=0.1.0)", "pycocotools", "rouge-score (>=0.0.4)", "torch-complex", "bert-score (==0.3.10)", "cloudpickle (>=1.3)", "jiwer (>=2.3.0)", "pypesq", "coverage (>5.2)", "codecov (>=2.1)", "huggingface-hub (<0.7)", "sacrebleu (>=2.0.0)", "pytest-cov (>2.10)", "psutil", "pre-commit (>=1.0)", "requests", "pytest (>=6.0.0,<7.0.0)", "twine (>=3.2)", "scikit-learn (>1.0,<1.1.1)", "pytest-doctestplus (>=0.9.0)", "pytest-timeout", "phmdoctest (>=1.1.1)", "check-manifest", "mir-eval (>=0.6)", "fire"]
 text = ["nltk (>=3.6)", "regex (>=2021.9.24)", "tqdm (>=4.41.0)"]
 
 [[package]]
@@ -1970,8 +1970,8 @@ torch = [
     {file = "torch-1.12.0-cp39-none-macosx_11_0_arm64.whl", hash = "sha256:5ed69d5af232c5c3287d44cef998880dadcc9721cd020e9ae02f42e56b79c2e4"},
 ]
 torchmetrics = [
-    {file = "torchmetrics-0.9.2-py3-none-any.whl", hash = "sha256:ced006295c95c4555df0b8dea92960c00e3303de0da878fcf27e394df4757827"},
-    {file = "torchmetrics-0.9.2.tar.gz", hash = "sha256:8178c9242e243318093d9b7237738a504535193d2006da6e58b0ed4003e318d2"},
+    {file = "torchmetrics-0.9.3-py3-none-any.whl", hash = "sha256:3babb9e75d223512621af69a84eabf52b621a4f768b83f86701d66d09abed80b"},
+    {file = "torchmetrics-0.9.3.tar.gz", hash = "sha256:4ebfd2466021db26397636966ee1a195d3b340ba5d71bb258e764340dfc2476f"},
 ]
 tornado = [
     {file = "tornado-6.2-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:20f638fd8cc85f3cbae3c732326e96addff0a15e22d80f049e00121651e82e72"},

@@ -247,7 +247,7 @@ python-versions = "*"
 
 [[package]]
 name = "dparse"
-version = "0.5.1"
+version = "0.6.0"
 description = "A parser for Python dependency files"
 category = "dev"
 optional = false
@@ -255,10 +255,10 @@ python-versions = ">=3.5"
 
 [package.dependencies]
 packaging = "*"
-pyyaml = "*"
 toml = "*"
 
 [package.extras]
+conda = ["pyyaml"]
 pipenv = ["pipenv"]
 
 [[package]]
@@ -1436,8 +1436,8 @@ distlib = [
     {file = "distlib-0.3.5.tar.gz", hash = "sha256:a7f75737c70be3b25e2bee06288cec4e4c221de18455b2dd037fe2a795cab2fe"},
 ]
 dparse = [
-    {file = "dparse-0.5.1-py3-none-any.whl", hash = "sha256:e953a25e44ebb60a5c6efc2add4420c177f1d8404509da88da9729202f306994"},
-    {file = "dparse-0.5.1.tar.gz", hash = "sha256:a1b5f169102e1c894f9a7d5ccf6f9402a836a5d24be80a986c7ce9eaed78f367"},
+    {file = "dparse-0.6.0-py3-none-any.whl", hash = "sha256:3cb489bd06bfa8d285c85f7dec69d9ee8f89c29dd5f4ab48e159746dc13b78b2"},
+    {file = "dparse-0.6.0.tar.gz", hash = "sha256:57068bb61859b1676c6beb10f399906eecb41a75b5d3fbc99d0311059cb67213"},
 ]
 filelock = [
     {file = "filelock-3.7.0-py3-none-any.whl", hash = "sha256:c7b5fdb219b398a5b28c8e4c1893ef5f98ece6a38c6ab2c22e26ec161556fed6"},

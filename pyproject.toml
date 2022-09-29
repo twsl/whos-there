@@ -39,7 +39,7 @@ flake8 = "^5.0.4"
 safety = "^2.2.0"
 bandit = "^1.7.4"
 pre-commit = "^2.20.0"
-pytest-cov = "^3.0.0"
+pytest-cov = "^4.0.0"
 flake8-docstrings = "^1.6.0"
 
 [build-system]

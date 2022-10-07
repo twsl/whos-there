@@ -1089,7 +1089,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "typing-extensions"
-version = "4.3.0"
+version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "main"
 optional = false
@@ -1803,7 +1803,6 @@ pre-commit = [
     {file = "pre_commit-2.20.0.tar.gz", hash = "sha256:a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959"},
 ]
 protobuf = [
-    {file = "protobuf-3.19.5-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:6eca9ae238ba615d702387a2ddea635d535d769994a9968c09a4ca920c487ab9"},
     {file = "protobuf-3.19.5-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:f2b599a21c9a32e171ec29a2ac54e03297736c578698e11b099d031f79da114b"},
     {file = "protobuf-3.19.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f976234e20ab2785f54224bcdafa027674e23663b132fa3ca0caa291a6cfbde7"},
     {file = "protobuf-3.19.5-cp310-cp310-win32.whl", hash = "sha256:4ee2af7051d3b10c8a4fe6fd1a2c69f201fea36aeee7086cf202a692e1b99ee1"},
@@ -2119,8 +2118,8 @@ typed-ast = [
     {file = "typed_ast-1.5.4.tar.gz", hash = "sha256:39e21ceb7388e4bb37f4c679d72707ed46c2fbf2a5609b8b8ebc4b067d977df2"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
-    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
+    {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
+    {file = "typing_extensions-4.4.0.tar.gz", hash = "sha256:1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa"},
 ]
 tzdata = [
     {file = "tzdata-2022.2-py2.py3-none-any.whl", hash = "sha256:c3119520447d68ef3eb8187a55a4f44fa455f30eb1b4238fa5691ba094f2b05b"},

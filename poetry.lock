@@ -97,7 +97,7 @@ python-versions = ">=3.5"
 dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
 docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
 tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
-tests_no_zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
+tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "backports.zoneinfo"
@@ -185,7 +185,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "click"
@@ -373,7 +373,7 @@ six = ">=1.9.0"
 
 [package.extras]
 aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)", "requests (>=2.20.0,<3.0.0dev)"]
-enterprise_cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
+enterprise-cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
 pyopenssl = ["pyopenssl (>=20.0.0)"]
 reauth = ["pyu2f (>=0.1.5)"]
 
@@ -462,9 +462,9 @@ colorama = {version = ">=0.4.3,<0.5.0", optional = true, markers = "extra == \"c
 
 [package.extras]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
-pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+pipfile-deprecated-finder = ["pipreqs", "requirementslib"]
 plugins = ["setuptools"]
-requirements_deprecated_finder = ["pip-api", "pipreqs"]
+requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "markdown"
@@ -792,10 +792,10 @@ tqdm = ">=4.57.0"
 typing-extensions = ">=4.0.0"
 
 [package.extras]
-all = ["cloudpickle (>=1.3)", "codecov (>=2.1)", "comet-ml (>=3.1.12)", "coverage (>=6.4)", "deepspeed (>=0.6.0)", "fairscale (>=0.4.5)", "fastapi", "gcsfs (>=2021.5.0)", "gym[classic_control] (>=0.17.0)", "hivemind (>=1.0.1)", "horovod (>=0.21.2,!=0.24.0)", "hydra-core (>=1.0.5)", "ipython[all]", "jsonargparse[signatures] (>=4.12.0)", "matplotlib (>3.1)", "mlflow (>=1.0.0)", "mypy (==0.971)", "neptune-client (>=0.10.0)", "omegaconf (>=2.0.5)", "onnxruntime", "pandas (>1.0)", "pre-commit (>=1.0)", "protobuf (<=3.20.1)", "psutil", "pytest (>=7.0)", "pytest-cov", "pytest-forked", "pytest-rerunfailures (>=10.2)", "rich (>=10.14.0,!=10.15.0.a)", "scikit-learn (>0.22.1)", "torchtext (>=0.10)", "torchvision (>=0.10)", "uvicorn", "wandb (>=0.10.22)"]
+all = ["cloudpickle (>=1.3)", "codecov (>=2.1)", "comet-ml (>=3.1.12)", "coverage (>=6.4)", "deepspeed (>=0.6.0)", "fairscale (>=0.4.5)", "fastapi", "gcsfs (>=2021.5.0)", "gym[classic-control] (>=0.17.0)", "hivemind (>=1.0.1)", "horovod (>=0.21.2,!=0.24.0)", "hydra-core (>=1.0.5)", "ipython[all]", "jsonargparse[signatures] (>=4.12.0)", "matplotlib (>3.1)", "mlflow (>=1.0.0)", "mypy (==0.971)", "neptune-client (>=0.10.0)", "omegaconf (>=2.0.5)", "onnxruntime", "pandas (>1.0)", "pre-commit (>=1.0)", "protobuf (<=3.20.1)", "psutil", "pytest (>=7.0)", "pytest-cov", "pytest-forked", "pytest-rerunfailures (>=10.2)", "rich (>=10.14.0,!=10.15.0.a)", "scikit-learn (>0.22.1)", "torchtext (>=0.10)", "torchvision (>=0.10)", "uvicorn", "wandb (>=0.10.22)"]
 deepspeed = ["deepspeed (>=0.6.0)"]
 dev = ["cloudpickle (>=1.3)", "codecov (>=2.1)", "comet-ml (>=3.1.12)", "coverage (>=6.4)", "fastapi", "gcsfs (>=2021.5.0)", "hydra-core (>=1.0.5)", "jsonargparse[signatures] (>=4.12.0)", "matplotlib (>3.1)", "mlflow (>=1.0.0)", "mypy (==0.971)", "neptune-client (>=0.10.0)", "omegaconf (>=2.0.5)", "onnxruntime", "pandas (>1.0)", "pre-commit (>=1.0)", "protobuf (<=3.20.1)", "psutil", "pytest (>=7.0)", "pytest-cov", "pytest-forked", "pytest-rerunfailures (>=10.2)", "rich (>=10.14.0,!=10.15.0.a)", "scikit-learn (>0.22.1)", "torchtext (>=0.10)", "uvicorn", "wandb (>=0.10.22)"]
-examples = ["gym[classic_control] (>=0.17.0)", "ipython[all]", "torchvision (>=0.10)"]
+examples = ["gym[classic-control] (>=0.17.0)", "ipython[all]", "torchvision (>=0.10)"]
 extra = ["gcsfs (>=2021.5.0)", "hydra-core (>=1.0.5)", "jsonargparse[signatures] (>=4.12.0)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "protobuf (<=3.20.1)", "rich (>=10.14.0,!=10.15.0.a)", "torchtext (>=0.10)"]
 fairscale = ["fairscale (>=0.4.5)"]
 hivemind = ["hivemind (>=1.0.1)"]
@@ -848,7 +848,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "requests-oauthlib"
@@ -1032,7 +1032,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "torchmetrics"
-version = "0.9.3"
+version = "0.10.0"
 description = "PyTorch native Metrics"
 category = "main"
 optional = false
@@ -1042,16 +1042,16 @@ python-versions = ">=3.7"
 numpy = ">=1.17.2"
 packaging = "*"
 torch = ">=1.3.1"
-typing-extensions = {version = "*", markers = "python_version < \"3.8\""}
+typing-extensions = {version = "*", markers = "python_version < \"3.9\""}
 
 [package.extras]
-all = ["bert-score (==0.3.10)", "check-manifest", "cloudpickle (>=1.3)", "codecov (>=2.1)", "coverage (>5.2)", "docutils (>=0.16)", "fast-bss-eval (>=0.1.0)", "fire", "huggingface-hub (<0.7)", "jiwer (>=2.3.0)", "lpips", "mir-eval (>=0.6)", "mypy (>=0.790)", "myst-parser", "nbsphinx (>=0.8)", "nltk (>=3.6)", "pandoc (>=1.0)", "phmdoctest (>=1.1.1)", "pre-commit (>=1.0)", "psutil", "pycocotools", "pypesq", "pystoi", "pytest (>=6.0.0,<7.0.0)", "pytest-cov (>2.10)", "pytest-doctestplus (>=0.9.0)", "pytest-timeout", "pytorch-lightning (>=1.5)", "pytorch-msssim", "regex (>=2021.9.24)", "requests", "rouge-score (==0.0.4)", "sacrebleu (>=2.0.0)", "scikit-image (>0.17.1)", "scikit-learn (>1.0,<1.1.1)", "scipy", "sphinx (>=4.0,<5.0)", "sphinx-autodoc-typehints (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinx-paramlinks (>=0.5.1)", "sphinx-togglebutton (>=0.2)", "sphinxcontrib-fulltoc (>=1.0)", "sphinxcontrib-mockautodoc", "torch-complex", "torch-fidelity", "torchvision", "torchvision (>=0.8)", "tqdm (>=4.41.0)", "transformers (>=4.0)", "twine (>=3.2)"]
+all = ["lpips", "nltk (>=3.6)", "pycocotools", "pystoi", "pytorch-lightning (>=1.5)", "regex (>=2021.9.24)", "scipy", "torch-fidelity", "torchvision", "torchvision (>=0.8)", "tqdm (>=4.41.0)"]
 audio = ["pystoi"]
 detection = ["pycocotools", "torchvision (>=0.8)"]
 docs = ["docutils (>=0.16)", "myst-parser", "nbsphinx (>=0.8)", "pandoc (>=1.0)", "sphinx (>=4.0,<5.0)", "sphinx-autodoc-typehints (>=1.0)", "sphinx-copybutton (>=0.3)", "sphinx-paramlinks (>=0.5.1)", "sphinx-togglebutton (>=0.2)", "sphinxcontrib-fulltoc (>=1.0)", "sphinxcontrib-mockautodoc"]
 image = ["lpips", "scipy", "torch-fidelity", "torchvision"]
 integrate = ["pytorch-lightning (>=1.5)"]
-test = ["bert-score (==0.3.10)", "check-manifest", "cloudpickle (>=1.3)", "codecov (>=2.1)", "coverage (>5.2)", "fast-bss-eval (>=0.1.0)", "fire", "huggingface-hub (<0.7)", "jiwer (>=2.3.0)", "mir-eval (>=0.6)", "mypy (>=0.790)", "phmdoctest (>=1.1.1)", "pre-commit (>=1.0)", "psutil", "pycocotools", "pypesq", "pytest (>=6.0.0,<7.0.0)", "pytest-cov (>2.10)", "pytest-doctestplus (>=0.9.0)", "pytest-timeout", "pytorch-msssim", "requests", "rouge-score (==0.0.4)", "sacrebleu (>=2.0.0)", "scikit-image (>0.17.1)", "scikit-learn (>1.0,<1.1.1)", "torch-complex", "transformers (>=4.0)", "twine (>=3.2)"]
+test = ["bert-score (==0.3.10)", "check-manifest", "cloudpickle (>=1.3)", "coverage (>5.2)", "fast-bss-eval (>=0.1.0)", "fire", "huggingface-hub (<0.7)", "jiwer (>=2.3.0)", "mir-eval (>=0.6)", "netcal", "phmdoctest (>=1.1.1)", "pre-commit (>=1.0)", "psutil", "pycocotools", "pypesq (>1.2)", "pytest (>=6.0.0,<7.0.0)", "pytest-cov (>2.10)", "pytest-doctestplus (>=0.9.0)", "pytest-timeout", "pytorch-msssim (==0.2.1)", "requests", "rouge-score (>=0.0.4)", "sacrebleu (>=2.0.0)", "scikit-image (>0.17.1)", "scikit-learn (>1.0,<1.1.1)", "torch-complex", "transformers (>=4.0)"]
 text = ["nltk (>=3.6)", "regex (>=2021.9.24)", "tqdm (>=4.41.0)"]
 
 [[package]]
@@ -1803,7 +1803,6 @@ pre-commit = [
     {file = "pre_commit-2.20.0.tar.gz", hash = "sha256:a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959"},
 ]
 protobuf = [
-    {file = "protobuf-3.19.5-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:6eca9ae238ba615d702387a2ddea635d535d769994a9968c09a4ca920c487ab9"},
     {file = "protobuf-3.19.5-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:f2b599a21c9a32e171ec29a2ac54e03297736c578698e11b099d031f79da114b"},
     {file = "protobuf-3.19.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f976234e20ab2785f54224bcdafa027674e23663b132fa3ca0caa291a6cfbde7"},
     {file = "protobuf-3.19.5-cp310-cp310-win32.whl", hash = "sha256:4ee2af7051d3b10c8a4fe6fd1a2c69f201fea36aeee7086cf202a692e1b99ee1"},
@@ -2042,8 +2041,8 @@ torch = [
     {file = "torch-1.12.1-cp39-none-macosx_11_0_arm64.whl", hash = "sha256:69fe2cae7c39ccadd65a123793d30e0db881f1c1927945519c5c17323131437e"},
 ]
 torchmetrics = [
-    {file = "torchmetrics-0.9.3-py3-none-any.whl", hash = "sha256:3babb9e75d223512621af69a84eabf52b621a4f768b83f86701d66d09abed80b"},
-    {file = "torchmetrics-0.9.3.tar.gz", hash = "sha256:4ebfd2466021db26397636966ee1a195d3b340ba5d71bb258e764340dfc2476f"},
+    {file = "torchmetrics-0.10.0-py3-none-any.whl", hash = "sha256:1e99ee7379f8ff7e383383513ae0594bc5424de83b43e36c6ce12d464f1635b9"},
+    {file = "torchmetrics-0.10.0.tar.gz", hash = "sha256:990bafc7f76d7442894533771d0ba7492dbca2bbf2989fb32de7e9c68eb3d133"},
 ]
 tornado = [
     {file = "tornado-6.1-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:d371e811d6b156d82aa5f9a4e08b58debf97c302a35714f6f45e35139c332e32"},

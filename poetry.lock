@@ -1042,7 +1042,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "torchmetrics"
-version = "0.10.0"
+version = "0.10.1"
 description = "PyTorch native Metrics"
 category = "main"
 optional = false
@@ -2068,8 +2068,8 @@ torch = [
     {file = "torch-1.12.1-cp39-none-macosx_11_0_arm64.whl", hash = "sha256:69fe2cae7c39ccadd65a123793d30e0db881f1c1927945519c5c17323131437e"},
 ]
 torchmetrics = [
-    {file = "torchmetrics-0.10.0-py3-none-any.whl", hash = "sha256:1e99ee7379f8ff7e383383513ae0594bc5424de83b43e36c6ce12d464f1635b9"},
-    {file = "torchmetrics-0.10.0.tar.gz", hash = "sha256:990bafc7f76d7442894533771d0ba7492dbca2bbf2989fb32de7e9c68eb3d133"},
+    {file = "torchmetrics-0.10.1-py3-none-any.whl", hash = "sha256:e69fae7c6597ba505753f48e0f4ae1e73abde56c28fdc0c3baae826ec8c1d213"},
+    {file = "torchmetrics-0.10.1.tar.gz", hash = "sha256:e892ecd413e6bf63950329d1317c70f697d81d0f7e386152238062e322c8f1f3"},
 ]
 tornado = [
     {file = "tornado-6.1-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:d371e811d6b156d82aa5f9a4e08b58debf97c302a35714f6f45e35139c332e32"},

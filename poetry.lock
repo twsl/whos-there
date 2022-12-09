@@ -626,8 +626,8 @@ virtualenv = ">=20.0.8"
 
 [[package]]
 name = "protobuf"
-version = "3.20.1"
-description = "Protocol Buffers"
+version = "4.21.11"
+description = ""
 category = "main"
 optional = false
 python-versions = ">=3.7"
@@ -902,7 +902,7 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "tensorboardx"
-version = "2.5.1"
+version = "2.5"
 description = "TensorBoardX lets you watch Tensors Flow without Tensorflow"
 category = "main"
 optional = false
@@ -910,7 +910,8 @@ python-versions = "*"
 
 [package.dependencies]
 numpy = "*"
-protobuf = ">=3.8.0,<=3.20.1"
+protobuf = ">=3.8.0"
+six = "*"
 
 [[package]]
 name = "termcolor"
@@ -1680,30 +1681,20 @@ pre-commit = [
     {file = "pre_commit-2.20.0.tar.gz", hash = "sha256:a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959"},
 ]
 protobuf = [
-    {file = "protobuf-3.20.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3cc797c9d15d7689ed507b165cd05913acb992d78b379f6014e013f9ecb20996"},
-    {file = "protobuf-3.20.1-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:ff8d8fa42675249bb456f5db06c00de6c2f4c27a065955917b28c4f15978b9c3"},
-    {file = "protobuf-3.20.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:cd68be2559e2a3b84f517fb029ee611546f7812b1fdd0aa2ecc9bc6ec0e4fdde"},
-    {file = "protobuf-3.20.1-cp310-cp310-win32.whl", hash = "sha256:9016d01c91e8e625141d24ec1b20fed584703e527d28512aa8c8707f105a683c"},
-    {file = "protobuf-3.20.1-cp310-cp310-win_amd64.whl", hash = "sha256:32ca378605b41fd180dfe4e14d3226386d8d1b002ab31c969c366549e66a2bb7"},
-    {file = "protobuf-3.20.1-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:9be73ad47579abc26c12024239d3540e6b765182a91dbc88e23658ab71767153"},
-    {file = "protobuf-3.20.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:097c5d8a9808302fb0da7e20edf0b8d4703274d140fd25c5edabddcde43e081f"},
-    {file = "protobuf-3.20.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:e250a42f15bf9d5b09fe1b293bdba2801cd520a9f5ea2d7fb7536d4441811d20"},
-    {file = "protobuf-3.20.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:cdee09140e1cd184ba9324ec1df410e7147242b94b5f8b0c64fc89e38a8ba531"},
-    {file = "protobuf-3.20.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:af0ebadc74e281a517141daad9d0f2c5d93ab78e9d455113719a45a49da9db4e"},
-    {file = "protobuf-3.20.1-cp37-cp37m-win32.whl", hash = "sha256:755f3aee41354ae395e104d62119cb223339a8f3276a0cd009ffabfcdd46bb0c"},
-    {file = "protobuf-3.20.1-cp37-cp37m-win_amd64.whl", hash = "sha256:62f1b5c4cd6c5402b4e2d63804ba49a327e0c386c99b1675c8a0fefda23b2067"},
-    {file = "protobuf-3.20.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:06059eb6953ff01e56a25cd02cca1a9649a75a7e65397b5b9b4e929ed71d10cf"},
-    {file = "protobuf-3.20.1-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:cb29edb9eab15742d791e1025dd7b6a8f6fcb53802ad2f6e3adcb102051063ab"},
-    {file = "protobuf-3.20.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:69ccfdf3657ba59569c64295b7d51325f91af586f8d5793b734260dfe2e94e2c"},
-    {file = "protobuf-3.20.1-cp38-cp38-win32.whl", hash = "sha256:dd5789b2948ca702c17027c84c2accb552fc30f4622a98ab5c51fcfe8c50d3e7"},
-    {file = "protobuf-3.20.1-cp38-cp38-win_amd64.whl", hash = "sha256:77053d28427a29987ca9caf7b72ccafee011257561259faba8dd308fda9a8739"},
-    {file = "protobuf-3.20.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:6f50601512a3d23625d8a85b1638d914a0970f17920ff39cec63aaef80a93fb7"},
-    {file = "protobuf-3.20.1-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:284f86a6207c897542d7e956eb243a36bb8f9564c1742b253462386e96c6b78f"},
-    {file = "protobuf-3.20.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:7403941f6d0992d40161aa8bb23e12575637008a5a02283a930addc0508982f9"},
-    {file = "protobuf-3.20.1-cp39-cp39-win32.whl", hash = "sha256:db977c4ca738dd9ce508557d4fce0f5aebd105e158c725beec86feb1f6bc20d8"},
-    {file = "protobuf-3.20.1-cp39-cp39-win_amd64.whl", hash = "sha256:7e371f10abe57cee5021797126c93479f59fccc9693dafd6bd5633ab67808a91"},
-    {file = "protobuf-3.20.1-py2.py3-none-any.whl", hash = "sha256:adfc6cf69c7f8c50fd24c793964eef18f0ac321315439d94945820612849c388"},
-    {file = "protobuf-3.20.1.tar.gz", hash = "sha256:adc31566d027f45efe3f44eeb5b1f329da43891634d61c75a5944e9be6dd42c9"},
+    {file = "protobuf-4.21.11-cp310-abi3-win32.whl", hash = "sha256:25266bf373ee06d5d66f9eb1ec9d434b243dccce5c32faf151054cfa6f9dcbf1"},
+    {file = "protobuf-4.21.11-cp310-abi3-win_amd64.whl", hash = "sha256:260e346927fd4e6fbb49ab545137b19610c24a1d853dc5f29ddf777ab1987211"},
+    {file = "protobuf-4.21.11-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:4d01ef83517c181d60ea1c6d0b2f644be250ade740d6554a2f5a021b1ad622e3"},
+    {file = "protobuf-4.21.11-cp37-abi3-manylinux2014_aarch64.whl", hash = "sha256:a5a14b907a191319e7a58b38c583bbf50deb21e002f723a912c5e4f6969a778e"},
+    {file = "protobuf-4.21.11-cp37-abi3-manylinux2014_x86_64.whl", hash = "sha256:553e35c0878f6855e55f01a14561e6bce6df79b6636a5acf83b9d9ac7eab7922"},
+    {file = "protobuf-4.21.11-cp37-cp37m-win32.whl", hash = "sha256:4b75c947289a2e9c1f37d21c593f1ef6fb4fed33977dfb2ac84f799eb29a8ff4"},
+    {file = "protobuf-4.21.11-cp37-cp37m-win_amd64.whl", hash = "sha256:efb16b16fd3eef25357f84d516062753014b76279ce4e0ec4880badd2fba7370"},
+    {file = "protobuf-4.21.11-cp38-cp38-win32.whl", hash = "sha256:d91a47c77b33580024b0271b65bb820c4e0264c25eb49151ad01e691de8fa0b6"},
+    {file = "protobuf-4.21.11-cp38-cp38-win_amd64.whl", hash = "sha256:bab4b21a986ded225b9392c07ce21c35d790951f51e1ebfd32e4d443b05c3726"},
+    {file = "protobuf-4.21.11-cp39-cp39-win32.whl", hash = "sha256:c3b9e329b4c247dc3ba5c50f60915a84e08278eb6d9e3fa674d0d04ff816bfd7"},
+    {file = "protobuf-4.21.11-cp39-cp39-win_amd64.whl", hash = "sha256:85ccb4753ee21de7dc81a7a68a051f25dbe133ffa01a639ac998427d0b223387"},
+    {file = "protobuf-4.21.11-py2.py3-none-any.whl", hash = "sha256:4922e3320ed70e81f05060822da36923d09fd9e04e17f411f2d8d8d0070f9f5c"},
+    {file = "protobuf-4.21.11-py3-none-any.whl", hash = "sha256:a944dc9550baae276afc7dc8193191d4c2ad660270a1e5ed5a71539817ebe2e2"},
+    {file = "protobuf-4.21.11.tar.gz", hash = "sha256:2c6a4d13732d9b094db31b3841986c38b17ac61a3fe05ee26a779d94c4c3fb43"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
@@ -1804,6 +1795,7 @@ ruamel-yaml-clib = [
     {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-win_amd64.whl", hash = "sha256:d000f258cf42fec2b1bbf2863c61d7b8918d31ffee905da62dede869254d3b8a"},
     {file = "ruamel.yaml.clib-0.2.7-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:045e0626baf1c52e5527bd5db361bc83180faaba2ff586e763d3d5982a876a9e"},
     {file = "ruamel.yaml.clib-0.2.7-cp311-cp311-macosx_12_6_arm64.whl", hash = "sha256:721bc4ba4525f53f6a611ec0967bdcee61b31df5a56801281027a3a6d1c2daf5"},
+    {file = "ruamel.yaml.clib-0.2.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:41d0f1fa4c6830176eef5b276af04c89320ea616655d01327d5ce65e50575c94"},
     {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:4b3a93bb9bc662fc1f99c5c3ea8e623d8b23ad22f861eb6fce9377ac07ad6072"},
     {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-macosx_12_0_arm64.whl", hash = "sha256:a234a20ae07e8469da311e182e70ef6b199d0fbeb6c6cc2901204dd87fb867e8"},
     {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:15910ef4f3e537eea7fe45f8a5d19997479940d9196f357152a09031c5be59f3"},
@@ -1855,8 +1847,8 @@ stevedore = [
     {file = "stevedore-3.5.2.tar.gz", hash = "sha256:cf99f41fc0d5a4f185ca4d3d42b03be9011b0a1ec1a4ea1a282be1b4b306dcc2"},
 ]
 tensorboardx = [
-    {file = "tensorboardX-2.5.1-py2.py3-none-any.whl", hash = "sha256:8808133ccca673cd04076f6f2a85cf2d39bb2d0393a0f20d0f9cbb06d472b57e"},
-    {file = "tensorboardX-2.5.1.tar.gz", hash = "sha256:ea85a3446f22ce8a917fe4fa4d8a7a96222ef84ac835267d038c34bb99f6d61b"},
+    {file = "tensorboardX-2.5-py2.py3-none-any.whl", hash = "sha256:b1d8903f8106e2f4484640a293f9680f9757d5f7d2e699e0672bb2382d988e07"},
+    {file = "tensorboardX-2.5.tar.gz", hash = "sha256:5238ac5eac4a26d8f8381d7f54a2fcd530a134db841af9a9a6427beca93c6776"},
 ]
 termcolor = [
     {file = "termcolor-2.1.1-py3-none-any.whl", hash = "sha256:fa852e957f97252205e105dd55bbc23b419a70fec0085708fc0515e399f304fd"},

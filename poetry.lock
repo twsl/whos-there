@@ -269,18 +269,6 @@ docs = ["furo (>=2022.9.29)", "sphinx (>=5.3)", "sphinx-autodoc-typehints (>=1.1
 testing = ["covdefaults (>=2.2.2)", "coverage (>=6.5)", "pytest (>=7.2)", "pytest-cov (>=4)", "pytest-timeout (>=2.1)"]
 
 [[package]]
-name = "fire"
-version = "0.4.0"
-description = "A library for automatically generating command line interfaces."
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-six = "*"
-termcolor = "*"
-
-[[package]]
 name = "flake8"
 version = "5.0.4"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -395,7 +383,7 @@ python-versions = ">=3.5"
 name = "importlib-metadata"
 version = "4.2.0"
 description = "Read metadata from Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -434,14 +422,21 @@ requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "lightning-utilities"
-version = "0.3.0"
+version = "0.5.0"
 description = "PyTorch Lightning Sample project."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-fire = "*"
+importlib-metadata = {version = ">=4.0.0", markers = "python_version < \"3.8\""}
+packaging = ">=20.0"
+typing-extensions = "*"
+
+[package.extras]
+cli = ["fire"]
+docs = ["sphinx (>=4.0,<5.0)"]
+test = ["coverage (==6.5.0)"]
 
 [[package]]
 name = "mccabe"
@@ -912,17 +907,6 @@ numpy = "*"
 protobuf = ">=3.8.0,<=3.20.1"
 
 [[package]]
-name = "termcolor"
-version = "2.1.1"
-description = "ANSI color formatting for output in terminal"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.extras]
-tests = ["pytest", "pytest-cov"]
-
-[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -1106,7 +1090,7 @@ typing-extensions = {version = ">=3.7.4", markers = "python_version < \"3.8\""}
 name = "zipp"
 version = "3.11.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1370,9 +1354,6 @@ filelock = [
     {file = "filelock-3.8.2-py3-none-any.whl", hash = "sha256:8df285554452285f79c035efb0c861eb33a4bcfa5b7a137016e32e6a90f9792c"},
     {file = "filelock-3.8.2.tar.gz", hash = "sha256:7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2"},
 ]
-fire = [
-    {file = "fire-0.4.0.tar.gz", hash = "sha256:c5e2b8763699d1142393a46d0e3e790c5eb2f0706082df8f647878842c216a62"},
-]
 flake8 = [
     {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
     {file = "flake8-5.0.4.tar.gz", hash = "sha256:6fbe320aad8d6b95cec8b8e47bc933004678dc63095be98528b7bdd2a9f510db"},
@@ -1490,8 +1471,8 @@ isort = [
     {file = "isort-5.10.1.tar.gz", hash = "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"},
 ]
 lightning-utilities = [
-    {file = "lightning-utilities-0.3.0.tar.gz", hash = "sha256:d769ab9b76ebdee3243d1051d509aafee57d7947734ddc22977deef8a6427f2f"},
-    {file = "lightning_utilities-0.3.0-py3-none-any.whl", hash = "sha256:1ae9bdd8f1be3c81b1ac4820f6eeddcbafcc2505c57a5940054466f4763bc22d"},
+    {file = "lightning-utilities-0.5.0.tar.gz", hash = "sha256:01ef5b7fd50a8b54b849d8621720a65c36c91b374933a8384fb2be3d86cfa8f1"},
+    {file = "lightning_utilities-0.5.0-py3-none-any.whl", hash = "sha256:db1fa4300ce76b171d8cd4e78ffad3b6bc82f3fbe8ca5aa35da269fbda65bea3"},
 ]
 mccabe = [
     {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
@@ -1857,10 +1838,6 @@ stevedore = [
 tensorboardx = [
     {file = "tensorboardX-2.5.1-py2.py3-none-any.whl", hash = "sha256:8808133ccca673cd04076f6f2a85cf2d39bb2d0393a0f20d0f9cbb06d472b57e"},
     {file = "tensorboardX-2.5.1.tar.gz", hash = "sha256:ea85a3446f22ce8a917fe4fa4d8a7a96222ef84ac835267d038c34bb99f6d61b"},
-]
-termcolor = [
-    {file = "termcolor-2.1.1-py3-none-any.whl", hash = "sha256:fa852e957f97252205e105dd55bbc23b419a70fec0085708fc0515e399f304fd"},
-    {file = "termcolor-2.1.1.tar.gz", hash = "sha256:67cee2009adc6449c650f6bcf3bdeed00c8ba53a8cda5362733c53e0a39fb70b"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},

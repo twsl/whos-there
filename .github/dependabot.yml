@@ -9,7 +9,8 @@ updates:
     schedule:
       interval: "daily"
     allow:
-      - dependency-type: "direct"
+      - dependency-type: "production"
+      - dependency-type: "development"
     #commit-message:
       #prefix: ":arrow_up:"
     open-pull-requests-limit: 50

@@ -1,14 +1,15 @@
 import socket
 import textwrap
-import time
-from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 
-from pytorch_lightning import LightningModule, Trainer, Callback
+from pytorch_lightning import Callback, LightningModule, Trainer
 from pytorch_lightning.trainer.states import TrainerFn
 
 from whos_there.senders.base import Sender
 from whos_there.senders.debug import DebugSender
+from whos_there.utils.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class NotificationCallback(Callback):
@@ -24,7 +25,10 @@ class NotificationCallback(Callback):
 
     def _send(self, text: str) -> None:
         for sender in self.senders:
-            sender.send(text)
+            try:
+                sender.send(text)
+            except Exception as e:
+                logger.exception(f"An exception using {sender} occurred: {e}")
 
     def setup(self, trainer: Trainer, pl_module: LightningModule, stage: Optional[str] = None) -> None:
         """Called when fit, validate, test, predict, or tune begins.

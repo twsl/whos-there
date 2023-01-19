@@ -4,8 +4,7 @@ import time
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 
-from pytorch_lightning import LightningModule, Trainer
-from pytorch_lightning.callbacks.base import Callback
+from pytorch_lightning import LightningModule, Trainer, Callback
 from pytorch_lightning.trainer.states import TrainerFn
 
 from whos_there.senders.base import Sender

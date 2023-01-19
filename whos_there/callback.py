@@ -63,7 +63,7 @@ class NotificationCallback(Callback):
         """
         self._send(textwrap.dedent(contents))
 
-    def on_save_checkpoint(self, trainer: Trainer, pl_module: LightningModule, checkpoint: Dict[str, Any]) -> dict:
+    def state_dict(self) -> dict:
         """Called when saving a model checkpoint, use to persist state.
         Args:
             trainer: the current :class:`~pytorch_lightning.trainer.Trainer` instance.
@@ -74,15 +74,15 @@ class NotificationCallback(Callback):
         """
         return {"current_stage": self._current_stage}
 
-    def on_load_checkpoint(self, trainer: Trainer, pl_module: LightningModule, callback_state: Dict[str, Any]) -> None:
+    def on_load_checkpoint(self, trainer: Trainer, pl_module: LightningModule, checkpoint: Dict[str, Any]) -> None:
         """Called when loading a model checkpoint, use to reload state.
         Args:
             trainer: the current :class:`~pytorch_lightning.trainer.Trainer` instance.
             pl_module: the current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
-            callback_state: the callback state returned by ``on_save_checkpoint``.
+            checkpoint: the callback state returned by ``on_save_checkpoint``.
         Note:
             The ``on_load_checkpoint`` won't be called with an undefined state.
             If your ``on_load_checkpoint`` hook behavior doesn't rely on a state,
             you will still need to override ``on_save_checkpoint`` to return a ``dummy state``.
         """
-        self._current_stage = callback_state.get("current_stage", None)
+        self._current_stage = checkpoint.get("current_stage", None)

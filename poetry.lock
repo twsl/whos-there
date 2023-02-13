@@ -735,18 +735,18 @@ requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "lightning-utilities"
-version = "0.5.0"
+version = "0.6.0.post0"
 description = "PyTorch Lightning Sample project."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "lightning-utilities-0.5.0.tar.gz", hash = "sha256:01ef5b7fd50a8b54b849d8621720a65c36c91b374933a8384fb2be3d86cfa8f1"},
-    {file = "lightning_utilities-0.5.0-py3-none-any.whl", hash = "sha256:db1fa4300ce76b171d8cd4e78ffad3b6bc82f3fbe8ca5aa35da269fbda65bea3"},
+    {file = "lightning-utilities-0.6.0.post0.tar.gz", hash = "sha256:6f02cfe59e6576487e709a0e66e07671563bde9e21b40e1c567918e4d753278c"},
+    {file = "lightning_utilities-0.6.0.post0-py3-none-any.whl", hash = "sha256:81edf3ce5ebd43389238afc1bca96ea0c6dcd3b4b442f8365c719dd3a82009dc"},
 ]
 
 [package.dependencies]
-packaging = ">=20.0"
+packaging = ">=17.1"
 typing-extensions = "*"
 
 [package.extras]
@@ -1247,19 +1247,19 @@ webhooks = ["tornado (>=6.2,<7.0)"]
 
 [[package]]
 name = "pytorch-lightning"
-version = "1.9.0"
+version = "1.9.1"
 description = "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers. Scale your models. Write less boilerplate."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pytorch-lightning-1.9.0.tar.gz", hash = "sha256:5b75fe936d16ef86dae22ea1cb0a73db281605cade682c0ef44e6508a99a0b37"},
-    {file = "pytorch_lightning-1.9.0-py3-none-any.whl", hash = "sha256:fcd19d985db8d1a9656faaed80bb79a3548f2ed0471c05c089e01e0fb7ff92b2"},
+    {file = "pytorch-lightning-1.9.1.tar.gz", hash = "sha256:45b1031f1bdf68d9350fa42e5ec01ff8492d5badda9685a2ae48e5fd8598510a"},
+    {file = "pytorch_lightning-1.9.1-py3-none-any.whl", hash = "sha256:c143ee0a7e4c5779b54aa1bf1ae5faa19ed3e5546e31dad4a0298db6b115cc21"},
 ]
 
 [package.dependencies]
 fsspec = {version = ">2021.06.0", extras = ["http"]}
-lightning-utilities = ">=0.4.2"
+lightning-utilities = ">=0.6.0.post0"
 numpy = ">=1.17.2"
 packaging = ">=17.1"
 PyYAML = ">=5.4"

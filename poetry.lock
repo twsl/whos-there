@@ -1257,14 +1257,14 @@ webhooks = ["tornado (>=6.2,<7.0)"]
 
 [[package]]
 name = "pytorch-lightning"
-version = "2.0.1"
+version = "2.0.1.post0"
 description = "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers. Scale your models. Write less boilerplate."
 category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytorch-lightning-2.0.1.tar.gz", hash = "sha256:34b6579acaaa07af27f1236f40e4bca505b975c3804ee15f4371c03d4f6f72ee"},
-    {file = "pytorch_lightning-2.0.1-py3-none-any.whl", hash = "sha256:842aee8bd4b79b7fbb6d5709c10f3c239e7c75284f6b0e775d0047e1dba0c519"},
+    {file = "pytorch-lightning-2.0.1.post0.tar.gz", hash = "sha256:965f7eb9725b2a50da484edbdeae151ed368ad0520599fba504dfb65a29d2f3b"},
+    {file = "pytorch_lightning-2.0.1.post0-py3-none-any.whl", hash = "sha256:8525a60b5177fc7d63799b6a10b742e3b03d3f25bf3ed3cb3333b685f55ab453"},
 ]
 
 [package.dependencies]

@@ -8,7 +8,7 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "VARIANT": "3.8"
+            "VARIANT": "3.10"
         }
     },
     "runArgs": [
@@ -50,9 +50,6 @@
                 "python.analysis.useImportHeuristic": true,
                 "python.analysis.typeCheckingMode": "off",
                 "python.analysis.diagnosticMode": "workspace",
-                // "python.analysis.extraPaths": [
-                //     "bbdc2022",
-                // ],
                 "python.sortImports": true,
                 "isort.args": [
                     "--src=${workspaceFolder}",
@@ -94,7 +91,9 @@
                 ],
                 "[python]": {
                     "editor.codeActionsOnSave": {
-                        "source.organizeImports": true
+                        "source.organizeImports": true,
+						"source.organizeImports.ruff": true,
+						"source.fixAll.ruff": true
                     }
                 },
                 "testExplorer.codeLens": true,
@@ -110,6 +109,7 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-toolsai.jupyter",
+				"charliermarsh.ruff",
                 "ms-vscode.test-adapter-converter",
                 "littlefoxteam.vscode-python-test-adapter",
                 "kevinrose.vsc-python-indent",
@@ -123,7 +123,9 @@
                 "uctakeoff.vscode-counter",
                 "nhoizey.gremlins",
                 "mechatroner.rainbow-csv",
-                "KevinRose.vsc-python-indent"
+                "KevinRose.vsc-python-indent",
+				"VisualStudioExptTeam.vscodeintellicode-completions",
+				"github.vscode-github-actions"
             ]
         }
     },

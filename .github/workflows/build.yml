@@ -21,7 +21,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install poetry
-      run: curl -sSL https://install.python-poetry.org | POETRY_HOME=/etc/poetry python -
+      run: curl -sSL https://install.python-poetry.org | python -
 
     - name: Set up cache
       uses: actions/cache@v3

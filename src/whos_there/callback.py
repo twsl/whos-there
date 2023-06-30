@@ -2,7 +2,7 @@ import socket
 import textwrap
 from typing import Any, Dict, List, Optional
 
-from pytorch_lightning import Callback, LightningModule, Trainer
+import pytorch_lightning as pl
 from pytorch_lightning.trainer.states import TrainerFn
 
 from whos_there.senders.base import Sender
@@ -12,7 +12,9 @@ from whos_there.utils.logging import get_logger
 logger = get_logger(__name__)
 
 
-class NotificationCallback(Callback):
+class NotificationCallback(pl.Callback):
+    """Notification callback."""
+
     def __init__(self, senders: List[Sender] = [DebugSender()]) -> None:
         """Initialize the notification callback.
 
@@ -20,7 +22,7 @@ class NotificationCallback(Callback):
             senders: List of instances of senders.
         """
         super().__init__()
-        self.senders = senders
+        self.senders: List[Sender] = senders
         self._current_stage: str = None
 
     def _send(self, text: str) -> None:
@@ -30,8 +32,9 @@ class NotificationCallback(Callback):
             except Exception as e:
                 logger.exception(f"An exception using {sender} occurred: {e}")
 
-    def setup(self, trainer: Trainer, pl_module: LightningModule, stage: Optional[str] = None) -> None:
+    def setup(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: str) -> None:
         """Called when fit, validate, test, predict, or tune begins.
+
         Args:
             trainer: The current :class:`~pytorch_lightning.trainer.Trainer` instance.
             pl_module: The current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
@@ -40,23 +43,30 @@ class NotificationCallback(Callback):
         if trainer.global_rank == 0:
             self._current_stage = stage
 
-    def teardown(self, trainer: Trainer, pl_module: LightningModule, stage: Optional[str] = None) -> None:
+    def teardown(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: str) -> None:
         """Called when fit, validate, test, predict, or tune ends.
+
         Args:
             trainer: The current :class:`~pytorch_lightning.trainer.Trainer` instance.
             pl_module: The current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
             stage: The stage the trainer is currently in.
         """
         if trainer.global_rank == 0:
+            icon = None
+            if stage == "tune":
+                icon = "🧪"
             if stage == TrainerFn.FITTING:
-                contents = f"🎉 Your training of {pl_module._get_name()} on {socket.gethostname()} is complete."
-                self._send(contents)
+                icon = "✨"
             if stage == TrainerFn.TESTING:
-                contents = f"🧪 Your testing of {pl_module._get_name()} on {socket.gethostname()} is complete."
+                icon = "🎉"
+            if icon is not None:
+                name = pl_module._get_name()
+                contents = f"{icon} {stage.capitalize()} stage of {name} on {socket.gethostname()} is complete."
                 self._send(contents)
 
-    def on_exception(self, trainer: Trainer, pl_module: LightningModule, exception: BaseException) -> None:
+    def on_exception(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", exception: BaseException) -> None:
         """Called when any trainer execution is interrupted by an exception.
+
         Args:
             trainer: The current :class:`~pytorch_lightning.trainer.Trainer` instance.
             pl_module: The current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
@@ -67,26 +77,22 @@ class NotificationCallback(Callback):
         """
         self._send(textwrap.dedent(contents))
 
-    def state_dict(self) -> dict:
-        """Called when saving a model checkpoint, use to persist state.
-        Args:
-            trainer: the current :class:`~pytorch_lightning.trainer.Trainer` instance.
-            pl_module: the current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
-            checkpoint: the checkpoint dictionary that will be saved.
+    def state_dict(self) -> Dict[str, Any]:
+        """Called when saving a checkpoint, implement to generate callback's ``state_dict``.
+
         Returns:
-            The callback state.
+            A dictionary containing callback state.
         """
         return {"current_stage": self._current_stage}
 
-    def on_load_checkpoint(self, trainer: Trainer, pl_module: LightningModule, checkpoint: Dict[str, Any]) -> None:
-        """Called when loading a model checkpoint, use to reload state.
+    def on_load_checkpoint(
+        self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", checkpoint: Dict[str, Any]
+    ) -> None:
+        r"""Called when loading a model checkpoint, use to reload state.
+
         Args:
             trainer: the current :class:`~pytorch_lightning.trainer.Trainer` instance.
-            pl_module: the current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
-            checkpoint: the callback state returned by ``on_save_checkpoint``.
-        Note:
-            The ``on_load_checkpoint`` won't be called with an undefined state.
-            If your ``on_load_checkpoint`` hook behavior doesn't rely on a state,
-            you will still need to override ``on_save_checkpoint`` to return a ``dummy state``.
+            pl_module: the current :class:`~pytorch_lightning.core.module.LightningModule` instance.
+            checkpoint: the full checkpoint dictionary that got loaded by the Trainer.
         """
         self._current_stage = checkpoint.get("current_stage", None)

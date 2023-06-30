@@ -72,8 +72,9 @@ class NotificationCallback(pl.Callback):
             pl_module: The current :class:`~pytorch_lightning.core.lightning.LightningModule` instance.
             exception: The exception raised.
         """
-        contents = f"""💥 {exception} during {self._current_stage} of {pl_module._get_name()}.
-        Stage failed on {socket.gethostname()} (global rank {trainer.global_rank}).
+        name = pl_module._get_name()
+        contents = f"""💥 Failed during {self._current_stage.capitalize()} stage of {name} on {socket.gethostname()}.
+        Exception (global rank {trainer.global_rank}): '{exception}'
         """
         self._send(textwrap.dedent(contents))
 

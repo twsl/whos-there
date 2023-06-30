@@ -1,11 +1,12 @@
 [build-system]
-requires = ["poetry-core", "poetry-dynamic-versioning-plugin"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
 style = "semver"
+pattern = "default-unprefixed"
 
 [tool.poetry]
 name = "whos-there"
@@ -53,7 +54,6 @@ pytest-cov = "^4.0.0"
 coverage = "^7.2.5"
 flake8-docstrings = "^1.6.0"
 pyupgrade = "^3.3.1"
-poetry-dynamic-versioning = "^0.21.4"
 
 [tool.poetry.group.debug]
 optional = true

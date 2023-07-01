@@ -131,3 +131,5 @@ dmypy.json
 
 # Lightning Logs
 lightning_logs/
+
+.ruff_cache/

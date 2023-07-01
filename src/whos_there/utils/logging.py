@@ -4,8 +4,7 @@ from pytorch_lightning.utilities import rank_zero_only
 
 
 def get_logger(name=__name__) -> logging.Logger:
-    """
-    Initializes multi-GPU-friendly python command line logger.
+    """Initializes multi-GPU-friendly python command line logger.
 
     Args:
         name ([type], optional): [description]. Defaults to __name__.
@@ -13,7 +12,6 @@ def get_logger(name=__name__) -> logging.Logger:
     Returns:
         logging.Logger: The logger instance.
     """
-
     logger = logging.getLogger(name)
 
     # this ensures all logging levels get marked with the rank zero decorator

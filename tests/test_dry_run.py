@@ -1,13 +1,11 @@
-import os
+from pathlib import Path
 import types
-from exceptiongroup import catch
 
+import pytorch_lightning as pl
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-import pytorch_lightning as pl
 from whos_there.callback import NotificationCallback
-
 from whos_there.senders.base import Sender
 
 
@@ -60,7 +58,7 @@ class TestSender(Sender):
 
 def get_trainer(sender: Sender) -> pl.Trainer:
     return pl.Trainer(
-        default_root_dir=os.getcwd(),
+        default_root_dir=Path.cwd(),
         limit_train_batches=1,
         limit_val_batches=1,
         limit_test_batches=1,
@@ -86,12 +84,16 @@ def test_dry_run() -> None:
     assert "Test" in sender.logs[1]
 
 
+class TrainingError(Exception):
+    pass
+
+
 def test_dry_run_failed() -> None:
     train_data = DataLoader(RandomDataset(32, 64), batch_size=2)
     val_data = DataLoader(RandomDataset(32, 64), batch_size=2)
 
     def training_step_fail(self, batch, batch_idx):
-        raise Exception("failed")
+        raise TrainingError("failed")
 
     sender = TestSender()
     model = BoringModel()
@@ -106,4 +108,3 @@ def test_dry_run_failed() -> None:
 
     assert "Fit" in sender.logs[0]
     assert "Failed" in sender.logs[0]
-

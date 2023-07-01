@@ -1,6 +1,6 @@
 import socket
 import textwrap
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import pytorch_lightning as pl
 from pytorch_lightning.trainer.states import TrainerFn
@@ -15,22 +15,22 @@ logger = get_logger(__name__)
 class NotificationCallback(pl.Callback):
     """Notification callback."""
 
-    def __init__(self, senders: List[Sender] = [DebugSender()]) -> None:
+    def __init__(self, senders: list[Sender] = None) -> None:
         """Initialize the notification callback.
 
         Args:
             senders: List of instances of senders.
         """
         super().__init__()
-        self.senders: List[Sender] = senders
+        self.senders: list[Sender] = senders if senders else [DebugSender()]
         self._current_stage: str = None
 
     def _send(self, text: str) -> None:
         for sender in self.senders:
             try:
                 sender.send(text)
-            except Exception as e:
-                logger.exception(f"An exception using {sender} occurred: {e}")
+            except Exception:
+                logger.exception(f"An exception using {sender} occurred.")
 
     def setup(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: str) -> None:
         """Called when fit, validate, test, predict, or tune begins.
@@ -78,7 +78,7 @@ class NotificationCallback(pl.Callback):
         """
         self._send(textwrap.dedent(contents))
 
-    def state_dict(self) -> Dict[str, Any]:
+    def state_dict(self) -> dict[str, Any]:
         """Called when saving a checkpoint, implement to generate callback's ``state_dict``.
 
         Returns:
@@ -87,7 +87,7 @@ class NotificationCallback(pl.Callback):
         return {"current_stage": self._current_stage}
 
     def on_load_checkpoint(
-        self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", checkpoint: Dict[str, Any]
+        self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", checkpoint: dict[str, Any]
     ) -> None:
         r"""Called when loading a model checkpoint, use to reload state.
 

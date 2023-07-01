@@ -1,17 +1,17 @@
-import os
+from pathlib import Path
 from typing import Optional
 
 import pytorch_lightning as pl
-import torch
 from pytorch_lightning import LightningModule
+import torch
 from torch import nn
-from torch.nn import functional as F
+from torch.nn import functional as F  # noqa: N812
 from torch.utils.data import DataLoader, Dataset
 
 from whos_there.callback import NotificationCallback
 from whos_there.senders.debug import DebugSender
 
-tmpdir = os.getcwd()
+tmpdir = Path.cwd()
 
 
 class RandomDataset(Dataset):
@@ -33,7 +33,7 @@ class RandomDataModule(pl.LightningDataModule):
         self.num_sampes = num_samples
         self.batch_size = batch_size
 
-    def setup(self, stage: Optional[str] = None):
+    def setup(self, stage: str | None = None):
         self.mnist_test = RandomDataset(self.size, self.num_sampes)
         self.mnist_train = RandomDataset(self.size, self.num_sampes)
         self.mnist_val = RandomDataset(self.size, self.num_sampes)

@@ -1,12 +1,11 @@
-import smtplib
 from email.message import EmailMessage
-from typing import List
+import smtplib
 
 from whos_there.senders.base import Sender
 
 
 class EmailSender(Sender):
-    def __init__(self, host: str, port: int, sender_email: str, password: str, recipient_emails: List[str]) -> None:
+    def __init__(self, host: str, port: int, sender_email: str, password: str, recipient_emails: list[str]) -> None:
         """Initialize the Email sender.
 
         Args:

@@ -7,6 +7,7 @@ logger = get_logger(__name__)
 class DebugSender(Sender):
     def __init__(self, print: bool = False) -> None:
         """Initialize the Debug sender.
+
         Uses the Python logger. Performs logging on rank zero only in a distributed mode.
 
         Args:

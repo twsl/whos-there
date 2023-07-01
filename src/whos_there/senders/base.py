@@ -33,4 +33,4 @@ class Sender(abc.ABC):
         """
         headers = {"Content-Type": "application/json"}
         payload = json.dumps(data)
-        return requests.post(url=url, data=payload, headers=headers)
+        return requests.post(url=url, data=payload, headers=headers, timeout=5000)

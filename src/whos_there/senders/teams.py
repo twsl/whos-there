@@ -1,10 +1,8 @@
-from typing import List
-
 from whos_there.senders.base import Sender
 
 
 class TeamsSender(Sender):
-    def __init__(self, webhook_url: str, user_mentions: List[str] = []) -> None:
+    def __init__(self, webhook_url: str, user_mentions: list[str] = None) -> None:
         """Initialize the Teams sender.
 
         Args:
@@ -13,7 +11,7 @@ class TeamsSender(Sender):
         """
         super().__init__()
         self.webhook_url = webhook_url
-        self.user_mentions = " ".join(user_mentions)
+        self.user_mentions = " ".join(user_mentions) if user_mentions else []
 
     def send(self, text: str) -> None:
         data = {

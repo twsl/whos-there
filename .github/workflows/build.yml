@@ -40,6 +40,9 @@ jobs:
           poetry run black --diff --check --config pyproject.toml tests
           poetry run darglint --verbosity 2 tests
 
+    - name: Run ruff
+      uses: chartboost/ruff-action@v1
+
     - name: Install plugin
       run: pip install pytest-github-actions-annotate-failures
 

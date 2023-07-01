@@ -31,7 +31,6 @@ jobs:
 
     - name: Install dependencies
       run: |
-        rm poetry.lock
         poetry config virtualenvs.create false
         poetry install
 

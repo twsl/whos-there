@@ -34,12 +34,6 @@ jobs:
         poetry config virtualenvs.create false
         poetry install
 
-    - name: Run style checks
-      run: |
-          poetry run isort --diff --check-only --settings-path pyproject.toml tests
-          poetry run black --diff --check --config pyproject.toml tests
-          poetry run darglint --verbosity 2 tests
-
     - name: Run ruff
       uses: chartboost/ruff-action@v1
 

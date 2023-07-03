@@ -34,6 +34,10 @@ jobs:
         poetry config virtualenvs.create false
         poetry install
 
+    - name: PyTorch version
+      run: |
+        poetry run python -c "import torch; print(torch.__version__)"
+
     - name: Run ruff
       uses: chartboost/ruff-action@v1
 

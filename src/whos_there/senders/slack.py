@@ -1,3 +1,5 @@
+from __future__ import annotations  # remove when dropping 3.8 support
+
 from whos_there.senders.base import Sender
 
 

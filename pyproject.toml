@@ -42,7 +42,7 @@ torch = ">=1.11.0, !=2.0.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
-black = ">=22.12,<24.0"
+black = "^23.3.0"
 isort = {extras = ["colors"], version = "^5.11.4"}
 mypy = ">=0.991,<1.5"
 mypy-extensions = ">=0.4.3,<1.1.0"

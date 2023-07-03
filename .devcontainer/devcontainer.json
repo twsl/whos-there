@@ -8,14 +8,14 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "VARIANT": "3.8"
+            "VARIANT": "3.10"
         }
     },
     "runArgs": [
         //"--gpus=all",
         // One of the following options is required for torch multiprocessing
         //"--ipc=host",
-        "--shm-size=2gb"
+        //"--shm-size=2gb"
     ],
     "remoteEnv": {
         "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
@@ -50,26 +50,19 @@
                 "python.analysis.useImportHeuristic": true,
                 "python.analysis.typeCheckingMode": "off",
                 "python.analysis.diagnosticMode": "workspace",
-                // "python.analysis.extraPaths": [
-                //     "bbdc2022",
-                // ],
                 "python.sortImports": true,
                 "isort.args": [
                     "--src=${workspaceFolder}",
-                    "--profile",
-                    "black",
-                    "--atomic",
-                    "--py",
-                    "38",
-                    "--line-length",
-                    "120"
+                    "--settings-path",
+                    "pyproject.toml"
                 ],
                 "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
                 "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
                 "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
                 "python.formatting.provider": "black",
                 "python.formatting.blackArgs": [
-                    "--line-length=120"
+                    "--line-length=120",
+                    "--config=pyproject.toml"
                 ],
                 "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
                 "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
@@ -94,7 +87,9 @@
                 ],
                 "[python]": {
                     "editor.codeActionsOnSave": {
-                        "source.organizeImports": true
+                        "source.organizeImports": true,
+                        "source.organizeImports.ruff": true,
+                        "source.fixAll.ruff": true
                     }
                 },
                 "testExplorer.codeLens": true,
@@ -110,6 +105,7 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-toolsai.jupyter",
+                "charliermarsh.ruff",
                 "ms-vscode.test-adapter-converter",
                 "littlefoxteam.vscode-python-test-adapter",
                 "kevinrose.vsc-python-indent",
@@ -123,7 +119,9 @@
                 "uctakeoff.vscode-counter",
                 "nhoizey.gremlins",
                 "mechatroner.rainbow-csv",
-                "KevinRose.vsc-python-indent"
+                "KevinRose.vsc-python-indent",
+                "VisualStudioExptTeam.vscodeintellicode-completions",
+                "github.vscode-github-actions"
             ]
         }
     },

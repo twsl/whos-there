@@ -6,39 +6,47 @@ jobs:
 
   build-and-test:
     name: "Build and Test"
-    runs-on: ubuntu-latest
+    runs-on:  ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        os: [ubuntu-latest, macos-latest, "windows-latest"]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4.6.1
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install poetry
-      run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
 
     - name: Set up cache
       uses: actions/cache@v3
+      id: cached-poetry-dependencies
       with:
         path: .venv
-        key: venv-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}-${{ hashFiles('poetry.lock') }}
+        key: venv-${{ matrix.os }}-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}-${{ hashFiles('poetry.lock') }}
 
     - name: Install dependencies
-      run: |
-        poetry config virtualenvs.create false
-        poetry install
+      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      run: poetry install --no-interaction
 
-    - name: Run style checks
+    - name: PyTorch version
       run: |
-          poetry run isort --diff --check-only --settings-path pyproject.toml tests
-          poetry run black --diff --check --config pyproject.toml tests
-          poetry run darglint --verbosity 2 tests
+        poetry run python -c "import torch; print(torch.__version__)"
+
+    - name: Run ruff
+      uses: chartboost/ruff-action@v1
 
     - name: Install plugin
       run: pip install pytest-github-actions-annotate-failures

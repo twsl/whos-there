@@ -24,7 +24,7 @@
 [#github-releases]: https://github.com/twsl/whos-there/releases
 [#github-workflows-build]: https://github.com/twsl/whos-there/actions/workflows/build.yml
 <!--- BADGES: END --->
-    
+
 The spiritual successor to [knockknock](https://github.com/huggingface/knockknock) for [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), to get a notification when your training is complete or when it crashes during the process with a single callback.
 
 </div>

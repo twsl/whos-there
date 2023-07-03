@@ -19,6 +19,7 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/etc/poetry python
 ENV PATH "/etc/poetry/bin:$PATH"
 RUN poetry completions bash >> ~/.bash_completion
 RUN poetry config virtualenvs.create false
+RUN poetry self add "poetry-dynamic-versioning[plugin]" && poetry dynamic-versioning enable
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp/pip-tmp/

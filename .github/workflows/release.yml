@@ -18,7 +18,7 @@ jobs:
         python-version: "3.8"
 
     - name: Install poetry
-      run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+      run: curl -sSL https://install.python-poetry.org | python -
 
     - name: Set up cache
       uses: actions/cache@v3
@@ -30,6 +30,10 @@ jobs:
       run: |
         poetry config virtualenvs.in-project true
         poetry install
+
+    - name: Check pip
+      run: |
+        pip check
 
     - name: Set build version from tag
       run: |

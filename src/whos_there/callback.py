@@ -1,3 +1,5 @@
+from __future__ import annotations  # remove when dropping 3.8 support
+
 import socket
 import textwrap
 from typing import Any
@@ -32,7 +34,7 @@ class NotificationCallback(pl.Callback):
             except Exception:
                 logger.exception(f"An exception using {sender} occurred.")
 
-    def setup(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: str) -> None:
+    def setup(self, trainer: pl.Trainer, pl_module: pl.LightningModule, stage: str) -> None:
         """Called when fit, validate, test, predict, or tune begins.
 
         Args:
@@ -43,7 +45,7 @@ class NotificationCallback(pl.Callback):
         if trainer.global_rank == 0:
             self._current_stage = stage
 
-    def teardown(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", stage: str) -> None:
+    def teardown(self, trainer: pl.Trainer, pl_module: pl.LightningModule, stage: str) -> None:
         """Called when fit, validate, test, predict, or tune ends.
 
         Args:
@@ -64,7 +66,7 @@ class NotificationCallback(pl.Callback):
                 contents = f"{icon} {stage.capitalize()} stage of {name} on {socket.gethostname()} is complete."
                 self._send(contents)
 
-    def on_exception(self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", exception: BaseException) -> None:
+    def on_exception(self, trainer: pl.Trainer, pl_module: pl.LightningModule, exception: BaseException) -> None:
         """Called when any trainer execution is interrupted by an exception.
 
         Args:
@@ -87,7 +89,7 @@ class NotificationCallback(pl.Callback):
         return {"current_stage": self._current_stage}
 
     def on_load_checkpoint(
-        self, trainer: "pl.Trainer", pl_module: "pl.LightningModule", checkpoint: dict[str, Any]
+        self, trainer: pl.Trainer, pl_module: pl.LightningModule, checkpoint: dict[str, Any]
     ) -> None:
         r"""Called when loading a model checkpoint, use to reload state.
 

@@ -54,7 +54,7 @@ pytest-cov = "^4.0.0"
 coverage = "^7.2.5"
 flake8-docstrings = "^1.6.0"
 pyupgrade = "^3.3.1"
-ruff = ">=0.0.275,<0.1.4"
+ruff = ">=0.0.275,<0.1.5"
 
 [tool.poetry.group.debug]
 optional = true

@@ -80,7 +80,7 @@ jobs:
         path: dist/
 
     - name: Upload to release
-      uses: AButler/upload-release-assets@v2.0
+      uses: AButler/upload-release-assets@v3.0
       if: startsWith(github.event.ref, 'refs/tags') || github.event_name == 'release'
       with:
         files: 'dist/*'

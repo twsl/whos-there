@@ -44,7 +44,7 @@ torch = ">=1.11.0, !=2.0.1"
 pytest = "^7.3.1"
 black = "^23.3.0"
 isort = {extras = ["colors"], version = "^5.11.4"}
-mypy = ">=0.991,<1.7"
+mypy = ">=0.991,<1.9"
 mypy-extensions = ">=0.4.3,<1.1.0"
 flake8 = "^6.0.0"
 safety = "^2.3.5"

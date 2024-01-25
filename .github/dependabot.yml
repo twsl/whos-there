@@ -24,3 +24,8 @@ updates:
     #commit-message:
       #prefix: ":arrow_up:"
     open-pull-requests-limit: 50
+
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: daily

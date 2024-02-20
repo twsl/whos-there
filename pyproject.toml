@@ -41,7 +41,7 @@ requests = "^2.28.2"
 torch = ">=1.11.0, !=2.0.1"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.3.1"
+pytest = ">=7.3.1,<9.0.0"
 black = ">=23.3,<25.0"
 isort = {extras = ["colors"], version = "^5.11.4"}
 mypy = ">=0.991,<1.7"

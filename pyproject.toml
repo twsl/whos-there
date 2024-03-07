@@ -36,7 +36,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8.1"
 pytorch-lightning = ">=2.0,<3.0"
-python-telegram-bot = "^20.0"
+python-telegram-bot = ">=20,<22"
 requests = "^2.28.2"
 torch = ">=1.11.0, !=2.0.1"
 

@@ -21,11 +21,10 @@ concurrency:
 env:
   ARTIFACT: docs
 
-
 jobs:
   build-docs:
     name: Build docs
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -76,7 +75,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
     if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages

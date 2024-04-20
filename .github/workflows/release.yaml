@@ -5,17 +5,15 @@ on:
   release:
     types: [published]
 
-
 jobs:
   release:
     strategy:
       matrix:
         python-version: ["3.11"]
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
     defaults:
       run:
         shell: bash
-
 
     steps:
       - name: Checkout
@@ -70,9 +68,8 @@ jobs:
         run: |
           poetry publish -u "__token__" -p ${{ secrets.PYPI_API_TOKEN }}
 
-
   upload-packages:
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
     permissions: write-all
     needs: release
     steps:

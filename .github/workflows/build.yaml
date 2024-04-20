@@ -6,21 +6,19 @@ on:
   pull_request:
   workflow_dispatch:
 
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-
 jobs:
   build-and-test:
     name: Build and Test
-    runs-on:  ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        python-version: ["3.10", "3.11", "3.12"]
     defaults:
       run:
         shell: bash
@@ -35,7 +33,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-#          cache: 'poetry'
+      #          cache: 'poetry'
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
@@ -81,8 +79,8 @@ jobs:
       - name: Run ruff
         run: poetry run ruff check -v ./
 
-#      - name: Run Pyright
-#        uses: jakebailey/pyright-action@v2
+      #      - name: Run Pyright
+      #        uses: jakebailey/pyright-action@v2
 
       - name: Run safety checks
         run: |
@@ -103,7 +101,6 @@ jobs:
           path: junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml
         if: ${{ always() }}
 
-
   publish:
     permissions:
       contents: read
@@ -112,7 +109,7 @@ jobs:
       pull-requests: write
     name: Publish Unit Tests Results
     needs: build-and-test
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
     # the build-and-test job might be skipped, we don't need to run this job then
     if: >
       always() &&

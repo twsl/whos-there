@@ -63,9 +63,8 @@ repos:
     rev: v1.1.359
     hooks:
       - id: pyright
-        entry: poetry run pyright -p .
+        entry: pyright -p .
         language: system
-        #pass_filenames: false
         types: [python]
 
   - repo: https://github.com/gitleaks/gitleaks

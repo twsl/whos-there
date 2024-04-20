@@ -1,3 +1,1 @@
-from importlib.metadata import version
-
-__version__ = version("whos_there")
+from whos_there.__about__ import __version__, __version_tuple__

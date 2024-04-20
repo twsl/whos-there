@@ -1,3 +1,5 @@
+from typing import Any
+
 from whos_there.senders.base import Sender
 
 
@@ -11,5 +13,5 @@ class DiscordSender(Sender):
         super().__init__()
         self.webhook_url = webhook_url
 
-    def send(self, text: str) -> None:
+    def send(self, text: str) -> Any:
         return self._send_json(self.webhook_url, {"content": text})

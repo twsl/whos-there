@@ -5,7 +5,7 @@ Please include a summary of the change and which issue is fixed.
 Please also include relevant motivation and context.
 List any dependencies that are required for this change.
 If we didn't discuss your PR in Github issues there's a high chance it will not be merged.
-The following links the related issue to the PR (https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)
+The following links the related issue to the PR (https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)
 -->
 
 Fixes #\<issue_number>
@@ -17,20 +17,17 @@ Fixes #\<issue_number>
 ## Before submitting
 
 - [ ] Was this **discussed/approved** via a GitHub issue? (not for typos and docs)
-- [ ] Did you read the [contributor guideline](https://github.com/PyTorchLightning/pytorch-lightning/blob/master/.github/CONTRIBUTING.md), **Pull Request** section?
+- [ ] Did you read the [contributor guideline](https://github.com/twsl/whos-there/blob/main/.github/CONTRIBUTING.md), **Pull Request** section?
 - [ ] Did you make sure your **PR does only one thing**, instead of bundling different changes together?
 - [ ] Did you make sure to **update the documentation** with your changes? (if necessary)
 - [ ] Did you write any **new necessary tests**? (not for typos and docs)
 - [ ] Did you verify new and **existing tests pass** locally with your changes?
 - [ ] Did you list all the **breaking changes** introduced by this pull request?
-- [ ] Did you **update the [CHANGELOG](https://github.com/PyTorchLightning/pytorch-lightning/blob/master/CHANGELOG.md)**? (not for typos, docs, test updates, or internal minor changes/refactorings)
-
-<!-- In the CHANGELOG, separate each item in the unreleased section by a blank line to reduce collisions -->
 
 ## PR review
 
 Anyone in the community is welcome to review the PR.
-Before you start reviewing make sure you have read [Review guidelines](https://github.com/PyTorchLightning/pytorch-lightning/wiki/Review-guidelines). In short, see the following bullet-list:
+Before you start reviewing make sure you have read [Review guidelines](https://github.com/twsl/whos-there/blob/main/.github/CONTRIBUTING.md#Review). In short, see the following bullet-list:
 
 - [ ] Is this pull request ready for review? (if not, please submit in draft mode)
 - [ ] Check that all items from **Before submitting** are resolved

@@ -1,48 +1,49 @@
 from pathlib import Path
 import types
+from typing import Any
 
-import pytorch_lightning as pl
+import lightning.pytorch as pl
 import torch
+from torch import Tensor
 from torch.utils.data import DataLoader, Dataset
-
 from whos_there.callback import NotificationCallback
 from whos_there.senders.base import Sender
 
 
 class RandomDataset(Dataset):
-    def __init__(self, size, length):
+    def __init__(self, size: int, length: int) -> None:
         self.len = length
         self.data = torch.randn(length, size)
 
-    def __getitem__(self, index):
+    def __getitem__(self, index) -> Tensor:
         return self.data[index]
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.len
 
 
 class BoringModel(pl.LightningModule):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.layer = torch.nn.Linear(32, 2)
 
-    def forward(self, x):
+    def forward(self, x: Tensor, *args, **kwargs) -> Tensor:  # pyright: ignore [reportIncompatibleMethodOverride]
         return self.layer(x)
 
-    def training_step(self, batch, batch_idx):
+    def training_step(self, batch, batch_idx) -> dict[str, Any]:  # pyright: ignore [reportIncompatibleMethodOverride]
         loss = self(batch).sum()
         self.log("train_loss", loss)
         return {"loss": loss}
 
-    def validation_step(self, batch, batch_idx):
+    def validation_step(self, batch, batch_idx) -> None:  # pyright: ignore [reportIncompatibleMethodOverride]
         loss = self(batch).sum()
         self.log("valid_loss", loss)
 
-    def test_step(self, batch, batch_idx):
+    def test_step(self, batch, batch_idx) -> None:  # pyright: ignore [reportIncompatibleMethodOverride]
         loss = self(batch).sum()
         self.log("test_loss", loss)
 
-    def configure_optimizers(self):
+    def configure_optimizers(self) -> Any:
         return torch.optim.SGD(self.layer.parameters(), lr=0.1)
 
 

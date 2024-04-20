@@ -1,4 +1,6 @@
-# whos_there
+# whos-there: The spiritual successor to knockknock for PyTorch Lightning, get notified when your training ends
+
+Welcome to whos-there's documentation!
 
 <!--- BADGES: START --->
 [![Build](https://github.com/twsl/whos-there/actions/workflows/build.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yaml)
@@ -27,7 +29,6 @@ The spiritual successor to [knockknock](https://github.com/huggingface/knockknoc
 
 - Supports E-Mail, Discord, Slack, Teams, Telegram
 
-
 ## Installation
 
 With `pip`:
@@ -48,110 +49,15 @@ conda install conda-forge::whos-there
 Check [here](https://github.com/conda-forge/whos-there-feedstock) for more information.
 
 
-## Update template
-
-```bash
-copier update --trust
-```
-
-
-## How to use it
+## Usage
 
 ```python
 from whos_there.callback import NotificationCallback
 from whos_there.senders.debug import DebugSender
-
-trainer = pl.Trainer(
-    callbacks=[
-        NotificationCallback(senders=[
-            # Add your senders here
-            DebugSender(),
-        ])
-    ]
-)
 ```
 
-### E-Mail
-Requires your e-mail provider specific SMTP settings.
+See a more complete example in the [notebooks](notebooks) folder.
 
-```python
-from whos_there.senders.email import EmailSender
-# ...
-EmailSender(
-    host="smtp.example.de",
-    port=587,
-    sender_email="from@example.com",
-    password="*********",
-    recipient_emails=[
-        "to1@example.com",
-        "to2@example.com",
-    ]
-)
-```
+## API
 
-### Discord
-Requires your Discord channel's [webhook URL](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
-
-```python
-from whos_there.senders.discord import DiscordSender
-# ...
-DiscordSender(
-    webhook_url="https://discord.com/api/webhooks/XXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-)
-```
-
-### Slack
-Requires your Slack room [webhook URL](https://api.slack.com/incoming-webhooks#create_a_webhook) and optionally your [user id](https://api.slack.com/methods/users.identity) (if you want to tag yourself or someone else).
-
-```python
-from whos_there.senders.slack import SlackSender
-# ...
-SlackSender(
-    webhook_url="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",   # gitleaks:allow
-    channel="channel_name",
-    user_mentions=[
-        "XXXXXXXX"
-    ]
-)
-```
-
-### Teams
-Requires your Team Channel [webhook URL](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/connectors/connectors-using).
-
-```python
-from whos_there.senders.teams import TeamsSender
-# ...
-TeamsSender(
-    webhook_url="https://XXXXX.webhook.office.com/",
-    user_mentions=[
-        "twsl"
-    ]
-)
-```
-
-### Telegram
-You can also use Telegram Messenger to get notifications. You'll first have to create your own notification bot by following the three steps provided by Telegram [here](https://core.telegram.org/bots#6-botfather) and save your API access `TOKEN`.
-Telegram bots are shy and can't send the first message so you'll have to do the first step. By sending the first message, you'll be able to get the `chat_id` required (identification of your messaging room) by visiting `https://api.telegram.org/bot<YourBOTToken>/getUpdates` and get the `int` under the key `message['chat']['id']`.
-
-```python
-from whos_there.senders.telegram import TelegramSender
-# ...
-TelegramSender(
-    chat_id=1234567890,
-    token="XXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-)
-```
-
-
-## Docs
-
-```bash
-poetry run mkdocs build -f ./docs/mkdocs.yaml -d ./docs/_build/
-```
-
-
-## Credits
-
-This project was generated with [![🚀 A generic python project template.](https://img.shields.io/badge/python--project--template-%F0%9F%9A%80-brightgreen)](https://github.com/twsl/python-project-template)
-
-Big thanks to [knockknock](https://github.com/huggingface/knockknock) for the idea and code snippets.
+Check the [API reference](api/whos_there/) for more details.

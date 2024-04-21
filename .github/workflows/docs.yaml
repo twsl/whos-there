@@ -60,13 +60,13 @@ jobs:
         run: poetry build
 
       - name: Build MkDocs docs
-        run: poetry run mkdocs build -f ./docs/mkdocs.yml -d ./docs/_build/
+        run: poetry run mkdocs build -f ./docs/mkdocs.yml -d ./_build/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACT }}
-          path: ./docs/build/
+          path: ./build/
         if: ${{ always() }}
 
   deploy-docs:

@@ -32,5 +32,8 @@ jobs:
           virtualenvs-create: true
           virtualenvs-in-project: true
 
+      - name: Install plugin
+        run: poetry add --group DEV pyright
+
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1

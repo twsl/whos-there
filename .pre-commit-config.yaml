@@ -63,7 +63,7 @@ repos:
     rev: v1.1.359
     hooks:
       - id: pyright
-        entry: pyright -p .
+        entry: poetry run pyright -p .
         language: system
         types: [python]
 

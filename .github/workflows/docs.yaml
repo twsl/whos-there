@@ -66,7 +66,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACT }}
-          path: ./build/
+          path: ./docs/build/
         if: ${{ always() }}
 
   deploy-docs:

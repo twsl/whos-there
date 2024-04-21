@@ -6,7 +6,7 @@
 ![GitHub Release](https://img.shields.io/github/v/release/twsl/whos-there?include_prereleases)
 [![PyPI - Package Version](https://img.shields.io/pypi/v/whos-there?logo=pypi&style=flat&color=orange)](https://pypi.org/project/whos-there/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whos-there?logo=pypi&style=flat&color=blue)](https://pypi.org/project/whos-there/)
-[![Dependencies Status](https://img.shields.io/badge/dependencies-up to date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=✓&q=is:pr author:app/dependabot)
+[![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=%E2%9C%93&q=is:pr%20author:app/dependabot)
 [![Conda - Platform](https://img.shields.io/conda/pn/conda-forge/whos-there?logo=anaconda&style=flat)](https://anaconda.org/conda-forge/whos-there)
 [![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/whos-there?logo=anaconda&style=flat&color=orange)](https://anaconda.org/conda-forge/whos-there)
 [![Docs with MkDocs](https://img.shields.io/badge/MkDocs-docs?style=flat&logo=materialformkdocs&logoColor=white&color=%23526CFE)](https://squidfunk.github.io/mkdocs-material/)
@@ -146,7 +146,7 @@ TelegramSender(
 ## Docs
 
 ```bash
-poetry run mkdocs build -f ./docs/mkdocs.yaml -d ./docs/_build/
+poetry run mkdocs build -f ./docs/mkdocs.yaml -d ./_build/
 ```
 
 

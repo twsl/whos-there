@@ -6,7 +6,7 @@
 
 Vulnerabilities can be reported by emailing whos_there's core members:
 
-- twsl [twsl@users.noreply.github.com](mailto:twsl@users.noreply.github.com)
+- twsl [45483159+twsl@users.noreply.github.com](mailto:45483159+twsl@users.noreply.github.com)
 
 Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
 

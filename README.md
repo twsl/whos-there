@@ -58,6 +58,7 @@ copier update --trust
 ## How to use it
 
 ```python
+import lightning.pytorch as pl
 from whos_there.callback import NotificationCallback
 from whos_there.senders.debug import DebugSender
 

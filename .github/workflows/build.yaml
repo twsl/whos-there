@@ -58,9 +58,13 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
 
+      - name: Check potry
+        run: |
+          poetry check
+
       - name: Check pip
         run: |
-          pip check
+          poetry run pip check
 
       - name: PyTorch version
         run: |

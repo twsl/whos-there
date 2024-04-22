@@ -16,7 +16,7 @@ maintainers = ["twsl <45483159+twsl@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/twsl/whos-there"
-homepage = "https://pages.github.com/twsl/whos-there"
+homepage = "https://twsl.github.io/whos-there/"
 packages = [ { include = "whos_there", from = "src" } ]
 keywords = [
   "python",

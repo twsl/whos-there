@@ -22,7 +22,7 @@
         "ghcr.io/devcontainers-contrib/features/actionlint:1": {},
         "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
         "ghcr.io/dhoeric/features/act:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest",
             "moby": true
         }

@@ -49,9 +49,6 @@ jobs:
           path: .venv
           key: venv-Linux-3.11-${{ hashFiles('poetry.lock') }}
 
-      - name: Sphinx
-        run: sudo apt install -y python3-sphinx
-
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
@@ -66,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT }}
-          path: ./docs/build/
+          path: ./docs/_build/
         if: ${{ always() }}
 
   deploy-docs:

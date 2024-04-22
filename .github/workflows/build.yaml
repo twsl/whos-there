@@ -74,7 +74,7 @@ jobs:
         run: poetry build
 
       - name: Upload dist
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ github.event.repository.name }}-${{ runner.os }}-${{ matrix.python-version }}-${{ github.sha }}
           path: dist/
@@ -99,7 +99,7 @@ jobs:
           --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml --cov=${{ github.event.repository.name }}
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pytest-results-${{ runner.os }}-${{ matrix.python-version }}
           path: junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml

@@ -90,7 +90,7 @@ jobs:
           path: artifacts
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2 # cant update yet
+        uses: actions/upload-pages-artifact@v3 # cant update yet
         with:
           artifact_name: "github-pages"
           path: artifacts/${{ env.ARTIFACT }}/

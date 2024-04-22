@@ -1,19 +1,20 @@
-# Security Policy
+# Security
 
-## Supported Versions
+> [!IMPORTANT]
+> Please do not open issues that might have security implications!
+> Send them directly to the maintainers.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Vulnerabilities can be reported by emailing whos_there's core members:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.2.x   | :white_check_mark: |
-| < 0.2.0   | :x:                |
+- twsl [45483159+twsl@users.noreply.github.com](mailto:45483159+twsl@users.noreply.github.com)
 
-## Reporting a Vulnerability
+Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
+- Full paths of source file(s) related to the manifestation of the issue
+- The location of the affected source code (tag/branch/commit or direct URL)
+- Any special configuration required to reproduce the issue
+- Environment (e.g. Linux / Windows / macOS)
+- Step-by-step instructions to reproduce the issue
+- Proof-of-concept or exploit code (if possible)
+- Impact of the issue, including how an attacker might exploit the issue

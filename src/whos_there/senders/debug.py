@@ -1,3 +1,5 @@
+from typing import Any
+
 from whos_there.senders.base import Sender
 from whos_there.utils.logging import get_logger
 
@@ -16,7 +18,7 @@ class DebugSender(Sender):
         super().__init__()
         self.print = print
 
-    def send(self, text: str) -> None:
+    def send(self, text: str) -> Any:
         logger.debug(text)
         if self.print:
             print(text)

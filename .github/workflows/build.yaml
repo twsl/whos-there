@@ -1,0 +1,135 @@
+---
+name: Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          # cache: 'poetry'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Add poetry to path
+        run: echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
+
+      - name: Set up cache
+        uses: actions/cache@v4
+        id: cached-poetry-dependencies
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+
+      - name: Install plugin
+        run: poetry add --group test pytest-github-actions-annotate-failures
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction
+
+      - name: Check potry
+        run: |
+          poetry check
+
+      - name: Check pip
+        run: |
+          poetry run pip check
+
+      - name: PyTorch version
+        run: |
+          poetry run python -c "import torch; print(torch.__version__)"
+
+      - name: Build dependencies
+        run: poetry build
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.event.repository.name }}-${{ runner.os }}-${{ matrix.python-version }}-${{ github.sha }}
+          path: dist/
+        if: ${{ always() }}
+
+      - name: Run ruff
+        run: poetry run ruff check -v ./
+
+      #      - name: Run Pyright
+      #        uses: jakebailey/pyright-action@v2
+
+      - name: Run safety checks
+        run: |
+          poetry check
+          poetry run safety check --full-report
+          poetry run bandit -ll --recursive hooks
+        continue-on-error: true
+
+      - name: Run tests
+        run: |
+          poetry run pytest -c pyproject.toml --cov-report=xml --cov-report=html \
+          --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml --cov=${{ github.event.repository.name }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-results-${{ runner.os }}-${{ matrix.python-version }}
+          path: junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml
+        if: ${{ always() }}
+
+  publish:
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+    name: Publish Unit Tests Results
+    needs: build-and-test
+    runs-on: ["ubuntu-latest"]
+    # the build-and-test job might be skipped, we don't need to run this job then
+    if: >
+      always() &&
+      github.event.workflow_run.conclusion != 'skipped' && (
+        github.event.sender.login != 'dependabot[bot]' ||
+        github.event.workflow_run.head_repository.full_name != github.repository
+      )
+
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: github.event.sender.login != 'dependabot[bot]'
+        with:
+          files: artifacts/**/*.xml

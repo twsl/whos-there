@@ -133,3 +133,8 @@ dmypy.json
 lightning_logs/
 
 .ruff_cache/
+
+# Docs
+docs/_build/
+docs/docs/api/
+docs/docs/src/

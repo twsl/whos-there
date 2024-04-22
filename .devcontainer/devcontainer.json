@@ -1,14 +1,13 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-    "name": "Python 3",
+    "name": "Python 3 (whos_there)",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    //"image": "mcr.microsoft.com/devcontainers/python:0-3.10",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "VARIANT": "3.10"
+            "VARIANT": "3.11-bookworm"
         }
     },
     "runArgs": [
@@ -17,15 +16,21 @@
         //"--ipc=host",
         //"--shm-size=2gb"
     ],
-    "remoteEnv": {
-        "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
-    },
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers-contrib/features/actionlint:1": {},
         "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
-        "ghcr.io/dhoeric/features/act:1": {}
+        "ghcr.io/dhoeric/features/act:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest",
+            "moby": true
+        }
     },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "poetry install && pre-commit install && pre-commit autoupdate",
     // Configure tool-specific properties.
     "customizations": {
         // Configure properties specific to VS Code.
@@ -47,88 +52,77 @@
                 "python.analysis.autoImportCompletions": true,
                 "python.analysis.completeFunctionParens": true,
                 "python.analysis.autoSearchPaths": true,
+                "python.analysis.autoFormatStrings": true,
                 "python.analysis.useImportHeuristic": true,
-                "python.analysis.typeCheckingMode": "off",
+                "python.analysis.typeCheckingMode": "basic",
+                "python.analysis.inlayHints.variableTypes": true,
+                "python.analysis.inlayHints.functionReturnTypes": true,
                 "python.analysis.diagnosticMode": "workspace",
+                "python.analysis.extraPaths": [
+                    "./src"
+                ],
                 "python.sortImports": true,
-                "isort.args": [
-                    "--src=${workspaceFolder}",
-                    "--settings-path",
-                    "pyproject.toml"
-                ],
-                "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-                "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-                "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-                "python.formatting.provider": "black",
-                "python.formatting.blackArgs": [
-                    "--line-length=120",
-                    "--config=pyproject.toml"
-                ],
-                "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-                "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-                "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-                "python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-                "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-                "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-                "python.linting.enabled": true,
-                "python.linting.pylintEnabled": false,
-                "python.linting.flake8Enabled": true,
-                "python.linting.flake8Args": [
-                    "--ignore=E24,W504,F401,E203,W503,D100",
-                    "--max-line-length=120",
-                    "--verbose",
-                    "--docstring-convention=google"
-                ],
                 "python.testing.autoTestDiscoverOnSaveEnabled": false,
+                "python.testing.unittestEnabled": false,
                 "python.testing.pytestEnabled": true,
-                "python.testing.cwd": "./tests",
+                "python.testing.cwd": "${workspaceFolder}",
                 "python.testing.pytestArgs": [
+                    "tests",
                     "-v"
                 ],
                 "[python]": {
+                    "editor.formatOnType": true,
+                    "editor.defaultFormatter": "charliermarsh.ruff",
                     "editor.codeActionsOnSave": {
-                        "source.organizeImports": true,
-                        "source.organizeImports.ruff": true,
-                        "source.fixAll.ruff": true
+                        "source.organizeImports": "always",
+                        "source.organizeImports.ruff": "always",
+                        "source.fixAll.ruff": "always"
                     }
                 },
                 "testExplorer.codeLens": true,
                 "testExplorer.gutterDecoration": true,
+                "git.enableSmartCommit": true,
+                "git.autofetch": true,
                 "autoDocstring.docstringFormat": "google-notypes",
                 "autoDocstring.guessTypes": true,
                 "autoDocstring.generateDocstringOnEnter": true,
                 "autoDocstring.startOnNewLine": true,
-                "http.proxyStrictSSL": false // required for self signed certificates
+                "telemetry.telemetryLevel": "off",
+                "files.eol": "\n",
             },
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-toolsai.jupyter",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "github.vscode-github-actions",
                 "charliermarsh.ruff",
+                "esbenp.prettier-vscode",
                 "ms-vscode.test-adapter-converter",
                 "littlefoxteam.vscode-python-test-adapter",
-                "kevinrose.vsc-python-indent",
-                "medo64.render-crlf",
-                "visualstudioexptteam.vscodeintellicode",
-                "shardulm94.trailing-spaces",
-                "ms-vscode-remote.vscode-remote-extensionpack",
                 "njqdev.vscode-python-typehint",
-                "gruntfuggly.todo-tree",
-                "njpwerner.autodocstring",
-                "uctakeoff.vscode-counter",
-                "nhoizey.gremlins",
-                "mechatroner.rainbow-csv",
                 "KevinRose.vsc-python-indent",
-                "VisualStudioExptTeam.vscodeintellicode-completions",
-                "github.vscode-github-actions"
+                "medo64.render-crlf",
+                "shardulm94.trailing-spaces",
+                "nhoizey.gremlins",
+                "wayou.vscode-todo-highlight",
+                "Gruntfuggly.todo-tree",
+                "njpwerner.autodocstring",
+                "rodolphebarbanneau.python-docstring-highlighter",
+                "mechatroner.rainbow-csv",
+                "uctakeoff.vscode-counter",
+                "bierner.github-markdown-preview",
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "ms-azuretools.vscode-docker",
+                "uctakeoff.vscode-counter",
+                "bierner.github-markdown-preview",
+                "ExecutableBookProject.myst-highlight",
+                "redhat.vscode-yaml"
             ]
         }
     },
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    // "forwardPorts": [],
-    // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "poetry install && pre-commit install",
-    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     "remoteUser": "root"
 }

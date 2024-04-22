@@ -1,63 +1,64 @@
 # Who's there?
 
-<div align="center">
-
 <!--- BADGES: START --->
-[![PyPI - Package Version](https://img.shields.io/pypi/v/whos-there?logo=pypi&style=flat&color=orange)][#pypi-package]
-[![Conda - Platform](https://img.shields.io/conda/pn/conda-forge/whos-there?logo=anaconda&style=flat)][#conda-forge-package]
-[![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/whos-there?logo=anaconda&style=flat&color=orange)][#conda-forge-package]
-
-[![Build](https://github.com/twsl/whos-there/actions/workflows/build.yml/badge.svg)][#github-workflows-build]
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whos-there?logo=pypi&style=flat&color=blue)][#pypi-package]
-[![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
-
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Security: bandit](https://img.shields.io/badge/security-bandit-green.svg)](https://github.com/PyCQA/bandit)
-[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][#github-pre-commit]
-[![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)][#github-releases]
-[![GitHub - License](https://img.shields.io/github/license/twsl/whos-there?logo=github&style=flat&color=green)][#github-license]
-
-[#github-license]: https://github.com/twsl/whos-there/blob/main/LICENSE
-[#pypi-package]: https://pypi.org/project/whos-there/
-[#conda-forge-package]: https://anaconda.org/conda-forge/whos-there
-[#github-pre-commit]: https://github.com/twsl/whos-there/blob/master/.pre-commit-config.yaml
-[#github-releases]: https://github.com/twsl/whos-there/releases
-[#github-workflows-build]: https://github.com/twsl/whos-there/actions/workflows/build.yml
+[![Build](https://github.com/twsl/whos-there/actions/workflows/build.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yaml)
+[![Documentation](https://github.com/twsl/whos-there/actions/workflows/docs.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/docs.yaml)
+![GitHub Release](https://img.shields.io/github/v/release/twsl/whos-there?include_prereleases)
+[![PyPI - Package Version](https://img.shields.io/pypi/v/whos-there?logo=pypi&style=flat&color=orange)](https://pypi.org/project/whos-there/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whos-there?logo=pypi&style=flat&color=blue)](https://pypi.org/project/whos-there/)
+[![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=%E2%9C%93&q=is:pr%20author:app/dependabot)
+[![Conda - Platform](https://img.shields.io/conda/pn/conda-forge/whos-there?logo=anaconda&style=flat)](https://anaconda.org/conda-forge/whos-there)
+[![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/whos-there?logo=anaconda&style=flat&color=orange)](https://anaconda.org/conda-forge/whos-there)
+[![Docs with MkDocs](https://img.shields.io/badge/MkDocs-docs?style=flat&logo=materialformkdocs&logoColor=white&color=%23526CFE)](https://squidfunk.github.io/mkdocs-material/)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
+[![linting: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](.pre-commit-config.yaml)
+[![Checked with pyright](https://microsoft.github.io/pyright/img/pyright_badge.svg)](https://microsoft.github.io/pyright/)
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![vulnerability: safety](https://img.shields.io/badge/vulnerability-safety-yellow.svg)](https://github.com/pyupio/safety)
+[![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)](https://github.com/twsl/whos-there/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 <!--- BADGES: END --->
 
 The spiritual successor to [knockknock](https://github.com/huggingface/knockknock) for [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), to get a notification when your training is complete or when it crashes during the process with a single callback.
 
-</div>
 
-## 🚀 Features
+## Features
 
 - Supports E-Mail, Discord, Slack, Teams, Telegram
 
-## 🎯 Installation
 
-You can install `whos-there` with `pip` or `poetry` or `conda`.
+## Installation
 
-**with pip**
-
+With `pip`:
 ```bash
-pip install -U whos-there
+python -m pip install whos-there
 ```
 
-**with poetry**
-
+With [`poetry`](https://python-poetry.org/):
 ```bash
 poetry add whos-there
 ```
 
-**with conda**
+With `conda`:
 
-```sh
-conda install -c conda-forge whos-there
+```bash
+conda install conda-forge::whos-there
+```
+Check [here](https://github.com/conda-forge/whos-there-feedstock) for more information.
+
+
+## Update template
+
+```bash
+copier update --trust
 ```
 
-## 🤯 How to use it
+
+## How to use it
 
 ```python
+import lightning.pytorch as pl
 from whos_there.callback import NotificationCallback
 from whos_there.senders.debug import DebugSender
 
@@ -107,7 +108,7 @@ Requires your Slack room [webhook URL](https://api.slack.com/incoming-webhooks#c
 from whos_there.senders.slack import SlackSender
 # ...
 SlackSender(
-    webhook_url="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",
+    webhook_url="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",   # gitleaks:allow
     channel="channel_name",
     user_mentions=[
         "XXXXXXXX"
@@ -142,14 +143,16 @@ TelegramSender(
 )
 ```
 
-## 🛡 License
 
-[![License](https://img.shields.io/github/license/twsl/whos-there)](https://github.com/twsl/whos-there/blob/master/LICENSE)
+## Docs
 
-This project is licensed under the terms of the MIT license. See [LICENSE](https://github.com/twsl/whos-there/blob/master/LICENSE) for more details.
+```bash
+poetry run mkdocs build -f ./docs/mkdocs.yaml -d ./_build/
+```
 
-## 🏅 Credits
 
-This project was generated with [![🚀 Your next Python package needs a bleeding-edge project structure.](https://img.shields.io/badge/python--package--template-%F0%9F%9A%80-brightgreen)](https://github.com/TezRomacH/python-package-template)
+## Credits
+
+This project was generated with [![🚀 A generic python project template.](https://img.shields.io/badge/python--project--template-%F0%9F%9A%80-brightgreen)](https://github.com/twsl/python-project-template)
 
 Big thanks to [knockknock](https://github.com/huggingface/knockknock) for the idea and code snippets.

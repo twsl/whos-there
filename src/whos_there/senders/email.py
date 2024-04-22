@@ -2,6 +2,7 @@ from __future__ import annotations  # remove when dropping 3.8 support
 
 from email.message import EmailMessage
 import smtplib
+from typing import Any
 
 from whos_there.senders.base import Sender
 
@@ -23,7 +24,7 @@ class EmailSender(Sender):
         self.sender_email = sender_email
         self.password = password
         self.recipient_emails = recipient_emails
-        self._server: smtplib.SMTP = None
+        self._server: smtplib.SMTP | None = None
 
     @property
     def server(self) -> smtplib.SMTP:
@@ -38,7 +39,7 @@ class EmailSender(Sender):
             self._server.login(self.sender_email, self.password)
         return self._server
 
-    def send(self, text: str) -> None:
+    def send(self, text: str) -> Any:
         msg = EmailMessage()
         msg.set_content(text)
         msg["Subject"] = "Knock Knock"

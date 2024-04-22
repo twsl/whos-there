@@ -92,11 +92,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          artifact_name: "github-pages"
           path: artifacts/${{ env.ARTIFACT }}/
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: "github-pages"

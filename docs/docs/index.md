@@ -5,7 +5,7 @@ Welcome to whos-there's documentation!
 <!--- BADGES: START --->
 [![Build](https://github.com/twsl/whos-there/actions/workflows/build.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yaml)
 [![Documentation](https://github.com/twsl/whos-there/actions/workflows/docs.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/docs.yaml)
-![GitHub Release](https://img.shields.io/github/v/release/twsl/whos-there?include_prereleases)
+[![GitHub Release](https://img.shields.io/github/v/release/twsl/whos-there?include_prereleases)](https://github.com/twsl/whos-there/releases)
 [![PyPI - Package Version](https://img.shields.io/pypi/v/whos-there?logo=pypi&style=flat&color=orange)](https://pypi.org/project/whos-there/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whos-there?logo=pypi&style=flat&color=blue)](https://pypi.org/project/whos-there/)
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/twsl/whos-there/pulls?utf8=✓&q=is:pr%20author:app/dependabot)

@@ -18,12 +18,12 @@ theme:
     view: material/eye
   features:
     - announce.dismiss
-    - content.tooltips
     - content.code.annotate
     - content.code.copy
     # - content.code.select
     # - content.action.edit
     # - content.action.view
+    - content.tooltips
     - navigation.expand
     - navigation.footer
     - navigation.indexes
@@ -64,7 +64,7 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
 
-extra_css:
+extra_css: # fix ui bug in material theme/mkapi
   - styles/extra.css
 
 extra:
@@ -73,7 +73,7 @@ extra:
 plugins:
   - search
   - mkdocs-jupyter
-  - mkapi # after awesome-pages
+  - mkapi
   - awesome-pages
   - tags
   - git-authors

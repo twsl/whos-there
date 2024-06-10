@@ -48,13 +48,6 @@ conda install conda-forge::whos-there
 Check [here](https://github.com/conda-forge/whos-there-feedstock) for more information.
 
 
-## Update template
-
-```bash
-copier update --trust
-```
-
-
 ## How to use it
 
 ```python
@@ -150,6 +143,12 @@ TelegramSender(
 poetry run mkdocs build -f ./docs/mkdocs.yaml -d ./_build/
 ```
 
+
+## Update template
+
+```bash
+copier update --trust
+```
 
 ## Credits
 

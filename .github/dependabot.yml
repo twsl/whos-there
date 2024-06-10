@@ -5,13 +5,13 @@
 version: 2
 
 updates:
-  - package-ecosystem: "gitsubmodule"
-    directory: "/"
+  - package-ecosystem: gitsubmodule
+    directory: /
     schedule:
       interval: daily
 
-  - package-ecosystem: "devcontainers"
-    directory: "/"
+  - package-ecosystem: devcontainers
+    directory: /
     schedule:
       interval: daily
 

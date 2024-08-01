@@ -11,9 +11,8 @@ jobs:
     name: pre-commit
     strategy:
       fail-fast: true
-
       matrix:
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.11", "3.12"]
     runs-on: ["ubuntu-latest"]
 
     steps:
@@ -45,9 +44,6 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
-
-      - name: Install plugin
-        run: poetry add --group dev pyright
 
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1

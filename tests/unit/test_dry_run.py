@@ -59,6 +59,7 @@ class TestSender(Sender):
 
 def get_trainer(sender: Sender) -> pl.Trainer:
     return pl.Trainer(
+        accelerator="cpu",
         default_root_dir=Path.cwd(),
         limit_train_batches=1,
         limit_val_batches=1,

@@ -44,7 +44,7 @@ class BoringModel(pl.LightningModule):
         self.log("test_loss", loss)
 
     def configure_optimizers(self) -> Any:
-        return torch.optim.SGD(self.layer.parameters(), lr=0.1)
+        return torch.optim.sgd.SGD(self.layer.parameters(), lr=0.1)
 
 
 class TestSender(Sender):

@@ -1,6 +1,5 @@
 # Who's there?
 
-<!--- BADGES: START --->
 [![Build](https://github.com/twsl/whos-there/actions/workflows/build.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/build.yaml)
 [![Documentation](https://github.com/twsl/whos-there/actions/workflows/docs.yaml/badge.svg)](https://github.com/twsl/whos-there/actions/workflows/docs.yaml)
 ![GitHub Release](https://img.shields.io/github/v/release/twsl/whos-there?include_prereleases)
@@ -15,10 +14,9 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](.pre-commit-config.yaml)
 [![Checked with pyright](https://microsoft.github.io/pyright/img/pyright_badge.svg)](https://microsoft.github.io/pyright/)
 [![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
-[![vulnerability: safety](https://img.shields.io/badge/vulnerability-safety-yellow.svg)](https://github.com/pyupio/safety)
 [![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)](https://github.com/twsl/whos-there/releases)
+[![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-border.json)](https://github.com/copier-org/copier)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-<!--- BADGES: END --->
 
 The spiritual successor to [knockknock](https://github.com/huggingface/knockknock) for [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), to get a notification when your training is complete or when it crashes during the process with a single callback.
 

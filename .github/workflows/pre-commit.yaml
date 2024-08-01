@@ -45,8 +45,5 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
 
-      - name: Install plugin
-        run: poetry add --group dev pyright
-
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1

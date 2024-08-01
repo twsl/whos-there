@@ -51,9 +51,6 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
 
-      - name: Install plugin
-        run: poetry add --group test pytest-github-actions-annotate-failures
-
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
@@ -62,13 +59,12 @@ jobs:
         run: |
           poetry check
 
-      - name: Check pip
-        run: |
-          poetry run pip check
-
       - name: PyTorch version
         run: |
           poetry run python -c "import torch; print(torch.__version__)"
+
+      - name: Install plugin
+        run: poetry add --group test pytest-github-actions-annotate-failures
 
       - name: Build dependencies
         run: poetry build
@@ -89,7 +85,6 @@ jobs:
       - name: Run safety checks
         run: |
           poetry check
-          poetry run safety check --full-report
           poetry run bandit -ll --recursive hooks
         continue-on-error: true
 

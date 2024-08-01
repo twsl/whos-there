@@ -25,7 +25,7 @@ class RandomDataset(Dataset):
 class BoringModel(pl.LightningModule):
     def __init__(self) -> None:
         super().__init__()
-        self.layer = torch.nn.Linear(32, 2)
+        self.layer = torch.nn.Linear(16, 2)
 
     def forward(self, x: Tensor, *args, **kwargs) -> Tensor:  # pyright: ignore [reportIncompatibleMethodOverride]
         return self.layer(x)
@@ -44,7 +44,7 @@ class BoringModel(pl.LightningModule):
         self.log("test_loss", loss)
 
     def configure_optimizers(self) -> Any:
-        return torch.optim.sgd.SGD(self.layer.parameters(), lr=0.1)
+        return torch.optim.SGD(self.layer.parameters(), lr=0.1)  # type: ignore [reportPrivateImportUsage]
 
 
 class TestSender(Sender):
@@ -71,9 +71,9 @@ def get_trainer(sender: Sender) -> pl.Trainer:
 
 
 def test_dry_run() -> None:
-    train_data = DataLoader(RandomDataset(32, 64), batch_size=2)
-    val_data = DataLoader(RandomDataset(32, 64), batch_size=2)
-    test_data = DataLoader(RandomDataset(32, 64), batch_size=2)
+    train_data = DataLoader(RandomDataset(16, 8), batch_size=2)
+    val_data = DataLoader(RandomDataset(16, 8), batch_size=2)
+    test_data = DataLoader(RandomDataset(16, 8), batch_size=2)
 
     sender = TestSender()
     model = BoringModel()
@@ -90,8 +90,8 @@ class TrainingError(Exception):
 
 
 def test_dry_run_failed() -> None:
-    train_data = DataLoader(RandomDataset(32, 64), batch_size=2)
-    val_data = DataLoader(RandomDataset(32, 64), batch_size=2)
+    train_data = DataLoader(RandomDataset(16, 8), batch_size=2)
+    val_data = DataLoader(RandomDataset(16, 8), batch_size=2)
 
     def training_step_fail(self, batch, batch_idx):
         raise TrainingError("failed")

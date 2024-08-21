@@ -17,11 +17,11 @@ class SlackSender(Sender):
         """Initialize the Slack sender.
 
         Args:
-            webhook_url (str): The Slack webhook URL.
-            channel (str): The Slack channel name.
-            sender_username (str): User name used for notifications (defaults to "Who's There notification").
-            user_mentions (List[str]): The list of users to mention (defaults to None).
-            icon_emoji (str): Emoji to use for the notifications (defaults to ":bell:")
+            webhook_url: The Slack webhook URL.
+            channel: The Slack channel name.
+            sender_username: User name used for notifications.
+            user_mentions: The list of users to mention.
+            icon_emoji: Emoji to use for the notifications.
                               See <https://www.webfx.com/tools/emoji-cheat-sheet/> for options.
         """
         super().__init__()

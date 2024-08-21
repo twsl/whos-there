@@ -11,7 +11,7 @@ class SlackSender(Sender):
         webhook_url: str,
         channel: str,
         user_mentions: list[str] | None = None,
-        sender_username: str = "Who's There notification",
+        sender_username: str = "Kock Knock",
         icon_emoji: str = ":bell:",
     ) -> None:
         """Initialize the Slack sender.

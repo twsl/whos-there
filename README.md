@@ -142,6 +142,11 @@ poetry run mkdocs build -f ./docs/mkdocs.yaml -d ./_build/
 ```
 
 
+## Conda
+
+The conda repository is maintained [here](https://github.com/conda-forge/whos-there-feedstock).
+
+
 ## Update template
 
 ```bash

@@ -6,6 +6,7 @@ import lightning.pytorch as pl
 import torch
 from torch import Tensor
 from torch.utils.data import DataLoader, Dataset
+
 from whos_there.callback import NotificationCallback
 from whos_there.senders.base import Sender
 
@@ -15,7 +16,7 @@ class RandomDataset(Dataset):
         self.len = length
         self.data = torch.randn(length, size)
 
-    def __getitem__(self, index) -> Tensor:
+    def __getitem__(self, index: int) -> Tensor:
         return self.data[index]
 
     def __len__(self) -> int:
@@ -27,19 +28,19 @@ class BoringModel(pl.LightningModule):
         super().__init__()
         self.layer = torch.nn.Linear(16, 2)
 
-    def forward(self, x: Tensor, *args, **kwargs) -> Tensor:  # pyright: ignore [reportIncompatibleMethodOverride]
+    def forward(self, x: Tensor, *args: Any, **kwargs: Any) -> Tensor:  # pyright: ignore [reportIncompatibleMethodOverride]
         return self.layer(x)
 
-    def training_step(self, batch, batch_idx) -> dict[str, Any]:  # pyright: ignore [reportIncompatibleMethodOverride]
+    def training_step(self, batch: Any, batch_idx: int) -> dict[str, Any]:  # pyright: ignore [reportIncompatibleMethodOverride]
         loss = self(batch).sum()
         self.log("train_loss", loss)
         return {"loss": loss}
 
-    def validation_step(self, batch, batch_idx) -> None:  # pyright: ignore [reportIncompatibleMethodOverride]
+    def validation_step(self, batch: Any, batch_idx: int) -> None:  # pyright: ignore [reportIncompatibleMethodOverride]
         loss = self(batch).sum()
         self.log("valid_loss", loss)
 
-    def test_step(self, batch, batch_idx) -> None:  # pyright: ignore [reportIncompatibleMethodOverride]
+    def test_step(self, batch: Any, batch_idx: int) -> None:  # pyright: ignore [reportIncompatibleMethodOverride]
         loss = self(batch).sum()
         self.log("test_loss", loss)
 
@@ -94,7 +95,7 @@ def test_dry_run_failed() -> None:
     train_data = DataLoader(RandomDataset(16, 8), batch_size=2)
     val_data = DataLoader(RandomDataset(16, 8), batch_size=2)
 
-    def training_step_fail(self, batch, batch_idx):
+    def training_step_fail(self, batch, batch_idx) -> None:
         raise TrainingError("failed")
 
     sender = TestSender()

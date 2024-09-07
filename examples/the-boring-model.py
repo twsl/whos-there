@@ -9,6 +9,7 @@ from torch.nn import functional as F  # noqa: N812
 from torch.optim.lr_scheduler import StepLR
 from torch.optim.sgd import SGD
 from torch.utils.data import DataLoader, Dataset
+
 from whos_there.callback import NotificationCallback
 from whos_there.senders.debug import DebugSender
 

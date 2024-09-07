@@ -47,13 +47,13 @@ repos:
       - id: nbstripout
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.5.5
+    rev: v0.6.4
     hooks:
       - id: ruff
         args: ["--fix", "-v"]
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.374
+    rev: v1.1.379
     hooks:
       - id: pyright
         args: ["--verbose", "--project=."]

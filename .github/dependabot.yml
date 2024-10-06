@@ -8,17 +8,17 @@ updates:
   - package-ecosystem: gitsubmodule
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
 
   - package-ecosystem: devcontainers
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
     allow:
       - dependency-type: all
     open-pull-requests-limit: 50
@@ -26,7 +26,7 @@ updates:
   - package-ecosystem: pip
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
     allow:
       - dependency-type: production
       - dependency-type: development

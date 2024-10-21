@@ -1788,13 +1788,13 @@ dev = ["click", "codecov", "mkdocs-gen-files", "mkdocs-git-authors-plugin", "mkd
 
 [[package]]
 name = "mkdocs-jupyter"
-version = "0.25.0"
+version = "0.25.1"
 description = "Use Jupyter in mkdocs websites"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "mkdocs_jupyter-0.25.0-py3-none-any.whl", hash = "sha256:d83d71deef19f0401505945bf92ec3bd5b40615af89308e72d5112929f8ee00b"},
-    {file = "mkdocs_jupyter-0.25.0.tar.gz", hash = "sha256:e26c1d341916bc57f96ea3f93d8d0a88fc77c87d4cee222f66d2007798d924f5"},
+    {file = "mkdocs_jupyter-0.25.1-py3-none-any.whl", hash = "sha256:3f679a857609885d322880e72533ef5255561bbfdb13cfee2a1e92ef4d4ad8d8"},
+    {file = "mkdocs_jupyter-0.25.1.tar.gz", hash = "sha256:0e9272ff4947e0ec683c92423a4bfb42a26477c103ab1a6ab8277e2dcc8f7afe"},
 ]
 
 [package.dependencies]
@@ -3817,4 +3817,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "93466ed7d5e77dcf1d43eb25e7d6ce466b6152c29ffd6e0312b3e8f1db0d741c"
+content-hash = "64eae98d94abebddccd3407f4d2ea171fd699829cf2626117706e4e5df30d6cb"

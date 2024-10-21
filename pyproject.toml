@@ -41,7 +41,7 @@ python-telegram-bot = "^21.5"
 requests = "^2.32.3"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.6.4"
+ruff = ">=0.6.4,<0.8.0"
 bandit = "^1.7.9"
 pre-commit = "^4.0.0"
 pyright = "^1.1.379"

@@ -34,7 +34,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.10"
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
@@ -47,7 +47,7 @@ jobs:
         id: cached-poetry-dependencies
         with:
           path: .venv
-          key: venv-Linux-3.11-${{ hashFiles('poetry.lock') }}
+          key: venv-Linux-3.10-${{ hashFiles('poetry.lock') }}
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'

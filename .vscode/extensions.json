@@ -21,10 +21,10 @@
         "mechatroner.rainbow-csv",
         "uctakeoff.vscode-counter",
         "bierner.github-markdown-preview",
+        "yahyabatulu.vscode-markdown-alert",
         "ms-vscode-remote.vscode-remote-extensionpack",
         "ms-azuretools.vscode-docker",
         "uctakeoff.vscode-counter",
-        "bierner.github-markdown-preview",
         "ExecutableBookProject.myst-highlight"
     ]
 }

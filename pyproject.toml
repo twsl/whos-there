@@ -25,7 +25,6 @@ keywords = [
   "machine-learning",
   "deep-learning"
 ]
-
 # Pypi classifiers: https://pypi.org/classifiers/
 classifiers = [
     "Topic :: Software Development"
@@ -41,31 +40,31 @@ python-telegram-bot = "^21.5"
 requests = "^2.32.3"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.6.4"
-bandit = "^1.7.9"
-pre-commit = "^4.0.0"
-pyright = "^1.1.379"
+ruff = "^0.7.1"
+bandit = "^1.7.10"
+pre-commit = "^4.0.1"
+pyright = "^1.1.386"
 ipykernel = "^6.29.5"
 ipywidgets = "^8.1.5"
-ipython = "^8.26.0"
+ipython = "^8.28.0"
 jupytext = " ^1.16.4"
 nbconvert = "^7.16.3"
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.3.2"
+pytest = "^8.3.3"
 pytest-cov = "^5.0.0"
 pytest-mock = "^3.12.0"
-pytest-cases = "^3.8.1"
+pytest-cases = "^3.8.6"
 
 [tool.poetry.group.docs.dependencies]
-mkdocs = "^1.6.0"
-mkdocs-material = "^9.5.30"
-mkdocs-git-revision-date-localized-plugin = "^1.2.6"
-mkdocs-awesome-pages-plugin = "^2.9.2"
-mkdocs-git-authors-plugin = "^0.9.0"
-mkapi = "^2.1.0"
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.42"
+mkdocs-git-revision-date-localized-plugin = "^1.2.9"
+mkdocs-awesome-pages-plugin = "^2.9.3"
+mkdocs-git-authors-plugin = "^0.9.1"
+mkapi = "^3.0.22"
 pygments = "^2.18.0"
-mkdocs-jupyter = ">=0.24.8,<0.26.0"
+mkdocs-jupyter = "^0.25.1"
 
 [tool.poetry.group.debug]
 optional = true
@@ -99,7 +98,7 @@ __version_tuple__ = (0, 0, 0)
 
 [tool.pytest.ini_options]
 minversion = "8.0"
-addopts = "--doctest-glob='test_*.md'"
+addopts = "--doctest-glob='test_*.md' --cov=src/whos_there --cov-report xml"
 testpaths = [
     "tests",
 ]
@@ -115,7 +114,7 @@ exclude_lines = [
     # Have to re-enable the standard pragma
     "pragma: no cover",
 
-    # Don't complain about missing debug-only code:
+    # Don ot complain about missing debug-only code:
     "def __repr__",
     "if self.debug:",
     "if debug:",

@@ -11,15 +11,10 @@
     "python.languageServer": "Pylance",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.completeFunctionParens": true,
-    "python.analysis.autoSearchPaths": true,
     "python.analysis.autoFormatStrings": true,
-    "python.analysis.typeCheckingMode": "basic",
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.diagnosticMode": "workspace",
-    "python.analysis.extraPaths": [
-        "./"
-    ],
     "python.terminal.activateEnvironment": true,
     "python.testing.autoTestDiscoverOnSaveEnabled": false,
     "python.testing.unittestEnabled": false,

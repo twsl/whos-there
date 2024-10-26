@@ -51,16 +51,11 @@
                 "python.autoComplete.addBrackets": true,
                 "python.analysis.autoImportCompletions": true,
                 "python.analysis.completeFunctionParens": true,
-                "python.analysis.autoSearchPaths": true,
                 "python.analysis.autoFormatStrings": true,
                 "python.analysis.useImportHeuristic": true,
-                "python.analysis.typeCheckingMode": "basic",
                 "python.analysis.inlayHints.variableTypes": true,
                 "python.analysis.inlayHints.functionReturnTypes": true,
                 "python.analysis.diagnosticMode": "workspace",
-                "python.analysis.extraPaths": [
-                    "./src"
-                ],
                 "python.sortImports": true,
                 "python.testing.autoTestDiscoverOnSaveEnabled": false,
                 "python.testing.unittestEnabled": false,
@@ -71,13 +66,17 @@
                     "-v"
                 ],
                 "[python]": {
-                    "editor.formatOnType": true,
+                    "editor.formatOnSave": true,
                     "editor.defaultFormatter": "charliermarsh.ruff",
                     "editor.codeActionsOnSave": {
                         "source.organizeImports": "always",
-                        "source.organizeImports.ruff": "always",
-                        "source.fixAll.ruff": "always"
+                        "source.fixAll": "always"
                     }
+                },
+                "notebook.formatOnSave.enabled": true,
+                "notebook.codeActionsOnSave": {
+                    "notebook.source.fixAll": "explicit",
+                    "notebook.source.organizeImports": "explicit"
                 },
                 "testExplorer.codeLens": true,
                 "testExplorer.gutterDecoration": true,
@@ -89,6 +88,8 @@
                 "autoDocstring.startOnNewLine": true,
                 "telemetry.telemetryLevel": "off",
                 "files.eol": "\n",
+                "code-eol.highlightNonDefault": true,
+                "code-eol.highlightExtraWhitespace": true
             },
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
@@ -114,10 +115,10 @@
                 "mechatroner.rainbow-csv",
                 "uctakeoff.vscode-counter",
                 "bierner.github-markdown-preview",
+                "yahyabatulu.vscode-markdown-alert",
                 "ms-vscode-remote.vscode-remote-extensionpack",
                 "ms-azuretools.vscode-docker",
                 "uctakeoff.vscode-counter",
-                "bierner.github-markdown-preview",
                 "ExecutableBookProject.myst-highlight",
                 "redhat.vscode-yaml"
             ]

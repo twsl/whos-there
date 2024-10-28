@@ -93,6 +93,22 @@ jobs:
           poetry run pytest -c pyproject.toml --cov-report=xml --cov-report=html \
           --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml --cov=${{ github.event.repository.name }}
 
+      - name: Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage.xml
+          badge: true
+          format: "markdown"
+          output: "both"
+        if: ${{ always() }}
+
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-coverage
+          path: code-coverage-results.md
+        if: ${{ always() }}
+
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
@@ -109,19 +125,18 @@ jobs:
     name: Publish Unit Tests Results
     needs: build-and-test
     runs-on: ["ubuntu-latest"]
-    # the build-and-test job might be skipped, we don't need to run this job then
-    if: >
-      always() &&
-      github.event.workflow_run.conclusion != 'skipped' && (
-        github.event.sender.login != 'dependabot[bot]' ||
-        github.event.workflow_run.head_repository.full_name != github.repository
-      )
+    if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' }}
 
     steps:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
           path: artifacts
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2.9.0
+        with:
+          path: artifacts/pytest-coverage/code-coverage-results.md
 
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2

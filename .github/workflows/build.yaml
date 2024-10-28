@@ -100,14 +100,14 @@ jobs:
           badge: true
           format: "markdown"
           output: "both"
-        if: ${{ always() }}
+        if: ${{ always() && runner.os == 'Linux' }}
 
       - name: Upload test coverage
         uses: actions/upload-artifact@v4
         with:
           name: pytest-coverage
           path: code-coverage-results.md
-        if: ${{ always() }}
+        if: ${{ always() && runner.os == 'Linux' }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -135,6 +135,7 @@ jobs:
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2.9.0
+        if: ${{ runner.os == 'Linux' }}
         with:
           path: artifacts/pytest-coverage/code-coverage-results.md
 

@@ -36,7 +36,7 @@ issues = "https://github.com/twsl/whos-there/issues"
 [tool.poetry.dependencies]
 python = "^3.10"
 lightning = "^2.4.0"
-python-telegram-bot = "^21.5"
+python-telegram-bot = "^21.8"
 requests = "^2.32.3"
 
 [tool.poetry.group.dev.dependencies]

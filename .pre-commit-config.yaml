@@ -11,7 +11,7 @@ ci:
 repos:
   # https://github.com/python-poetry/poetry/pull/9716
   - repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
-    rev: v0.6.0
+    rev: v0.6.0post1
     hooks:
       - id: pre-commit-update
 
@@ -43,25 +43,25 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.10
+    rev: 1.8.0
     hooks:
       - id: bandit
         args: [-c, pyproject.toml]
         additional_dependencies: ["bandit[toml]"]
 
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.7.1
+    rev: 0.8.1
     hooks:
       - id: nbstripout
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.1
+    rev: v0.8.1
     hooks:
       - id: ruff
         args: [--fix, -v]
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.386
+    rev: v1.1.389
     hooks:
       - id: pyright
         args: [--verbose, --project=.]
@@ -70,6 +70,6 @@ repos:
         types: [python]
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.21.1
+    rev: v8.21.2
     hooks:
       - id: gitleaks

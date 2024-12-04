@@ -48,6 +48,7 @@ jobs:
         with:
           path: .venv
           key: venv-Linux-3.10-${{ hashFiles('poetry.lock') }}
+          restore-keys: venv-Linux-3.10-
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
@@ -57,6 +58,8 @@ jobs:
         run: poetry build
 
       - name: Build MkDocs docs
+        env:
+          JUPYTER_PLATFORM_DIRS: 1
         run: poetry run mkdocs build -f ./docs/mkdocs.yml -d ./_build/
 
       - name: Upload build artifacts

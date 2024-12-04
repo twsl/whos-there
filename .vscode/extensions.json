@@ -5,6 +5,8 @@
         "ms-toolsai.jupyter",
         "GitHub.copilot",
         "GitHub.copilot-chat",
+        "github.vscode-github-actions",
+        "SanjulaGanepola.github-local-actions",
         "charliermarsh.ruff",
         "esbenp.prettier-vscode",
         "ms-vscode.test-adapter-converter",

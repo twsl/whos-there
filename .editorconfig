@@ -10,10 +10,10 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
 
-[*.{py, pyi}]
+[*.{py,pyi}]
 indent_style = space
 indent_size = 4
 
-[*.{yml, yaml}]
+[*.{yml,yaml}]
 indent_style = space
 indent_size = 2

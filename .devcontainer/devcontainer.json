@@ -63,7 +63,8 @@
                 "python.testing.cwd": "${workspaceFolder}",
                 "python.testing.pytestArgs": [
                     "tests",
-                    "-v"
+                    "-v",
+                    "--no-cov"
                 ],
                 "[python]": {
                     "editor.formatOnSave": true,
@@ -99,6 +100,7 @@
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
                 "github.vscode-github-actions",
+                "SanjulaGanepola.github-local-actions",
                 "charliermarsh.ruff",
                 "esbenp.prettier-vscode",
                 "ms-vscode.test-adapter-converter",

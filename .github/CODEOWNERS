@@ -7,5 +7,6 @@
 * @twsl
 
 /.github/ @twsl
+/docs/ @twsl
 /src/ @twsl
 /tests/ @twsl

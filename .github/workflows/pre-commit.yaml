@@ -6,6 +6,9 @@ on:
   push:
     branches: [main]
 
+env:
+  SKIP: "poetry-check, poetry-lock"
+
 jobs:
   pre-commit:
     name: pre-commit
@@ -40,6 +43,7 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+          restore-keys: venv-${{ runner.os }}-${{ matrix.python-version }}-
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'

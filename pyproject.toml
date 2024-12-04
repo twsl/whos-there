@@ -40,29 +40,31 @@ python-telegram-bot = "^21.5"
 requests = "^2.32.3"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.7.1"
-bandit = "^1.7.10"
+ruff = "^0.8.1"
+bandit = "^1.8.0"
 pre-commit = "^4.0.1"
-pyright = "^1.1.386"
+pyright = "^1.1.389"
 ipykernel = "^6.29.5"
 ipywidgets = "^8.1.5"
-ipython = "^8.28.0"
+ipython = "^8.30.0"
 jupytext = " ^1.16.4"
 nbconvert = "^7.16.3"
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.3.3"
-pytest-cov = ">=5,<7"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
 pytest-mock = "^3.12.0"
 pytest-cases = "^3.8.6"
+pytest-benchmark = "^5.1.0"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.6.1"
-mkdocs-material = "^9.5.42"
+mkdocs-material = "^9.5.47"
 mkdocs-git-revision-date-localized-plugin = "^1.2.9"
 mkdocs-awesome-pages-plugin = "^2.9.3"
 mkdocs-git-authors-plugin = "^0.9.1"
 mkapi = "^3.0.22"
+markdown-callouts = "^0.4.0"
 pygments = "^2.18.0"
 mkdocs-jupyter = "^0.25.1"
 
@@ -98,6 +100,7 @@ __version_tuple__ = (0, 0, 0)
 
 [tool.pytest.ini_options]
 minversion = "8.0"
+# https://code.visualstudio.com/docs/python/testing#_pytest-configuration-settings
 addopts = "--doctest-glob='test_*.md' --cov=src/whos_there --cov-report xml"
 testpaths = [
     "tests",
@@ -114,7 +117,7 @@ exclude_lines = [
     # Have to re-enable the standard pragma
     "pragma: no cover",
 
-    # Don ot complain about missing debug-only code:
+    # Don't complain about missing debug-only code:
     "def __repr__",
     "if self.debug:",
     "if debug:",
@@ -133,10 +136,17 @@ exclude_lines = [
 [tool.ruff]
 line-length = 120  # Must agree with Black
 extend-include = ["*.ipynb"]
-lint.extend-select = [
-    "I",
+exclude = [
+    "migrations",
+    "__pycache__",
+    "env",
+    ".env",
+    "venv",
+    ".venv",
 ]
-lint.select = [
+
+[tool.ruff.lint]
+select = [
     "B",  # flake8-bugbear
     "C4", # flake8-comprehensions
     "D",  # pydocstyle
@@ -155,15 +165,10 @@ lint.select = [
     "W",  # Warning
     "YTT", # flake8-2020
 ]
-exclude = [
-    "migrations",
-    "__pycache__",
-    "env",
-    ".env",
-    "venv",
-    ".venv",
+extend-select = [
+    "I",
 ]
-lint.ignore = [
+ignore = [
     "D100",
     "D101",
     "D102",
@@ -190,6 +195,10 @@ extend-immutable-calls = [
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 120
+max-line-length = 120
 
 [tool.ruff.lint.per-file-ignores]
 "test*/**/*.py" = [
@@ -222,10 +231,6 @@ quote-style = "double"
 
 [tool.bandit.assert_used]
 skips = ['*_test.py', '*/test_*.py']
-
-[tool.ruff.lint.pycodestyle]
-max-doc-length = 120
-max-line-length = 120
 
 [tool.pyright]
 pythonVersion = "3.11"

@@ -149,6 +149,8 @@ uv run mkdocs build -f ./mkdocs.yml -d ./_build/
 
 The conda repository is maintained [here](https://github.com/conda-forge/whos-there-feedstock).
 
+**For conda-forge maintainers**: See [CONDA_FORGE_README.md](CONDA_FORGE_README.md) for instructions on updating the feedstock to use uv instead of poetry.
+
 ## Update template
 
 ```bash

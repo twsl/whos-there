@@ -1,0 +1,58 @@
+{% set name = "whos-there" %}
+{% set version = "0.6.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 7c3ae541abd0e62c6494a221dc1f4645722f2199e78bc527a8312f4539788610
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python >=3.11
+    - hatchling
+    - uv-dynamic-versioning
+  run:
+    - python >=3.11
+    - lightning >=2.6.1
+    - python-telegram-bot >=22.6
+    - requests >=2.32.5
+
+test:
+  imports:
+    - whos_there
+    - whos_there.senders
+    - whos_there.callback
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://twsl.github.io/whos-there/
+  summary: The spiritual successor to knockknock for PyTorch Lightning, get notified when your training ends
+  license: MIT
+  license_file: LICENSE
+  description: |
+    The spiritual successor to knockknock for PyTorch Lightning, 
+    get notified when your training is complete or when it crashes during the 
+    process with a single callback.
+
+    ## Features
+
+    - Supports E-Mail, Discord, Slack, Teams, Telegram
+  doc_url: https://twsl.github.io/whos-there/
+  dev_url: https://github.com/twsl/whos-there
+
+extra:
+  recipe-maintainers:
+    - twsl
+    - sugatoray

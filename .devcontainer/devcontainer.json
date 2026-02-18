@@ -16,21 +16,29 @@
         //"--ipc=host",
         //"--shm-size=2gb"
     ],
+    "remoteEnv": {
+        "UV_SYSTEM_PYTHON": "1",
+        "UV_PROJECT_ENVIRONMENT": "/usr/local",
+        // Disable dynamic versioning during development
+        "UV_DYNAMIC_VERSIONING_BYPASS": "1.0.0"
+    },
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers-contrib/features/actionlint:1": {},
-        "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+        "ghcr.io/devcontainers-extra/features/actionlint:1": {},
+        "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
         "ghcr.io/dhoeric/features/act:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {
-            "version": "latest",
-            "moby": true
-        }
+        // https://github.com/devcontainers/features/issues/1543
+        // "ghcr.io/devcontainers/features/docker-in-docker:2": {
+        //     "version": "latest",
+        //     "moby": true
+        // }
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "poetry install && pre-commit install && pre-commit autoupdate",
+    "postCreateCommand": "uv sync --all-groups --all-extras",
+    "postStartCommand": "uv tool install prek && prek install",
     // Configure tool-specific properties.
     "customizations": {
         // Configure properties specific to VS Code.
@@ -47,7 +55,7 @@
                 "python.pythonPath": "/usr/local/bin/python",
                 "python.envFile": "${workspaceFolder}/.env",
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.languageServer": "Pylance",
+                "python.languageServer": "None",
                 "python.autoComplete.addBrackets": true,
                 "python.analysis.autoImportCompletions": true,
                 "python.analysis.completeFunctionParens": true,
@@ -79,8 +87,6 @@
                     "notebook.source.fixAll": "explicit",
                     "notebook.source.organizeImports": "explicit"
                 },
-                "testExplorer.codeLens": true,
-                "testExplorer.gutterDecoration": true,
                 "git.enableSmartCommit": true,
                 "git.autofetch": true,
                 "autoDocstring.docstringFormat": "google-notypes",
@@ -95,16 +101,14 @@
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
                 "ms-python.python",
-                "ms-python.vscode-pylance",
+                "astral-sh.ty",
                 "ms-toolsai.jupyter",
-                "GitHub.copilot",
                 "GitHub.copilot-chat",
                 "github.vscode-github-actions",
                 "SanjulaGanepola.github-local-actions",
                 "charliermarsh.ruff",
                 "esbenp.prettier-vscode",
                 "ms-vscode.test-adapter-converter",
-                "littlefoxteam.vscode-python-test-adapter",
                 "njqdev.vscode-python-typehint",
                 "KevinRose.vsc-python-indent",
                 "medo64.render-crlf",
@@ -115,14 +119,16 @@
                 "njpwerner.autodocstring",
                 "rodolphebarbanneau.python-docstring-highlighter",
                 "mechatroner.rainbow-csv",
+                "oderwat.indent-rainbow",
                 "uctakeoff.vscode-counter",
                 "bierner.github-markdown-preview",
                 "yahyabatulu.vscode-markdown-alert",
                 "ms-vscode-remote.vscode-remote-extensionpack",
                 "ms-azuretools.vscode-docker",
+                "docker.docker",
                 "uctakeoff.vscode-counter",
-                "ExecutableBookProject.myst-highlight",
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+                "sebastienfi.dead-code-finder"
             ]
         }
     },

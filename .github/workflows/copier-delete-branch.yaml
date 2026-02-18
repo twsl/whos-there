@@ -1,0 +1,37 @@
+name: Copier PR Clean
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  copier-delete-branch:
+    name: Copier delete branch
+    runs-on: ['ubuntu-latest']
+    permissions:
+      contents: write
+    steps:
+      - name: Delete branch via GitHub API
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const fullRef = 'refs/heads/copier/update';
+            const branchRef = fullRef.replace(/^refs\//, '');
+
+            try {
+              await github.rest.git.deleteRef({ owner, repo, ref: branchRef });
+              console.log(`Deleted branch ${branchRef}`);
+            } catch (error) {
+              if (error.status === 422 || error.status === 404) {
+                console.log(`Branch ${branchRef} does not exist or already deleted.`);
+              } else {
+                throw error;
+              }
+            }

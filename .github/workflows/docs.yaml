@@ -15,11 +15,12 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
-  ARTIFACT: docs
+  artifacts-name: docs
+  python-version: "3.11"
 
 jobs:
   build-docs:
@@ -27,46 +28,40 @@ jobs:
     runs-on: ["ubuntu-latest"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+      - name: Free Disk Space
+        uses: twsl/gha-free-disk-space@main
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+      - name: Set up Python ${{ env.python-version }}
+        uses: actions/setup-python@v6
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+          python-version: ${{ env.python-version }}
 
-      - name: Set up cache
-        uses: actions/cache@v4
-        id: cached-poetry-dependencies
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
         with:
-          path: .venv
-          key: venv-Linux-3.10-${{ hashFiles('poetry.lock') }}
-          restore-keys: venv-Linux-3.10-
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction
+        run: uv sync --all-groups --all-extras --frozen
 
       - name: Build dependencies
-        run: poetry build
+        run: uv build
 
       - name: Build MkDocs docs
         env:
           JUPYTER_PLATFORM_DIRS: 1
-        run: poetry run mkdocs build -f ./docs/mkdocs.yml -d ./_build/
+        run: uv run mkdocs build -f ./mkdocs.yml -d ./_build/
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
-          name: ${{ env.ARTIFACT }}
-          path: ./docs/_build/
+          name: ${{ env.artifacts-name }}
+          path: ./_build/
         if: ${{ always() }}
 
   deploy-docs:
@@ -85,14 +80,15 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           path: artifacts
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: artifacts/${{ env.ARTIFACT }}/
+          # path: artifacts/${{ env.artifacts-name }}/
+          path: artifacts/
 
       - name: Deploy to GitHub Pages
         id: deployment

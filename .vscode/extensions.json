@@ -1,16 +1,14 @@
 {
     "recommendations": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
+        "astral-sh.ty",
         "ms-toolsai.jupyter",
-        "GitHub.copilot",
         "GitHub.copilot-chat",
         "github.vscode-github-actions",
         "SanjulaGanepola.github-local-actions",
         "charliermarsh.ruff",
         "esbenp.prettier-vscode",
         "ms-vscode.test-adapter-converter",
-        "littlefoxteam.vscode-python-test-adapter",
         "njqdev.vscode-python-typehint",
         "KevinRose.vsc-python-indent",
         "medo64.render-crlf",
@@ -21,12 +19,14 @@
         "njpwerner.autodocstring",
         "rodolphebarbanneau.python-docstring-highlighter",
         "mechatroner.rainbow-csv",
+        "oderwat.indent-rainbow",
         "uctakeoff.vscode-counter",
         "bierner.github-markdown-preview",
         "yahyabatulu.vscode-markdown-alert",
         "ms-vscode-remote.vscode-remote-extensionpack",
         "ms-azuretools.vscode-docker",
         "uctakeoff.vscode-counter",
-        "ExecutableBookProject.myst-highlight"
+        "redhat.vscode-yaml",
+        "sebastienfi.dead-code-finder"
     ]
 }

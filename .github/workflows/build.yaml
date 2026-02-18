@@ -23,60 +23,49 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.11", "3.12"]
     defaults:
       run:
         shell: bash
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
+      - name: Free Disk Space
+        uses: twsl/gha-free-disk-space@v1
+
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
-          # cache: 'poetry'
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-
-      - name: Add poetry to path
-        run: echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
-
-      - name: Set up cache
-        uses: actions/cache@v4
-        id: cached-poetry-dependencies
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
-          restore-keys: venv-${{ runner.os }}-${{ matrix.python-version }}-
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction
-
-      - name: Check potry
-        run: |
-          poetry check
+        run: uv sync --all-groups --all-extras --frozen
 
       - name: PyTorch version
         run: |
           poetry run python -c "import torch; print(torch.__version__)"
 
-      - name: Install plugin
-        run: poetry add --group test pytest-github-actions-annotate-failures
+      - name: Run prek
+        uses: j178/prek-action@v1
+        continue-on-error: true
+        env:
+          SKIP: uv-lock
 
       - name: Build dependencies
-        run: poetry build
+        run: uv build
 
       - name: Upload dist
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ github.event.repository.name }}-${{ runner.os }}-${{ matrix.python-version }}-${{ github.sha }}
           path: dist/
@@ -84,7 +73,9 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest -c pyproject.toml --cov=${{ github.event.repository.name }} --cov-report=html \
+          uv run pytest -c pyproject.toml \
+          --cov-config=pyproject.toml \
+          --cov-report=html \
           --cov-report=xml:coverage-${{ runner.os }}-${{ matrix.python-version }}.xml \
           --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml \
           --benchmark-disable
@@ -101,7 +92,7 @@ jobs:
         if: ${{ always() && runner.os == 'Linux' }}
 
       - name: Upload test coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: pytest-coverage-${{ runner.os }}-${{ matrix.python-version }}
           path: code-coverage-results.md
@@ -126,7 +117,7 @@ jobs:
         if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' }}
 
       - name: Upload test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: pytest-results-${{ runner.os }}-${{ matrix.python-version }}
           path: junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml

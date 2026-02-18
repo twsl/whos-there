@@ -1,0 +1,109 @@
+name: Copier Template Update
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  python-version: "3.11"
+  UV_DYNAMIC_VERSIONING_BYPASS: "1.0.0"
+
+jobs:
+  copier-update:
+    name: Copier Update
+    runs-on: ['ubuntu-latest']
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Free Disk Space
+        if: runner.os == 'Linux'
+        uses: twsl/gha-free-disk-space@main
+
+      - name: Set up Python ${{ env.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.python-version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
+
+      - name: Install dependencies
+        run: uv sync --all-groups --all-extras --frozen
+
+      - name: Build dependencies
+        run: uv build
+
+      - name: Git Status
+        id: git-status
+        run: git status
+
+      - name: Run copier update
+        id: run-update
+        run: uv run copier update --trust -A --vcs-ref=HEAD
+
+      - name: Resolve conflicts with incoming changes
+        run: |
+          if [[ -n "$(git status --porcelain | grep '^UU')" ]]; then
+            git diff --name-only --diff-filter=U | while read file; do
+              awk '
+                BEGIN { inConflict=0 }
+                /^<<<<<<< /     { inConflict=1; next }
+                /^=======/      { if (inConflict) { inConflict=2; next } }
+                /^>>>>>>> /     { if (inConflict) { inConflict=0; next } }
+                { if (!inConflict) print; else if (inConflict==2) print }
+              ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+              git add "$file"
+            done
+            git diff --name-only --diff-filter=U | xargs git add
+          fi
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run uv lock
+        run: uv lock
+
+      - name: Extract commit from copier answers
+        id: copier-commit
+        run: |
+          COMMIT=$(grep '^_commit:' .copier-answers.yml | sed 's/_commit: //')
+          echo "commit=$COMMIT" >> $GITHUB_OUTPUT
+          echo "COPIER_COMMIT=$COMMIT" >> $GITHUB_ENV
+
+      - name: Run prek
+        uses: j178/prek-action@v1
+        continue-on-error: true
+        if: steps.check_changes.outputs.has_changes == 'true'
+
+      - name: Create or update PR
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: update files via copier"
+          branch: copier/update
+          title: "chore(deps): bump copier project template to ${{ steps.copier-commit.outputs.commit }}"
+          body: "This PR updates files via copier. In case of conflicts, the PR will always reflect the latest copier output."
+          delete-branch: true
+          labels: "dependencies"
+          token: ${{ secrets.PAT }}

@@ -8,7 +8,7 @@
     ],
     "files.eol": "\n",
     "python.envFile": "${workspaceFolder}/.env",
-    "python.languageServer": "Pylance",
+    "python.languageServer": "None",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.completeFunctionParens": true,
     "python.analysis.autoFormatStrings": true,
@@ -34,8 +34,6 @@
             "source.fixAll.ruff": "always"
         }
     },
-    "testExplorer.codeLens": true,
-    "testExplorer.gutterDecoration": true,
     "git.enableSmartCommit": true,
     "git.autofetch": true,
     "autoDocstring.docstringFormat": "google-notypes",

@@ -5,61 +5,41 @@ on:
   release:
     types: [published]
 
+env:
+  python-version: "3.11"
+
 jobs:
   release:
-    strategy:
-      matrix:
-        python-version: ["3.10"]
-    runs-on: ["ubuntu-latest"]
-    defaults:
-      run:
-        shell: bash
-
+    name: Release package
+    runs-on: ['ubuntu-latest']
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - name: Free Disk Space
+        uses: twsl/gha-free-disk-space@v1
+
+      - name: Set up Python ${{ env.python-version }}
+        uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ env.python-version }}
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-
-      - name: Dynamic versioning
-        run: poetry self add "poetry-dynamic-versioning[plugin]"
-
-      - name: Enable dynamic versioning
-        run: poetry dynamic-versioning enable
-
-      - name: Set up cache
-        uses: actions/cache@v4
-        id: cached-poetry-dependencies
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
-          restore-keys: venv-${{ runner.os }}-${{ matrix.python-version }}-
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction
+        run: uv sync --all-groups --all-extras --frozen
 
-      - name: Check poetry
-        run: |
-          poetry check
-
-      - name: Build
-        run: |
-          poetry build
+      - name: Build dependencies
+        run: uv build
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: build-${{ github.sha }}
           path: dist/
@@ -69,7 +49,7 @@ jobs:
 
       - name: Publish
         run: |
-          poetry publish -u "__token__" -p ${{ secrets.PYPI_API_TOKEN }}
+          uv publish --username "__token__" --password ${{ secrets.PYPI_API_TOKEN }}
 
   upload-packages:
     runs-on: ["ubuntu-latest"]
@@ -77,10 +57,10 @@ jobs:
     needs: release
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: build-${{ github.sha }}
           path: dist/

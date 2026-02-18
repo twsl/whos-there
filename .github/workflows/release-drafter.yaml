@@ -15,7 +15,7 @@ jobs:
       # write permission is required for autolabeler
       # otherwise, read permission is required at least
       pull-requests: write
-    runs-on: ["ubuntu-latest"]
+    runs-on: ['ubuntu-latest']
 
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "main"

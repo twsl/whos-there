@@ -13,11 +13,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 # They are installed by the base image (python) which does not have the patch.
 RUN python3 -m pip install --upgrade setuptools
 
-# Install poetry
 RUN pip install --upgrade pip
 
-ENV PATH "/etc/poetry/bin:$PATH"
-RUN curl -sSL  https://install.python-poetry.org | POETRY_HOME=/etc/poetry python - \
-    && poetry completions bash >> ~/.bash_completion \
-    && poetry config virtualenvs.create false \
-    && poetry self add "poetry-dynamic-versioning[plugin]"
+# Install uv
+ENV PATH="/root/.local/bin/:$PATH"
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
+    && echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc

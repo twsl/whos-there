@@ -3326,7 +3326,7 @@ debug = [
 ]
 dev = [
     { name = "bandit", specifier = ">=1.9.3" },
-    { name = "copier", specifier = ">=9.11.3" },
+    { name = "copier", specifier = ">=9.12.0" },
     { name = "ipykernel", specifier = ">=6.31.0" },
     { name = "ipython", specifier = ">=9.10.0" },
     { name = "ipywidgets", specifier = ">=8.1.8" },

@@ -89,14 +89,14 @@ jobs:
           badge: true
           format: "markdown"
           output: "both"
-        if: ${{ always() && runner.os == 'Linux' }}
+        if: ${{ always() }}
 
       - name: Upload test coverage
         uses: actions/upload-artifact@v6
         with:
           name: pytest-coverage-${{ runner.os }}-${{ matrix.python-version }}
           path: code-coverage-results.md
-        if: ${{ always() && runner.os == 'Linux' }}
+        if: ${{ always() }}
 
       - name: Read code coverage file
         id: coverage-file

@@ -103,7 +103,7 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: code-coverage-results.md
-        if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' }}
+        if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' && runner.os == 'Linux' }}
 
       - name: Add coverage PR comment
         uses: marocchino/sticky-pull-request-comment@v2
@@ -114,7 +114,7 @@ jobs:
             ${{ steps.coverage-file.outputs.content }}
 
             Results for commit ${{ github.sha }}.
-        if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' }}
+        if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' && runner.os == 'Linux' }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v6

@@ -4,11 +4,6 @@
 ARG VARIANT=3-bookworm
 FROM mcr.microsoft.com/devcontainers/python:1-${VARIANT}
 
-# [Optional] Uncomment this section to install additional OS packages.
-# https://exerror.com/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directory/
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends libgl1-mesa-glx
-
 # Temporary: Upgrade python packages due to https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40897
 # They are installed by the base image (python) which does not have the patch.
 RUN python3 -m pip install --upgrade setuptools

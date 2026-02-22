@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: v0.4.0-66-g91654b3
+_commit: v0.4.0-73-gb35aa2a
 _src_path: git+https://github.com/twsl/python-project-template
 author_email: 45483159+twsl@users.noreply.github.com
 author_username: twsl
@@ -10,11 +10,11 @@ copyright_license: MIT
 copyright_year: 2024
 custom_install: true
 github_runner:
-  - ubuntu-latest
+- ubuntu-latest
 github_runner_clean: true
 github_runner_python_version:
-  - "3.11"
-  - "3.12"
+- '3.11'
+- '3.12'
 include_databricks: false
 include_docs: true
 include_notebooks: true
@@ -23,14 +23,13 @@ line_ending: lf
 package_manager: uv
 precommit_tool: prek
 primary_branch: main
-project_description:
-  The spiritual successor to knockknock for PyTorch Lightning,
-  get notified when your training ends
+project_description: The spiritual successor to knockknock for PyTorch Lightning,
+    get notified when your training ends
 project_name: whos_there
 python_package_command_line_name: whos-there
 python_package_distribution_name: whos-there
 python_package_import_name: whos_there
-python_version: "3.11"
+python_version: '3.11'
 repository_name: whos-there
 repository_namespace: twsl
 repository_provider: github.com

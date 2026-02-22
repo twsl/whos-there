@@ -52,19 +52,19 @@ repos:
         additional_dependencies: ["bandit[toml]"]
 
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.9.0
+    rev: 0.9.1
     hooks:
       - id: nbstripout
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.1
+    rev: v0.15.2
     hooks:
       - id: ruff-check
         args: [--fix, -v]
       - id: ruff-format
 
   - repo: https://github.com/allganize/ty-pre-commit
-    rev: v0.0.17
+    rev: v0.0.18
     hooks:
       - id: ty-check
 

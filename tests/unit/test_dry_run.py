@@ -45,7 +45,7 @@ class BoringModel(pl.LightningModule):
         self.log("test_loss", loss)
 
     def configure_optimizers(self) -> Any:
-        return torch.optim.SGD(self.layer.parameters(), lr=0.1)  # type: ignore [reportPrivateImportUsage]
+        return torch.optim.SGD(self.layer.parameters(), lr=0.1)
 
 
 class TestSender(Sender):
@@ -101,7 +101,7 @@ def test_dry_run_failed() -> None:
     sender = TestSender()
     model = BoringModel()
 
-    model.training_step = types.MethodType(training_step_fail, model)
+    model.training_step = types.MethodType(training_step_fail, model)  # ty:ignore[invalid-assignment]
 
     trainer = get_trainer(sender)
     try:

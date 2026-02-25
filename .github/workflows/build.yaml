@@ -129,4 +129,4 @@ jobs:
           check_name: Test Results ${{ runner.os }} ${{ matrix.python-version }}
           report_individual_runs: true
           files: junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml
-        if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' }}
+        if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' && runner.os == 'Linux' }}

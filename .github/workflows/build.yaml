@@ -65,7 +65,7 @@ jobs:
         run: uv build
 
       - name: Upload dist
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ github.event.repository.name }}-${{ runner.os }}-${{ matrix.python-version }}-${{ github.sha }}
           path: dist/
@@ -92,7 +92,7 @@ jobs:
         if: ${{ always() && runner.os == 'Linux' }}
 
       - name: Upload test coverage
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: pytest-coverage-${{ runner.os }}-${{ matrix.python-version }}
           path: code-coverage-results.md
@@ -117,7 +117,7 @@ jobs:
         if: ${{ always() && github.event_name == 'pull_request' && github.event.workflow_run.conclusion != 'skipped' && runner.os == 'Linux' }}
 
       - name: Upload test results
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: pytest-results-${{ runner.os }}-${{ matrix.python-version }}
           path: junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml

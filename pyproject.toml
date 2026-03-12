@@ -54,7 +54,7 @@ dev = [
     "ruff>=0.15.5",
     "ty>=0.0.21",
     "bandit>=1.9.4",
-    "prek>=0.3.4",
+    "prek>=0.3.5",
     "vulture>=2.15",
     "copier>=9.13.0",
     "ipykernel>=6.31.0",
@@ -73,7 +73,7 @@ test = [
 ]
 docs = [
     "mkdocs>=1.6.1",
-    "mkdocs-material>=9.7.4",
+    "mkdocs-material>=9.7.5",
     "mkdocs-git-revision-date-localized-plugin>=1.5.1",
     "mkdocs-awesome-nav>=3.3.0",
     "mkdocs-git-authors-plugin>=0.10.0",

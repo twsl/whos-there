@@ -92,7 +92,7 @@ jobs:
           echo "COPIER_COMMIT=$COMMIT" >> $GITHUB_ENV
 
       - name: Run prek
-        uses: j178/prek-action@v1
+        uses: j178/prek-action@v2
         continue-on-error: true
         if: steps.check_changes.outputs.has_changes == 'true'
 

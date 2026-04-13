@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: v0.4.2-8-gdf8a45e
+_commit: v0.4.2-12-gcc8845d
 _src_path: git+https://github.com/twsl/python-project-template
 author_email: 45483159+twsl@users.noreply.github.com
 author_username: twsl

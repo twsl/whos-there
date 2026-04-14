@@ -1538,7 +1538,7 @@ wheels = [
 
 [[package]]
 name = "mkdocs-jupyter"
-version = "0.26.1"
+version = "0.26.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ipykernel" },
@@ -1548,9 +1548,9 @@ dependencies = [
     { name = "nbconvert" },
     { name = "pygments" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7f/d8/c146ea8cc36c3e812dd4c154513aa308614f35d2b4becec4b449165088f5/mkdocs_jupyter-0.26.1.tar.gz", hash = "sha256:7c80c0d3953de91e5b40a0d3209233795c8f800243ab298e4ec38e0504eda630", size = 1628270, upload-time = "2026-03-24T15:32:47.944Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3c/b6/e63e4ff9e28935b2620ef6270ad3aeeab511db50ddd43f5633584396d215/mkdocs_jupyter-0.26.2.tar.gz", hash = "sha256:836167057a911cc7a56496632aee7a9e06ea6b8c2ccb50ed7cbdc9e78847b45c", size = 1628264, upload-time = "2026-04-13T15:16:00.887Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/93/89/eb601278b12c471235860992f5973cf3c55ca3f77d1d6127389eb045a021/mkdocs_jupyter-0.26.1-py3-none-any.whl", hash = "sha256:527242c2c8f1d30970764bbab752de41243e5703f458d8bc05336ec53828192e", size = 1459618, upload-time = "2026-03-24T15:32:46.25Z" },
+    { url = "https://files.pythonhosted.org/packages/81/e8/9fbd3b72fd5dc11a806f174eedc96d303d5806d155307272c0d71c08c48b/mkdocs_jupyter-0.26.2-py3-none-any.whl", hash = "sha256:5c12f59b14d5cfb79e779c6134b9bb8476ec0544b22097ae2ad31a9ebfc1a693", size = 1459622, upload-time = "2026-04-13T15:15:58.211Z" },
 ]
 
 [[package]]
@@ -3394,7 +3394,7 @@ docs = [
     { name = "mkdocs-awesome-nav", specifier = ">=3.3.0" },
     { name = "mkdocs-git-authors-plugin", specifier = ">=0.10.0" },
     { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.5.1" },
-    { name = "mkdocs-jupyter", specifier = ">=0.26.1" },
+    { name = "mkdocs-jupyter", specifier = ">=0.26.2" },
     { name = "mkdocs-material", specifier = ">=9.7.6" },
     { name = "pygments", specifier = ">=2.20.0" },
     { name = "pymdown-extensions", specifier = ">=10.21.2" },

@@ -81,7 +81,7 @@ docs = [
     "markdown-callouts>=0.4.0",
     "pymdown-extensions>=10.21.2",
     "pygments>=2.20.0",
-    "mkdocs-jupyter>=0.26.1",
+    "mkdocs-jupyter>=0.26.2",
 ]
 debug = [
     "ipdb>=0.13.9",

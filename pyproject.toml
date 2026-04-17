@@ -52,9 +52,9 @@ default-groups = "all"
 [dependency-groups]
 dev = [
     "ruff>=0.15.10",
-    "ty>=0.0.29",
+    "ty>=0.0.31",
     "bandit>=1.9.4",
-    "prek>=0.3.8",
+    "prek>=0.3.9",
     "vulture>=2.16",
     "copier>=9.14.3",
     "ipykernel>=7.2.0",

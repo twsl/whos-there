@@ -51,7 +51,7 @@ default-groups = "all"
 
 [dependency-groups]
 dev = [
-    "ruff>=0.15.10",
+    "ruff>=0.15.11",
     "ty>=0.0.31",
     "bandit>=1.9.4",
     "prek>=0.3.9",
@@ -81,7 +81,7 @@ docs = [
     "markdown-callouts>=0.4.0",
     "pymdown-extensions>=10.21.2",
     "pygments>=2.20.0",
-    "mkdocs-jupyter>=0.26.2",
+    "mkdocs-jupyter>=0.26.3",
 ]
 debug = [
     "ipdb>=0.13.9",

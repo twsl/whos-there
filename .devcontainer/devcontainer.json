@@ -94,6 +94,7 @@
                 "autoDocstring.generateDocstringOnEnter": true,
                 "autoDocstring.startOnNewLine": true,
                 "telemetry.telemetryLevel": "off",
+                "git.addAICoAuthor": "off",
                 "files.eol": "\n",
                 "code-eol.highlightNonDefault": true,
                 "code-eol.highlightExtraWhitespace": true

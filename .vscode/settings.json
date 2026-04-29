@@ -41,5 +41,6 @@
     "autoDocstring.generateDocstringOnEnter": true,
     "autoDocstring.startOnNewLine": true,
     "http.proxyStrictSSL": false,
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "git.addAICoAuthor": "off"
 }

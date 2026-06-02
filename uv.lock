@@ -3352,7 +3352,7 @@ dev = [
     { name = "jupytext", specifier = ">=1.19.1" },
     { name = "nbconvert", specifier = ">=7.17.1" },
     { name = "prek", specifier = ">=0.4.1" },
-    { name = "ruff", specifier = ">=0.15.14" },
+    { name = "ruff", specifier = ">=0.15.15" },
     { name = "ty", specifier = ">=0.0.40" },
     { name = "vulture", specifier = ">=2.16" },
 ]

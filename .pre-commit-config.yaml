@@ -16,7 +16,7 @@ repos:
       - id: pre-commit-update
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.19
+    rev: 0.11.20
     hooks:
       - id: uv-lock
 
@@ -63,10 +63,10 @@ repos:
         args: [--fix, -v]
       - id: ruff-format
 
-  - repo: https://github.com/allganize/ty-pre-commit
-    rev: v0.0.46
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.48
     hooks:
-      - id: ty-check
+      - id: ty
 
   - repo: https://github.com/jendrikseipp/vulture
     rev: v2.16

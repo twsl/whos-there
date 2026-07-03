@@ -51,12 +51,12 @@ default-groups = "all"
 
 [dependency-groups]
 dev = [
-    "ruff>=0.15.19",
+    "ruff>=0.15.20",
     "ty>=0.0.55",
     "bandit>=1.9.4",
-    "prek>=0.4.5",
+    "prek>=0.4.6",
     "vulture>=2.16",
-    "copier>=9.15.2",
+    "copier>=9.16.0",
     "ipykernel>=7.3.0",
     "ipywidgets>=8.1.8",
     "ipython>=9.13.0",
@@ -69,7 +69,7 @@ test = [
     "pytest-mock>=3.15.1",
     "pytest-cases>=3.10.1",
     "pytest-benchmark[aspect,histogram]>=5.2.3",
-    "pytest-github-actions-annotate-failures>=0.4.0",
+    "pytest-github-actions-annotate-failures>=0.4.2",
 ]
 docs = [
     "mkdocs>=1.6.1",

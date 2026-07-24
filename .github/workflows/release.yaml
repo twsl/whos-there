@@ -6,7 +6,7 @@ on:
     types: [published]
 
 env:
-  python-version: "3.11"
+  python-version: "3.12"
 
 jobs:
   release:
@@ -22,7 +22,7 @@ jobs:
         uses: twsl/gha-free-disk-space@v1
 
       - name: Set up Python ${{ env.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.python-version }}
 

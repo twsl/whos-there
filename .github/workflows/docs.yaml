@@ -20,7 +20,7 @@ concurrency:
 
 env:
   artifacts-name: docs
-  python-version: "3.11"
+  python-version: "3.12"
 
 jobs:
   build-docs:
@@ -36,7 +36,7 @@ jobs:
         uses: twsl/gha-free-disk-space@main
 
       - name: Set up Python ${{ env.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.python-version }}
 

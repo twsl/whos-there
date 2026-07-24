@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  python-version: "3.11"
+  python-version: "3.12"
   UV_DYNAMIC_VERSIONING_BYPASS: "1.0.0"
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
         uses: twsl/gha-free-disk-space@main
 
       - name: Set up Python ${{ env.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.python-version }}
 
@@ -54,7 +54,7 @@ jobs:
 
       - name: Run copier update
         id: run-update
-        run: uv run copier update --trust -A --vcs-ref=HEAD
+        run: uv run copier update --trust -A --vcs-ref=HEAD --defaults
 
       - name: Resolve conflicts with incoming changes
         run: |

@@ -13,7 +13,6 @@ concurrency:
 jobs:
   build-and-test:
     name: Build and Test
-    runs-on: ${{ matrix.os }}
     permissions:
       contents: read
       issues: read
@@ -23,7 +22,8 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.11", "3.12"]
+        python-version: ['3.12']
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash
@@ -38,7 +38,7 @@ jobs:
         uses: twsl/gha-free-disk-space@v1
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
 

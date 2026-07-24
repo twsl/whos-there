@@ -7,7 +7,7 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "VARIANT": "3.11-trixie"
+            "VARIANT": "3.12-trixie"
         }
     },
     "runArgs": [
@@ -17,6 +17,7 @@
         //"--shm-size=2gb"
     ],
     "remoteEnv": {
+        "CODEGRAPH_TELEMETRY": "0",
         "UV_SYSTEM_PYTHON": "1",
         "UV_PROJECT_ENVIRONMENT": "/usr/local",
         // Disable dynamic versioning during development
@@ -25,6 +26,7 @@
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers-extra/features/ripgrep:1": {},
         "ghcr.io/devcontainers-extra/features/actionlint:1": {},
         "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
         "ghcr.io/dhoeric/features/act:1": {},
@@ -36,7 +38,7 @@
     // "forwardPorts": [],
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "uv sync --all-groups --all-extras",
-    "postStartCommand": "uv tool install prek && prek install",
+    "postStartCommand": "sh ./scripts/llm.sh && uv tool install prek && prek install",
     // Configure tool-specific properties.
     "customizations": {
         // Configure properties specific to VS Code.

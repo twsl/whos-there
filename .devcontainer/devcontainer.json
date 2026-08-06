@@ -17,6 +17,7 @@
         //"--shm-size=2gb"
     ],
     "remoteEnv": {
+        "RTK_TELEMETRY_DISABLED": "1",
         "CODEGRAPH_TELEMETRY": "0",
         "UV_SYSTEM_PYTHON": "1",
         "UV_PROJECT_ENVIRONMENT": "/usr/local",

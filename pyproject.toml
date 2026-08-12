@@ -51,7 +51,7 @@ default-groups = "all"
 
 [dependency-groups]
 dev = [
-    "ruff>=0.16.1",
+    "ruff>=0.16.2",
     "ty>=0.0.69",
     "bandit>=1.9.4",
     "prek>=0.4.12",

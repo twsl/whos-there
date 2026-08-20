@@ -38,8 +38,8 @@
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "uv sync --all-groups --all-extras",
-    "postStartCommand": "sh ./scripts/llm.sh && uv tool install prek && prek install",
+    "postCreateCommand": "uv sync --all-groups --all-extras && sh ./scripts/llm.sh",
+    "postStartCommand": "uv tool install prek && prek install",
     // Configure tool-specific properties.
     "customizations": {
         // Configure properties specific to VS Code.

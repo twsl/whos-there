@@ -3099,7 +3099,7 @@ dev = [
     { name = "ipywidgets", specifier = ">=8.1.8" },
     { name = "jupytext", specifier = ">=1.19.5" },
     { name = "nbconvert", specifier = ">=7.17.1" },
-    { name = "prek", specifier = ">=0.4.13" },
+    { name = "prek", specifier = ">=0.4.14" },
     { name = "ruff", specifier = ">=0.16.4" },
     { name = "ty", specifier = ">=0.0.73" },
     { name = "vulture", specifier = ">=2.16" },

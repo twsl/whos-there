@@ -118,7 +118,7 @@ Before writing anything, climb these rungs in order:
 ## Key Principles
 
 - "Boring over clever" — predictability beats ingenuity
-- "Prefer deletion over addition" — less code, fewer problems
+- "Prefer deletion over addition" — less code, fewer problems, only add shims when asked to
 - "Shortest working diff wins once you understand the problem"
 - Bug fixes target root cause, not symptoms — one fix where all callers converge
 - Abstractions when the same concept appears in 2+ places — name the concept, not the callers
@@ -151,6 +151,7 @@ Do not configure a Python environment, it is already set up.
 
 - Only write comments when they add value beyond the code itself like justifying a design choice or explaining a non-obvious implementation detail
 - Type-annotate all function signatures
+- Use google no-types style docstrings
 - Prefer `pathlib.Path` over `os.path`
 - Prefer dataclasses or `typing.NamedTuple` over plain dicts for structured data
 - No `# type: ignore` without a comment explaining why

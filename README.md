@@ -56,10 +56,12 @@ from whos_there.senders.debug import DebugSender
 
 trainer = pl.Trainer(
     callbacks=[
-        NotificationCallback(senders=[
-            # Add your senders here
-            DebugSender(),
-        ])
+        NotificationCallback(
+            senders=[
+                # Add your senders here
+                DebugSender(),
+            ]
+        )
     ]
 )
 ```
@@ -70,6 +72,7 @@ Requires your e-mail provider specific SMTP settings.
 
 ```python
 from whos_there.senders.email import EmailSender
+
 # ...
 EmailSender(
     host="smtp.example.de",
@@ -79,7 +82,7 @@ EmailSender(
     recipient_emails=[
         "to1@example.com",
         "to2@example.com",
-    ]
+    ],
 )
 ```
 
@@ -89,10 +92,9 @@ Requires your Discord channel's [webhook URL](https://support.discordapp.com/hc/
 
 ```python
 from whos_there.senders.discord import DiscordSender
+
 # ...
-DiscordSender(
-    webhook_url="https://discord.com/api/webhooks/XXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-)
+DiscordSender(webhook_url="https://discord.com/api/webhooks/XXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 ```
 
 ### Slack
@@ -101,13 +103,12 @@ Requires your Slack room [webhook URL](https://api.slack.com/incoming-webhooks#c
 
 ```python
 from whos_there.senders.slack import SlackSender
+
 # ...
 SlackSender(
-    webhook_url="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",   # gitleaks:allow
+    webhook_url="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",  # gitleaks:allow
     channel="channel_name",
-    user_mentions=[
-        "XXXXXXXX"
-    ]
+    user_mentions=["XXXXXXXX"],
 )
 ```
 
@@ -117,13 +118,9 @@ Requires your Team Channel [webhook URL](https://docs.microsoft.com/en-us/micros
 
 ```python
 from whos_there.senders.teams import TeamsSender
+
 # ...
-TeamsSender(
-    webhook_url="https://XXXXX.webhook.office.com/",
-    user_mentions=[
-        "twsl"
-    ]
-)
+TeamsSender(webhook_url="https://XXXXX.webhook.office.com/", user_mentions=["twsl"])
 ```
 
 ### Telegram
@@ -133,11 +130,9 @@ Telegram bots are shy and can't send the first message so you'll have to do the 
 
 ```python
 from whos_there.senders.telegram import TelegramSender
+
 # ...
-TelegramSender(
-    chat_id=1234567890,
-    token="XXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-)
+TelegramSender(chat_id=1234567890, token="XXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXXXXX")
 ```
 
 ## Docs

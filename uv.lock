@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.14'",
@@ -3027,6 +3027,7 @@ wheels = [
 [[package]]
 name = "whos-there"
 source = { editable = "." }
+default-groups = "all"
 dependencies = [
     { name = "lightning" },
     { name = "python-telegram-bot" },
@@ -3103,7 +3104,7 @@ docs = [
     { name = "mkdocs", specifier = ">=1.6.1" },
     { name = "mkdocs-awesome-nav", specifier = ">=3.3.0" },
     { name = "mkdocs-git-authors-plugin", specifier = ">=0.10.0" },
-    { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.5.4" },
+    { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.6.0" },
     { name = "mkdocs-jupyter", specifier = ">=0.26.3" },
     { name = "mkdocs-material", specifier = ">=9.7.7" },
     { name = "pygments", specifier = ">=2.20.0" },

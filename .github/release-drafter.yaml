@@ -10,48 +10,57 @@ change-title-escapes: '\<*_&' # You can add # and @ to disable mentions
 
 categories:
   - title: ":rocket: Features"
-    labels:
-      - feature
-      - enhancement
+    when:
+      labels:
+        - feature
+        - enhancement
   - title: ":wrench: Fixes & Refactoring"
-    labels:
-      - bug
-      - bugfix
-      - fix
-      - refactoring
+    when:
+      labels:
+        - bug
+        - bugfix
+        - fix
+        - refactoring
   - title: ":package: Build System & CI/CD"
-    labels:
-      - build
-      - ci
-      - testing
+    when:
+      labels:
+        - build
+        - ci
+        - testing
   - title: ":boom: Breaking Changes"
-    labels:
-      - breaking
+    when:
+      labels:
+        - breaking
   - title: ":pencil: Documentation"
-    labels:
-      - documentation
-      - docs
+    when:
+      labels:
+        - documentation
+        - docs
   - title: ":broom: Maintenance"
-    labels:
-      - maintenance
-      - refactoring
-      - cosmetic
-      - chore
+    when:
+      labels:
+        - maintenance
+        - refactoring
+        - cosmetic
+        - chore
   - title: ":arrow_up: Dependencies updates"
-    labels:
-      - dependencies
-
-version-resolver:
-  major:
-    labels:
-      - major
-  minor:
-    labels:
-      - minor
-  patch:
-    labels:
-      - patch
-  default: patch
+    when:
+      labels:
+        - dependencies
+  - type: version-resolver
+    semver-increment: major
+    when:
+      label: major
+  - type: version-resolver
+    semver-increment: minor
+    when:
+      label: minor
+  - type: version-resolver
+    semver-increment: patch
+    when:
+      label: patch
+  - type: version-resolver
+    semver-increment: patch
 
 template: |
   ## What's Changed

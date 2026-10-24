@@ -61,7 +61,7 @@ dev = [
     "ipywidgets>=8.1.9",
     "ipython>=9.17.1",
     "jupytext>=1.19.5",
-    "nbconvert>=7.17.1",
+    "nbconvert>=7.17.2",
 ]
 test = [
     "pytest==9.0.3",
@@ -79,13 +79,13 @@ docs = [
     "mkdocs-git-authors-plugin>=0.10.0",
     "mkapi>=4.5.0",
     "markdown-callouts>=0.4.0",
-    "pymdown-extensions>=11.0.1",
+    "pymdown-extensions>=12.3",
     "pygments>=2.20.0",
     "mkdocs-jupyter>=0.26.3",
 ]
 debug = [
     "ipdb>=0.13.9",
-    "line-profiler>=5.0.2",
+    "line-profiler>=5.1.0",
 ]
 
 [project.scripts]

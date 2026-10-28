@@ -51,16 +51,16 @@ default-groups = "all"
 
 [dependency-groups]
 dev = [
-    "ruff>=0.17.2",
-    "ty>=0.0.91",
+    "ruff>=0.17.3",
+    "ty>=0.0.92",
     "bandit>=1.9.4",
     "prek>=0.5.7",
     "vulture>=2.16",
-    "copier>=9.18.2",
-    "ipykernel>=7.3.0",
+    "copier>=9.19.1",
+    "ipykernel>=7.4.0",
     "ipywidgets>=8.1.9",
     "ipython>=9.17.1",
-    "jupytext>=1.19.5",
+    "jupytext>=1.19.6",
     "nbconvert>=7.17.2",
 ]
 test = [
@@ -73,18 +73,18 @@ test = [
 ]
 docs = [
     "mkdocs>=1.6.1",
-    "mkdocs-material>=9.7.7",
-    "mkdocs-git-revision-date-localized-plugin>=1.6.0",
+    "mkdocs-material>=9.8.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.6.2",
     "mkdocs-awesome-nav>=3.3.0",
     "mkdocs-git-authors-plugin>=0.10.0",
     "mkapi>=4.5.0",
     "markdown-callouts>=0.4.0",
     "pymdown-extensions>=12.3",
-    "pygments>=2.20.0",
-    "mkdocs-jupyter>=0.26.3",
+    "pygments>=2.21.0",
+    "mkdocs-jupyter>=0.27.0",
 ]
 debug = [
-    "ipdb>=0.13.9",
+    "ipdb>=0.13.13",
     "line-profiler>=5.1.0",
 ]
 

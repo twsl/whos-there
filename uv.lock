@@ -3120,7 +3120,7 @@ dev = [
     { name = "nbconvert", specifier = ">=7.17.2" },
     { name = "prek", specifier = ">=0.5.7" },
     { name = "ruff", specifier = ">=0.17.3" },
-    { name = "ty", specifier = ">=0.0.92" },
+    { name = "ty", specifier = ">=0.0.93" },
     { name = "vulture", specifier = ">=2.16" },
 ]
 docs = [

@@ -52,7 +52,7 @@ default-groups = "all"
 [dependency-groups]
 dev = [
     "ruff>=0.17.3",
-    "ty>=0.0.93",
+    "ty>=0.0.95",
     "bandit>=1.9.4",
     "prek>=0.5.7",
     "vulture>=2.16",
@@ -65,6 +65,7 @@ dev = [
 ]
 test = [
     "pytest==9.0.3",
+    "pytest-asyncio>=1.4.1",
     "pytest-cov>=7.1.0",
     "pytest-mock>=3.17.0",
     "pytest-cases>=3.10.1",

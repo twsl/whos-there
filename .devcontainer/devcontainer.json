@@ -19,6 +19,9 @@
     "remoteEnv": {
         "RTK_TELEMETRY_DISABLED": "1",
         "CODEGRAPH_TELEMETRY": "0",
+        "COPILOT_OTEL_ENABLED": "true",
+        "COPILOT_OTEL_EXPORTER_TYPE": "file",
+        "COPILOT_OTEL_FILE_EXPORTER_PATH": "/root/.copilot/otel/copilot-otel.jsonl",
         "UV_SYSTEM_PYTHON": "1",
         "UV_PROJECT_ENVIRONMENT": "/usr/local",
         // Disable dynamic versioning during development
@@ -28,6 +31,7 @@
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers-extra/features/ripgrep:1": {},
+        "ghcr.io/devcontainers-extra/features/bun:1": {},
         "ghcr.io/devcontainers-extra/features/actionlint:1": {},
         "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
         "ghcr.io/dhoeric/features/act:1": {},

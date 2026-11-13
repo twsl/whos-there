@@ -57,14 +57,14 @@ repos:
       - id: nbstripout
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.17.4
+    rev: v0.17.5
     hooks:
       - id: ruff-check
         args: [--fix, -v]
       - id: ruff-format
 
   - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.0.101
+    rev: v0.0.102
     hooks:
       - id: ty
 

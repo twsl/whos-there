@@ -10,11 +10,10 @@
             "VARIANT": "3.12-trixie"
         }
     },
+    "initializeCommand": "test -f .env || touch .env",
     "runArgs": [
-        //"--gpus=all",
-        // One of the following options is required for torch multiprocessing
-        //"--ipc=host",
-        //"--shm-size=2gb"
+        "--env-file",
+        ".env"
     ],
     "remoteEnv": {
         "RTK_TELEMETRY_DISABLED": "1",

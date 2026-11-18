@@ -43,5 +43,6 @@
     "autoDocstring.startOnNewLine": true,
     "http.proxyStrictSSL": false,
     "telemetry.telemetryLevel": "off",
-    "git.addAICoAuthor": "off"
+    "git.addAICoAuthor": "off",
+    "remote.localPortHost": "allInterfaces"
 }

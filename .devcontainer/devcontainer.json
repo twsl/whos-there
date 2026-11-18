@@ -28,15 +28,14 @@
     },
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:4": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers-extra/features/ripgrep:1": {},
         "ghcr.io/devcontainers-extra/features/bun:1": {},
         "ghcr.io/devcontainers-extra/features/actionlint:1": {},
         "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
-        "ghcr.io/dhoeric/features/act:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:4": {
-            "moby": false
-        }
+        "ghcr.io/dhoeric/features/act:1": {}
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
@@ -102,7 +101,8 @@
                 "files.eol": "\n",
                 "code-eol.highlightNonDefault": true,
                 "code-eol.highlightExtraWhitespace": true,
-                "todo-tree.ripgrep.ripgrep": "/usr/local/bin/rg"
+                "todo-tree.ripgrep.ripgrep": "/usr/local/bin/rg",
+                "remote.localPortHost": "allInterfaces"
             },
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [

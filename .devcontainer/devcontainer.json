@@ -18,6 +18,7 @@
     "remoteEnv": {
         "RTK_TELEMETRY_DISABLED": "1",
         "CODEGRAPH_TELEMETRY": "0",
+        "TOKSCALE_CONFIG_DIR": "/workspaces/whos_there/.tokscale/",
         "COPILOT_OTEL_ENABLED": "true",
         "COPILOT_OTEL_EXPORTER_TYPE": "file",
         "COPILOT_OTEL_FILE_EXPORTER_PATH": "/root/.copilot/otel/copilot-otel.jsonl",

@@ -5,14 +5,14 @@
 ARG VARIANT=3-trixie
 FROM mcr.microsoft.com/devcontainers/python:3-${VARIANT}
 
-RUN pip install --upgrade pip
-
 # Install uv
 ENV PATH="/root/.local/bin/:$PATH"
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-
 # RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+
 RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
     && echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
 
 RUN mkdir -p /root/.copilot/otel
+
+RUN pip install --upgrade pip

@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "uv: update",
+      "type": "process",
+      "command": "uv",
+      "args": [
+        "sync",
+        "--all-extras",
+        "--all-groups"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "uv: upgrade",
+      "type": "process",
+      "command": "uvx",
+      "args": [
+        "uv-bump"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "uv: outdated",
+      "type": "process",
+      "command": "uv",
+      "args": [
+        "tree",
+        "--depth",
+        "1",
+        "--outdated"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Git: prune",
+      "type": "shell",
+      "command": "git prune && git submodule foreach --recursive 'git prune'",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    }
+  ]
+}
